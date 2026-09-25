@@ -1,18 +1,15 @@
 import type { NextConfig } from "next";
 
-const backendUrl =
-    process.env.BACKEND_URL ?? "http://localhost:3001";
-
 const nextConfig: NextConfig = {
     async rewrites() {
         return [
             {
                 source: "/api",
-                destination: backendUrl,
+                destination: "https://adhdtest-api.vercel.app",
             },
             {
                 source: "/api/:path*",
-                destination: `${backendUrl}/:path*`,
+                destination: "https://adhdtest-api.vercel.app/:path*",
             },
         ];
     },
