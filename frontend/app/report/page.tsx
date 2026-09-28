@@ -6,22 +6,42 @@ import { api, type AuthResponse } from "../../lib/api";
 import { BrainsMateLogo } from "../../components/BrainIcon";
 
 function ScoreGauge({ scorePercent }: { scorePercent: number }) {
-  const clamped = Math.max(0, Math.min(100, scorePercent));
-  const rotation = -(clamped / 100) * 180;
+  const cx = 100, cy = 92, r = 67, sw = 14;
+  const clamped = Math.max(0, Math.min(100, Math.round(scorePercent)));
+
+  const pt = (deg: number) => {
+    const rad = (deg * Math.PI) / 180;
+    return `${(cx + r * Math.cos(rad)).toFixed(2)} ${(cy + r * Math.sin(rad)).toFixed(2)}`;
+  };
+  const arc = (a: number, b: number) => `M ${pt(a)} A ${r} ${r} 0 0 1 ${pt(b)}`;
+
+  const segments = [
+    { a: 183, b: 213, color: "#8CC9AD" },
+    { a: 219, b: 249, color: "#A9C98C" },
+    { a: 255, b: 285, color: "#DDCF64" },
+    { a: 291, b: 321, color: "#E6AA42" },
+    { a: 327, b: 357, color: "#E66642" },
+  ];
+
+  const needleAngle = 180 + (clamped / 100) * 180;
+
   return (
     <div className="flex flex-col items-center">
-      <svg viewBox="0 0 200 110" className="w-56 h-28">
-        <path d="M 22 100 A 78 78 0 0 0 178 100" stroke="#e5e7eb" strokeWidth="16" fill="none" strokeLinecap="butt"/>
-        <path d="M 22 100 A 78 78 0 0 0 61 32.5" stroke="#4ade80" strokeWidth="16" fill="none" strokeLinecap="butt"/>
-        <path d="M 61 32.5 A 78 78 0 0 0 139 32.5" stroke="#facc15" strokeWidth="16" fill="none" strokeLinecap="butt"/>
-        <path d="M 139 32.5 A 78 78 0 0 0 178 100" stroke="#f87171" strokeWidth="16" fill="none" strokeLinecap="butt"/>
-        <g transform={`rotate(${rotation}, 100, 100)`}>
-          <line x1="100" y1="100" x2="28" y2="100" stroke="#04182c" strokeWidth="3" strokeLinecap="round"/>
+      <svg viewBox="22 15 156 84" className="w-52">
+        <path d={arc(180, 358)} stroke="#e9eaec" strokeWidth={sw} fill="none" strokeLinecap="butt" />
+        {segments.map((s, i) => (
+          <path key={i} d={arc(s.a, s.b)} stroke={s.color} strokeWidth={sw} fill="none" strokeLinecap="round" />
+        ))}
+        <g transform={`rotate(${needleAngle}, ${cx}, ${cy})`}>
+          <path
+            d={`M ${cx + 52} ${cy} C ${cx + 22} ${cy - 2} ${cx - 4} ${cy - 7} ${cx - 10} ${cy} C ${cx - 4} ${cy + 7} ${cx + 22} ${cy + 2} ${cx + 52} ${cy} Z`}
+            fill="#1c2d3f"
+          />
         </g>
-        <circle cx="100" cy="100" r="6" fill="#04182c"/>
+        <circle cx={cx} cy={cy} r="6" fill="#1c2d3f" />
       </svg>
-      <p className="text-2xl font-bold text-[#04182c] -mt-2">
-        {clamped} <span className="text-gray-400 text-lg font-normal">/ 100</span>
+      <p className="text-2xl font-bold text-[#04182c]">
+        {clamped}{" "}<span className="text-gray-400 text-lg font-normal">/ 100</span>
       </p>
     </div>
   );
