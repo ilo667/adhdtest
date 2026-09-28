@@ -9,7 +9,6 @@ import { CreateAttemptDto } from './dto/create-attempt.dto';
 
 type ActiveQuestionRow = {
   version_id: number;
-  version: number;
   question_id: number;
   question_key: string;
   question_text: string;
@@ -29,15 +28,14 @@ export class QuizService {
       `
         SELECT
           qv.id AS version_id,
-          qv.version,
-          q.id AS question_id,
+          q.id  AS question_id,
           q.question_key,
           q.question_text,
           q.position
         FROM quiz_versions qv
         JOIN questions q ON q.quiz_version_id = qv.id
         WHERE qv.is_active = TRUE
-        ORDER BY qv.version DESC, q.position ASC
+        ORDER BY q.position ASC
       `,
     );
 
@@ -46,27 +44,21 @@ export class QuizService {
     }
 
     const versionId = Number(rows[0].version_id);
-    const version = Number(rows[0].version);
 
-    const questions = rows
-      .filter((row) => Number(row.version_id) === versionId)
-      .map((row) => ({
-        id: Number(row.question_id),
-        key: row.question_key,
-        prompt: row.question_text,
-        position: Number(row.position),
-      }));
+    const questions = rows.map((row) => ({
+      id: Number(row.question_id),
+      key: row.question_key,
+      prompt: row.question_text,
+      position: Number(row.position),
+    }));
 
-    return { versionId, version, questions };
+    return { versionId, questions };
   }
 
   async createAttempt(dto: CreateAttemptDto) {
     const { rows: questions } = await this.database.query<QuestionRow>(
       `
-        SELECT id
-        FROM questions
-        WHERE quiz_version_id = $1
-        ORDER BY position ASC
+        SELECT id FROM questions WHERE quiz_version_id = $1 ORDER BY position ASC
       `,
       [dto.versionId],
     );
@@ -75,8 +67,8 @@ export class QuizService {
       throw new NotFoundException('Quiz version not found');
     }
 
-    const expectedIds = new Set(questions.map((question) => Number(question.id)));
-    const submittedIds = new Set(dto.answers.map((answer) => answer.questionId));
+    const expectedIds = new Set(questions.map((q) => Number(q.id)));
+    const submittedIds = new Set(dto.answers.map((a) => a.questionId));
 
     if (
       dto.answers.length !== expectedIds.size ||
@@ -86,22 +78,15 @@ export class QuizService {
       throw new BadRequestException('All quiz questions must be answered exactly once');
     }
 
-    const score = dto.answers.reduce((total, answer) => total + answer.value, 0);
+    const score = dto.answers.reduce((total, a) => total + a.value, 0);
     const maxScore = questions.length * 4;
-    // HIGH if 2+ answers are "Agree" (3) or "Strongly Agree" (4)
     const highAnswerCount = dto.answers.filter((a) => a.value >= 3).length;
     const result = highAnswerCount >= 2 ? 'HIGH' : 'LOW';
     const attemptToken = randomUUID();
 
     const attempt = await this.database.query<{ id: number }>(
       `
-        INSERT INTO quiz_attempts (
-          quiz_version_id,
-          attempt_token,
-          score,
-          max_score,
-          result
-        )
+        INSERT INTO quiz_attempts (quiz_version_id, attempt_token, score, max_score, result)
         VALUES ($1, $2, $3, $4, $5)
         RETURNING id
       `,
@@ -112,19 +97,11 @@ export class QuizService {
 
     for (const answer of dto.answers) {
       await this.database.query(
-        `
-          INSERT INTO answers (attempt_id, question_id, answer_value)
-          VALUES ($1, $2, $3)
-        `,
+        `INSERT INTO answers (attempt_id, question_id, answer_value) VALUES ($1, $2, $3)`,
         [attemptId, answer.questionId, answer.value],
       );
     }
 
-    return {
-      attemptToken,
-      result,
-      score,
-      maxScore,
-    };
+    return { attemptToken, result, score, maxScore };
   }
 }

@@ -17,7 +17,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export type Question = { id: number; key: string; prompt: string; position: number };
-export type QuizData = { versionId: number; version: number; questions: Question[] };
+export type QuizData = { versionId: number; questions: Question[] };
 export type AttemptResult = { attemptToken: string; result: "HIGH" | "LOW"; score: number; maxScore: number };
 export type LatestAttempt = { result: "HIGH" | "LOW"; score: number; max_score: number; completed_at: string } | null;
 export type User = { id: number; email: string };
