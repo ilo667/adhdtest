@@ -16,7 +16,7 @@ adhdtest/
 │   ├── src/
 │   │   ├── app.module.ts         # Root module — wires everything together
 │   │   ├── main.ts               # Bootstrap: CORS, ValidationPipe, cookieParser
-│   │   ├── auth/                 # Auth module: register, login, /me, logout
+│   │   ├── auth/                 # Auth module: register, login, /customer, logout
 │   │   │   ├── auth.controller.ts
 │   │   │   ├── auth.service.ts
 │   │   │   ├── jwt-auth.guard.ts # Custom guard: reads JWT from httpOnly cookie
