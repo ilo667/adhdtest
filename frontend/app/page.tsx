@@ -2,30 +2,46 @@ import { type ReactNode } from "react";
 import Link from "next/link";
 import { BrainsMateLogo } from "../components/BrainIcon";
 
-function BrainSVG() {
+function HeadSVG() {
+  const sizes =    [1.0, 1.5, 0.8, 1.8, 1.2, 0.6, 2.0, 1.0, 1.4, 1.6, 0.7, 1.3];
+  const opacities = [0.55, 0.75, 0.45, 0.85, 0.65, 0.4, 0.5, 0.7, 0.6, 0.8, 0.5, 0.65];
+  const colors = ['#3b82f6','#60a5fa','#93c5fd','#2563eb','#60a5fa','#93c5fd','#3b82f6','#bfdbfe','#60a5fa','#3b82f6','#93c5fd','#60a5fa'];
+
+  const dots: { x: number; y: number; r: number; op: number; fill: string }[] = [];
+  let idx = 0;
+  for (let row = 0; row < 23; row++) {
+    const y = 22 + row * 9;
+    const offset = (row % 2) * 4.5;
+    for (let col = 0; col < 17; col++) {
+      const x = 20 + offset + col * 8.5;
+      dots.push({ x, y, r: sizes[idx % 12], op: opacities[idx % 12], fill: colors[idx % 12] });
+      idx++;
+    }
+  }
+
   return (
-    <svg viewBox="0 0 140 130" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-36 h-36">
-      <path d="M70 18 C75 12 92 11 103 20 C118 31 122 50 119 65 C117 76 112 84 104 88 C107 95 106 105 99 111 C92 117 82 116 77 111 C74 117 70 121 70 121" stroke="#60a5fa" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-      <path d="M70 18 C65 12 48 11 37 20 C22 31 18 50 21 65 C23 76 28 84 36 88 C33 95 34 105 41 111 C48 117 58 116 63 111 C66 117 70 121 70 121" stroke="#60a5fa" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-      <line x1="70" y1="18" x2="70" y2="121" stroke="#93c5fd" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.5"/>
-      <path d="M90 32 C97 37 101 46 98 55" stroke="#93c5fd" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.7"/>
-      <path d="M96 60 C103 66 104 76 101 84" stroke="#93c5fd" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.7"/>
-      <path d="M50 32 C43 37 39 46 42 55" stroke="#93c5fd" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.7"/>
-      <path d="M44 60 C37 66 36 76 39 84" stroke="#93c5fd" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.7"/>
-      <circle cx="82" cy="24" r="2" fill="#93c5fd" opacity="0.6"/>
-      <circle cx="104" cy="38" r="1.5" fill="#bfdbfe" opacity="0.8"/>
-      <circle cx="112" cy="57" r="2" fill="#93c5fd" opacity="0.5"/>
-      <circle cx="109" cy="74" r="1.5" fill="#bfdbfe" opacity="0.7"/>
-      <circle cx="94" cy="95" r="2" fill="#93c5fd" opacity="0.6"/>
-      <circle cx="58" cy="24" r="2" fill="#93c5fd" opacity="0.6"/>
-      <circle cx="36" cy="38" r="1.5" fill="#bfdbfe" opacity="0.8"/>
-      <circle cx="28" cy="57" r="2" fill="#93c5fd" opacity="0.5"/>
-      <circle cx="31" cy="74" r="1.5" fill="#bfdbfe" opacity="0.7"/>
-      <circle cx="46" cy="95" r="2" fill="#93c5fd" opacity="0.6"/>
-      <circle cx="70" cy="14" r="2" fill="#bfdbfe" opacity="0.7"/>
-      <circle cx="70" cy="112" r="1.5" fill="#93c5fd" opacity="0.6"/>
-      <circle cx="115" cy="48" r="1.5" fill="#dbeafe" opacity="0.6"/>
-      <circle cx="25" cy="48" r="1.5" fill="#dbeafe" opacity="0.6"/>
+    <svg viewBox="0 0 180 230" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-36 h-44">
+      <defs>
+        <clipPath id="headClip">
+          {/* Human head + neck silhouette */}
+          <path d="M90 18 C58 18 32 40 25 70 C18 100 26 134 44 154 C55 167 68 176 74 180 L74 208 C79 213 85 216 90 216 C95 216 101 213 106 208 L106 180 C112 176 125 167 136 154 C154 134 162 100 155 70 C148 40 122 18 90 18 Z"/>
+        </clipPath>
+      </defs>
+      {/* Scattered exterior dots */}
+      <circle cx="11" cy="62" r="1.5" fill="#93c5fd" opacity="0.3"/>
+      <circle cx="169" cy="48" r="1.2" fill="#bfdbfe" opacity="0.35"/>
+      <circle cx="6" cy="108" r="2" fill="#93c5fd" opacity="0.2"/>
+      <circle cx="174" cy="118" r="1.5" fill="#bfdbfe" opacity="0.28"/>
+      <circle cx="14" cy="85" r="1" fill="#bfdbfe" opacity="0.22"/>
+      <circle cx="166" cy="145" r="1.3" fill="#93c5fd" opacity="0.25"/>
+      <circle cx="20" cy="152" r="1" fill="#60a5fa" opacity="0.2"/>
+      <circle cx="162" cy="72" r="1.2" fill="#bfdbfe" opacity="0.22"/>
+      {/* Head dots clipped to head shape */}
+      <g clipPath="url(#headClip)">
+        {dots.map((d, i) => (
+          <circle key={i} cx={d.x} cy={d.y} r={d.r} fill={d.fill} opacity={d.op}/>
+        ))}
+      </g>
     </svg>
   );
 }
@@ -46,19 +62,17 @@ export default function LandingPage() {
           <BrainsMateLogo size={26} />
         </div>
 
-        {/* Brain visual with floating tags */}
         <div className="relative flex items-center justify-center w-full mb-8" style={{ height: 200 }}>
           <FloatingTag className="-left-2 top-8">High Productivity</FloatingTag>
           <FloatingTag className="-left-4 bottom-8">↘ -6% Focus</FloatingTag>
-          <BrainSVG />
+          <HeadSVG />
           <FloatingTag className="-right-2 top-8">↗ +10% Impulsivity</FloatingTag>
           <FloatingTag className="-right-4 bottom-8 text-[#2563eb]">Medium Distractions</FloatingTag>
         </div>
 
         <h1 className="text-3xl font-bold text-[#1a2340] text-center mb-3">
           Discover Your{" "}
-          <span className="text-[#2563eb]">ADHD</span>{" "}
-          Trait Profile
+          <span className="text-[#2563eb]">ADHD Trait Profile</span>
         </h1>
         <p className="text-gray-500 text-center mb-8 text-sm leading-relaxed">
           Find out how ADHD traits influence your focus, energy, and daily life
