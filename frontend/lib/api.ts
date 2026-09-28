@@ -44,7 +44,7 @@ export const api = {
       body: JSON.stringify({ email, password }),
     }),
 
-  getMe: () => request<AuthResponse>("/auth/me"),
+  getMe: () => request<AuthResponse>("/auth/customer"),
 
   logout: () =>
     request<{ ok: boolean }>("/auth/logout", { method: "POST" }),
