@@ -24,7 +24,7 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
         <path d="M240.252 98.4177L209.465 101.658" stroke="#f0f2f5" strokeWidth="8.18825"/>
         <path d="M80.5078 36.5778L66.8544 8.79419" stroke="#f0f2f5" strokeWidth="8.18825"/>
         <path d="M160.857 36.5778L174.511 8.79419" stroke="#f0f2f5" strokeWidth="8.18825"/>
-        <g transform={`translate(${cx}, ${cy}) rotate(${rotation.toFixed(2)}) scale(1.05) translate(-82, -18)`}>
+        <g transform={`translate(${cx}, ${cy}) rotate(${rotation.toFixed(2)}) scale(0.88) translate(-82, -18)`}>
           <path d="M83.821 7.86661C82.7085 6.12506 81.2451 4.58784 79.5145 3.34286C77.7839 2.09786 75.8201 1.16951 73.7352 0.610883C71.6504 0.0522536 69.4855 -0.125699 67.3642 0.087202C65.243 0.300095 63.2071 0.899665 61.3728 1.85163L0.000684707 51.3102L78.3291 28.3628C80.1646 27.4127 81.7628 26.1288 83.0323 24.5842C84.3018 23.0397 85.2178 21.2649 85.7279 19.3614C86.2379 17.4579 86.332 15.4629 86.0048 13.4905C85.6777 11.5182 84.9356 9.6071 83.821 7.86661Z" fill="#18334D"/>
         </g>
       </svg>
@@ -215,6 +215,15 @@ export default function ReportPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* TEMP: gauge preview grid */}
+      <div className="bg-[#f0f2f5] p-6 grid grid-cols-3 gap-4">
+        {[0, 10, 20, 50, 75, 100].map((pct) => (
+          <div key={pct} className="flex flex-col items-center">
+            <ScoreGauge scorePercent={pct} />
+            <p className="text-sm font-semibold mt-1">{pct}%</p>
+          </div>
+        ))}
+      </div>
       <header className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
         <BrainsMateLogo size={22} />
         <button
