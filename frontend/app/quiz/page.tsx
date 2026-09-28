@@ -114,8 +114,8 @@ export default function QuizPage() {
                 onClick={() => setSelected(value)}
                 className={`w-full py-4 px-6 rounded-2xl text-left font-medium text-base transition-all cursor-pointer ${
                   selected === value
-                    ? "border border-[#1066b9] bg-[#eff6ff] text-[#1a2340]"
-                    : "border border-transparent bg-[#f3f4f6] text-gray-700 hover:bg-gray-200"
+                    ? "border border-[#1066b9] bg-[#e5f5ff] text-[#1a2340]"
+                    : "border border-transparent bg-[#f3f7fa] text-gray-700 hover:bg-gray-200"
                 }`}
               >
                 {label}
