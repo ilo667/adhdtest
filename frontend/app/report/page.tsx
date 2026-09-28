@@ -254,14 +254,6 @@ export default function ReportPage() {
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
         </section>
 
-        <div className="px-6 py-6">
-          <button
-            onClick={() => { localStorage.removeItem("attemptToken"); router.push("/quiz"); }}
-            className="w-full border border-gray-200 text-[#04182c] hover:bg-gray-50 font-medium py-3 rounded-xl transition-colors text-sm"
-          >
-            Take the quiz again
-          </button>
-        </div>
       </div>
 
       <footer className="bg-[#04182c] px-6 py-8 mt-4">
