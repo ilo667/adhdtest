@@ -136,4 +136,4 @@ Edit `quiz.service.ts → createAttempt`. Because `result` is persisted at submi
 Each `answer` row references a `question_id` which links back to a stable `question_key`. New report sections can query `answers JOIN questions ON question_key = 'specific_key'` for a given `attempt_id` — no schema change required.
 
 **Scaling beyond a single active version**  
-The schema supports multiple quiz versions already. Serving them requires adding a version-selection parameter to `GET /quiz/active` and updating the frontend to pass it. The rest of the system is unchanged.
+The current schema enforces one active version at a time via a partial unique index. To support A/B testing or multiple simultaneous versions, drop that constraint, add a version-selection parameter to `GET /quiz/active`, and update the frontend to pass it. The rest of the system — attempts, answers, scoring — is unchanged.
