@@ -131,7 +131,7 @@ export default function QuizPage() {
           <button
             onClick={handleBack}
             disabled={isFirst}
-            className="w-9 h-9 rounded-xl bg-[#f3f7fa] border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#1066b9] hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="w-9 h-9 rounded-xl bg-[#f3f7fa] border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#1066b9] hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ transform: "scale(-1, 1)" }}>
               <path d="M4 12H16.25L11 6.75L11.66 6L18.16 12.5L11.66 19L11 18.25L16.25 13H4V12Z" fill="currentColor"/>
@@ -143,7 +143,7 @@ export default function QuizPage() {
           <button
             onClick={handleNext}
             disabled={selected === null || submitting}
-            className="w-9 h-9 rounded-xl bg-[#f3f7fa] border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#1066b9] hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="w-9 h-9 rounded-xl bg-[#f3f7fa] border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#1066b9] hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
           >
             {submitting ? (
               <span className="w-4 h-4 border-2 border-gray-300 border-t-[#1066b9] rounded-full animate-spin" />
