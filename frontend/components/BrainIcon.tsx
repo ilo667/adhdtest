@@ -17,7 +17,7 @@ export function BrainsMateLogo({ size = 22, white = false }: { size?: number; wh
     <div className="flex items-center gap-2 font-bold" style={{ fontSize: size * 0.85 }}>
       <BrainIcon size={size} white={white} />
       <span>
-        <span style={{ color: white ? "#ffffff" : "#1a2340" }}>Brains</span>
+        <span style={{ color: white ? "#ffffff" : "#04182c" }}>Brains</span>
         <span style={{ color: white ? "#60a5fa" : "#1066b9" }}>Mate</span>
       </span>
     </div>

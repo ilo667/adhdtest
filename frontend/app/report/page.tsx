@@ -16,11 +16,11 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
         <path d="M 61 32.5 A 78 78 0 0 0 139 32.5" stroke="#facc15" strokeWidth="16" fill="none" strokeLinecap="butt"/>
         <path d="M 139 32.5 A 78 78 0 0 0 178 100" stroke="#f87171" strokeWidth="16" fill="none" strokeLinecap="butt"/>
         <g transform={`rotate(${rotation}, 100, 100)`}>
-          <line x1="100" y1="100" x2="28" y2="100" stroke="#1a2340" strokeWidth="3" strokeLinecap="round"/>
+          <line x1="100" y1="100" x2="28" y2="100" stroke="#04182c" strokeWidth="3" strokeLinecap="round"/>
         </g>
-        <circle cx="100" cy="100" r="6" fill="#1a2340"/>
+        <circle cx="100" cy="100" r="6" fill="#04182c"/>
       </svg>
-      <p className="text-2xl font-bold text-[#1a2340] -mt-2">
+      <p className="text-2xl font-bold text-[#04182c] -mt-2">
         {clamped} <span className="text-gray-400 text-lg font-normal">/ 100</span>
       </p>
     </div>
@@ -52,7 +52,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
         <div key={i}>
           <button
             onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between py-4 text-left text-sm font-medium text-[#1a2340]"
+            className="w-full flex items-center justify-between py-4 text-left text-sm font-medium text-[#04182c]"
           >
             <span>{item.q}</span>
             <span className={`ml-4 flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center transition-transform ${open === i ? "rotate-180" : ""}`}>
@@ -89,7 +89,7 @@ function HighContent() {
   return (
     <>
       <section className="px-6 py-8 border-b border-gray-100">
-        <h2 className="text-lg font-bold text-[#1a2340] mb-3">Your Cognitive and Behavioral Strengths</h2>
+        <h2 className="text-lg font-bold text-[#04182c] mb-3">Your Cognitive and Behavioral Strengths</h2>
         <p className="text-sm text-gray-500 mb-4">Despite these challenges, you possess real strengths:</p>
         <ul className="space-y-2.5">
           {[
@@ -99,14 +99,14 @@ function HighContent() {
             "Resilience — pushing forward despite setbacks",
             "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
           ].map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-sm text-[#1a2340]">
+            <li key={i} className="flex items-start gap-3 text-sm text-[#04182c]">
               <CheckIcon /> {item}
             </li>
           ))}
         </ul>
       </section>
       <section className="px-6 py-8 border-b border-gray-100">
-        <h2 className="text-lg font-bold text-[#1a2340] mb-2">Your Emotional Regulation and Impulse Control</h2>
+        <h2 className="text-lg font-bold text-[#04182c] mb-2">Your Emotional Regulation and Impulse Control</h2>
         <p className="text-sm text-gray-500 mb-4">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
         <ul className="space-y-2.5 mb-4">
           {[
@@ -132,7 +132,7 @@ function LowContent() {
   return (
     <>
       <section className="px-6 py-8 border-b border-gray-100">
-        <h2 className="text-lg font-bold text-[#1a2340] mb-4">Your Cognitive and Behavioral Strengths</h2>
+        <h2 className="text-lg font-bold text-[#04182c] mb-4">Your Cognitive and Behavioral Strengths</h2>
         <ul className="space-y-2.5">
           {[
             "Strong ability to sustain attention and complete tasks",
@@ -140,14 +140,14 @@ function LowContent() {
             "Good impulse control and measured decision-making",
             "Effective time management and organizational skills",
           ].map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-sm text-[#1a2340]">
+            <li key={i} className="flex items-start gap-3 text-sm text-[#04182c]">
               <CheckIcon /> {item}
             </li>
           ))}
         </ul>
       </section>
       <section className="px-6 py-8 border-b border-gray-100">
-        <h2 className="text-lg font-bold text-[#1a2340] mb-3">Your Emotional Regulation and Impulse Control</h2>
+        <h2 className="text-lg font-bold text-[#04182c] mb-3">Your Emotional Regulation and Impulse Control</h2>
         <p className="text-sm text-gray-500 leading-relaxed">
           Your low ADHD traits suggest strong emotional regulation in most situations. You are generally able to manage stress, frustration, and unexpected changes without significant difficulty. Maintaining healthy routines and mindfulness practices can help preserve this stability.
         </p>
@@ -208,7 +208,7 @@ export default function ReportPage() {
         <BrainsMateLogo size={22} />
         <button
           onClick={handleLogout}
-          className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#1a2340] transition-colors"
+          className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#04182c] transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M6 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -220,7 +220,7 @@ export default function ReportPage() {
       <div className="bg-[#f0f2f5] px-6 py-8">
         <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-6">
           <div className="flex-1">
-            <h1 className="text-2xl font-bold text-[#1a2340]">Your ADHD score</h1>
+            <h1 className="text-2xl font-bold text-[#04182c]">Your ADHD score</h1>
             <p className="text-[#1066b9] font-semibold text-lg mt-1">
               {isHigh ? "High ADHD Traits" : "Low ADHD Traits"}
             </p>
@@ -237,7 +237,7 @@ export default function ReportPage() {
 
       <div className="px-6 py-6 border-b border-gray-100 max-w-2xl mx-auto w-full">
         <div className="border-l-4 border-[#1066b9] pl-4">
-          <h2 className="text-base font-bold text-[#1a2340] mb-2">Understanding Your Score</h2>
+          <h2 className="text-base font-bold text-[#04182c] mb-2">Understanding Your Score</h2>
           <p className="text-sm text-gray-500 leading-relaxed">
             {isHigh
               ? "Your score suggests that you exhibit high ADHD traits, meaning that attention difficulties, impulsivity, hyperactivity, and executive dysfunction significantly impact daily life. While these challenges can be frustrating, they are not insurmountable. Many individuals with high ADHD traits develop effective coping mechanisms that allow them to manage difficulties while harnessing their unique strengths."
@@ -250,21 +250,21 @@ export default function ReportPage() {
         {isHigh ? <HighContent /> : <LowContent />}
 
         <section className="px-6 py-8 border-b border-gray-100">
-          <h2 className="text-lg font-bold text-[#1a2340] text-center mb-6">Frequently asked questions</h2>
+          <h2 className="text-lg font-bold text-[#04182c] text-center mb-6">Frequently asked questions</h2>
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
         </section>
 
         <div className="px-6 py-6">
           <button
             onClick={() => { localStorage.removeItem("attemptToken"); router.push("/quiz"); }}
-            className="w-full border border-gray-200 text-[#1a2340] hover:bg-gray-50 font-medium py-3 rounded-xl transition-colors text-sm"
+            className="w-full border border-gray-200 text-[#04182c] hover:bg-gray-50 font-medium py-3 rounded-xl transition-colors text-sm"
           >
             Take the quiz again
           </button>
         </div>
       </div>
 
-      <footer className="bg-[#1a2340] px-6 py-8 mt-4">
+      <footer className="bg-[#04182c] px-6 py-8 mt-4">
         <div className="max-w-2xl mx-auto">
           <BrainsMateLogo size={22} white />
           <p className="text-gray-400 text-xs mt-3">All rights reserved 2026</p>

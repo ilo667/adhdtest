@@ -5,7 +5,7 @@ import { BrainsMateLogo } from "../components/BrainIcon";
 
 function FloatingTag({ children, className }: { children: ReactNode; className: string }) {
   return (
-    <span className={`absolute bg-white rounded-lg px-3 py-1.5 text-xs font-medium text-[#1a2340] shadow-sm border border-gray-100 whitespace-nowrap ${className}`}>
+    <span className={`absolute bg-white rounded-lg px-3 py-1.5 text-xs font-medium text-[#04182c] shadow-sm border border-gray-100 whitespace-nowrap ${className}`}>
       {children}
     </span>
   );
@@ -33,7 +33,7 @@ export default function LandingPage() {
           <FloatingTag className="-right-4 bottom-8 text-[#1066b9]">Medium Distractions</FloatingTag>
         </div>
 
-        <h1 className="text-3xl font-bold text-[#1a2340] text-center mb-3">
+        <h1 className="text-3xl font-bold text-[#04182c] text-center mb-3">
           Discover Your{" "}
           <span className="text-[#1066b9]">ADHD Trait Profile</span>
         </h1>

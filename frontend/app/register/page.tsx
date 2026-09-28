@@ -48,7 +48,7 @@ export default function RegisterPage() {
           <BrainsMateLogo size={22} />
         </div>
 
-        <h1 className="text-2xl font-bold text-[#1a2340] mb-1 leading-snug">
+        <h1 className="text-2xl font-bold text-[#04182c] mb-1 leading-snug">
           Discover your <span className="text-[#1066b9]">ADHD</span> Profile
         </h1>
         <p className="text-gray-500 text-sm mb-6">
@@ -66,7 +66,7 @@ export default function RegisterPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               autoFocus
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#1a2340] text-sm focus:outline-none focus:border-[#1066b9] transition-colors bg-[#f9fafb]"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none focus:border-[#1066b9] transition-colors bg-[#f9fafb]"
             />
             <button
               type="submit"
@@ -81,7 +81,7 @@ export default function RegisterPage() {
               type="email"
               value={email}
               readOnly
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#1a2340] text-sm bg-[#f9fafb] cursor-not-allowed"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#04182c] text-sm bg-[#f9fafb] cursor-not-allowed"
             />
             <input
               type="password"
@@ -91,7 +91,7 @@ export default function RegisterPage() {
               required
               minLength={6}
               autoFocus
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#1a2340] text-sm focus:outline-none focus:border-[#1066b9] transition-colors bg-[#f9fafb]"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none focus:border-[#1066b9] transition-colors bg-[#f9fafb]"
             />
             {error && <p className="text-red-500 text-xs">{error}</p>}
             <button

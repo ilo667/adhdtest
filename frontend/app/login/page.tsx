@@ -34,7 +34,7 @@ export default function LoginPage() {
           <BrainsMateLogo size={22} />
         </div>
 
-        <h1 className="text-2xl font-bold text-[#1a2340] mb-1">Sign in</h1>
+        <h1 className="text-2xl font-bold text-[#04182c] mb-1">Sign in</h1>
         <p className="text-gray-500 text-sm mb-6">
           Welcome back! Let&apos;s continue your learning journey
         </p>
@@ -46,7 +46,7 @@ export default function LoginPage() {
             value={email}
             onChange={(e) => { setEmail(e.target.value); setError(""); }}
             required
-            className={`w-full border rounded-xl px-4 py-3 text-[#1a2340] text-sm focus:outline-none transition-colors bg-[#f9fafb] ${
+            className={`w-full border rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none transition-colors bg-[#f9fafb] ${
               error ? "border-red-400" : "border-gray-200 focus:border-[#1066b9]"
             }`}
           />
@@ -57,7 +57,7 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className={`w-full border rounded-xl px-4 py-3 text-[#1a2340] text-sm focus:outline-none transition-colors bg-[#f9fafb] ${
+            className={`w-full border rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none transition-colors bg-[#f9fafb] ${
               error ? "border-red-400" : "border-gray-200 focus:border-[#1066b9]"
             }`}
           />

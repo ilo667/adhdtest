@@ -104,7 +104,7 @@ export default function QuizPage() {
 
       <main className="flex-1 flex flex-col items-center justify-center px-4 pb-24">
         <div className="w-full max-w-2xl">
-          <h2 className="text-2xl font-bold text-[#1a2340] text-center mb-10 leading-snug">
+          <h2 className="text-2xl font-bold text-[#04182c] text-center mb-10 leading-snug">
             {question.prompt}
           </h2>
           <div className="flex flex-col gap-3">
@@ -114,8 +114,8 @@ export default function QuizPage() {
                 onClick={() => setSelected(value)}
                 className={`w-full py-4 px-6 rounded-2xl text-left font-medium text-base transition-all cursor-pointer ${
                   selected === value
-                    ? "border border-[#1066b9] bg-[#e5f5ff] text-[#1a2340]"
-                    : "border border-transparent bg-[#f3f7fa] text-gray-700 hover:bg-gray-200"
+                    ? "border border-[#1066b9] bg-[#e5f5ff] text-[#04182c]"
+                    : "border border-transparent bg-[#f3f7fa] text-[#04182c] hover:bg-gray-200"
                 }`}
               >
                 {label}
