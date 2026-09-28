@@ -1,0 +1,275 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { api, type AuthResponse } from "../../lib/api";
+import { BrainsMateLogo } from "../../components/BrainIcon";
+
+function ScoreGauge({ scorePercent }: { scorePercent: number }) {
+  const clamped = Math.max(0, Math.min(100, scorePercent));
+  const rotation = -(clamped / 100) * 180;
+  return (
+    <div className="flex flex-col items-center">
+      <svg viewBox="0 0 200 110" className="w-56 h-28">
+        <path d="M 22 100 A 78 78 0 0 0 178 100" stroke="#e5e7eb" strokeWidth="16" fill="none" strokeLinecap="butt"/>
+        <path d="M 22 100 A 78 78 0 0 0 61 32.5" stroke="#4ade80" strokeWidth="16" fill="none" strokeLinecap="butt"/>
+        <path d="M 61 32.5 A 78 78 0 0 0 139 32.5" stroke="#facc15" strokeWidth="16" fill="none" strokeLinecap="butt"/>
+        <path d="M 139 32.5 A 78 78 0 0 0 178 100" stroke="#f87171" strokeWidth="16" fill="none" strokeLinecap="butt"/>
+        <g transform={`rotate(${rotation}, 100, 100)`}>
+          <line x1="100" y1="100" x2="28" y2="100" stroke="#1a2340" strokeWidth="3" strokeLinecap="round"/>
+        </g>
+        <circle cx="100" cy="100" r="6" fill="#1a2340"/>
+      </svg>
+      <p className="text-2xl font-bold text-[#1a2340] -mt-2">
+        {clamped} <span className="text-gray-400 text-lg font-normal">/ 100</span>
+      </p>
+    </div>
+  );
+}
+
+const HIGH_FAQS = [
+  { q: "Does a high ADHD score mean I have ADHD?", a: "This score suggests significant ADHD traits, but an official diagnosis requires professional evaluation." },
+  { q: "Can ADHD traits be strengths?", a: "Yes! Many people with high ADHD traits channel their energy into creativity, hyperfocus, and innovative thinking." },
+  { q: "What strategies can help manage high ADHD traits?", a: "Structured routines, time-blocking, mindfulness, and working with a therapist or coach can make a significant difference." },
+  { q: "Does this score mean I struggle with emotional regulation?", a: "High ADHD traits can make emotional regulation more challenging, but with awareness and coping tools, it is very manageable." },
+  { q: "How can I stay organized with high ADHD traits?", a: "External systems like planners, reminders, and body doubling (working alongside others) often work better than willpower alone." },
+  { q: "Can my ADHD trait levels change over time?", a: "Yes — trait levels can shift with life changes, stress, therapy, or lifestyle adjustments." },
+];
+
+const LOW_FAQS = [
+  { q: "Does a low ADHD score mean I definitely don't have ADHD?", a: "A low score suggests minimal ADHD traits, but if you have concerns, a professional evaluation can provide a definitive answer." },
+  { q: "Can I still benefit from brain training with low ADHD traits?", a: "Absolutely. Cognitive training, mindfulness, and healthy habits benefit everyone, regardless of ADHD trait levels." },
+  { q: "What can I do to maintain my strong cognitive performance?", a: "Regular exercise, quality sleep, and challenging mental activities help sustain strong focus and memory over time." },
+  { q: "Can my ADHD trait levels change over time?", a: "Yes — trait levels can shift with life changes, stress, or aging. Regular check-ins can be helpful." },
+  { q: "Is a low score something to be proud of?", a: "A low score reflects strong self-regulation, though everyone faces different challenges. It's a useful data point, not a judgement." },
+];
+
+function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
+  const [open, setOpen] = useState<number | null>(0);
+  return (
+    <div className="divide-y divide-gray-100">
+      {items.map((item, i) => (
+        <div key={i}>
+          <button
+            onClick={() => setOpen(open === i ? null : i)}
+            className="w-full flex items-center justify-between py-4 text-left text-sm font-medium text-[#1a2340]"
+          >
+            <span>{item.q}</span>
+            <span className={`ml-4 flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center transition-transform ${open === i ? "rotate-180" : ""}`}>
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="#6b7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </button>
+          {open === i && <p className="pb-4 text-sm text-gray-500 leading-relaxed">{item.a}</p>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 mt-0.5">
+      <circle cx="9" cy="9" r="8.5" stroke="#2a9d8f" strokeWidth="1"/>
+      <path d="M5.5 9L7.5 11L12.5 7" stroke="#2a9d8f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+function BulletIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0 mt-1">
+      <circle cx="8" cy="8" r="3" fill="#9ca3af"/>
+    </svg>
+  );
+}
+
+function HighContent() {
+  return (
+    <>
+      <section className="px-6 py-8 border-b border-gray-100">
+        <h2 className="text-lg font-bold text-[#1a2340] mb-3">Your Cognitive and Behavioral Strengths</h2>
+        <p className="text-sm text-gray-500 mb-4">Despite these challenges, you possess real strengths:</p>
+        <ul className="space-y-2.5">
+          {[
+            "Strong creative problem-solving abilities, adaptability, and enthusiasm",
+            "Ability to think outside the box, offering innovative solutions others would not consider",
+            "Highly energetic and passionate, bringing enthusiasm into projects and conversations",
+            "Resilience — pushing forward despite setbacks",
+            "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
+          ].map((item, i) => (
+            <li key={i} className="flex items-start gap-3 text-sm text-[#1a2340]">
+              <CheckIcon /> {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="px-6 py-8 border-b border-gray-100">
+        <h2 className="text-lg font-bold text-[#1a2340] mb-2">Your Emotional Regulation and Impulse Control</h2>
+        <p className="text-sm text-gray-500 mb-4">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
+        <ul className="space-y-2.5 mb-4">
+          {[
+            "Experience intense emotional highs and lows, sometimes reacting impulsively",
+            "Struggle with frustration and impatience, making it difficult to regulate emotions in stressful situations",
+            "Feel overwhelmed by minor setbacks or unexpected changes",
+            "Find it challenging to control impulsive behaviors such as interrupting conversations or making snap decisions",
+          ].map((item, i) => (
+            <li key={i} className="flex items-start gap-2.5 text-sm text-gray-500">
+              <BulletIcon /> {item}
+            </li>
+          ))}
+        </ul>
+        <p className="text-sm text-gray-500 italic">
+          While emotional regulation may be difficult, learning self-awareness techniques and coping strategies can help create more emotional stability.
+        </p>
+      </section>
+    </>
+  );
+}
+
+function LowContent() {
+  return (
+    <>
+      <section className="px-6 py-8 border-b border-gray-100">
+        <h2 className="text-lg font-bold text-[#1a2340] mb-4">Your Cognitive and Behavioral Strengths</h2>
+        <ul className="space-y-2.5">
+          {[
+            "Strong ability to sustain attention and complete tasks",
+            "Consistent and reliable in personal and professional responsibilities",
+            "Good impulse control and measured decision-making",
+            "Effective time management and organizational skills",
+          ].map((item, i) => (
+            <li key={i} className="flex items-start gap-3 text-sm text-[#1a2340]">
+              <CheckIcon /> {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section className="px-6 py-8 border-b border-gray-100">
+        <h2 className="text-lg font-bold text-[#1a2340] mb-3">Your Emotional Regulation and Impulse Control</h2>
+        <p className="text-sm text-gray-500 leading-relaxed">
+          Your low ADHD traits suggest strong emotional regulation in most situations. You are generally able to manage stress, frustration, and unexpected changes without significant difficulty. Maintaining healthy routines and mindfulness practices can help preserve this stability.
+        </p>
+      </section>
+    </>
+  );
+}
+
+export default function ReportPage() {
+  const router = useRouter();
+  const [data, setData] = useState<AuthResponse | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api
+      .getMe()
+      .then((res) => setData(res))
+      .catch((err) => { if (err?.status === 401) router.push("/login"); })
+      .finally(() => setLoading(false));
+  }, [router]);
+
+  async function handleLogout() {
+    await api.logout().catch(() => {});
+    router.push("/");
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#f0f2f5]">
+        <p className="text-gray-400">Loading your report…</p>
+      </div>
+    );
+  }
+
+  if (!data?.latestAttempt) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#f0f2f5] px-4">
+        <div className="bg-white rounded-3xl p-8 max-w-sm w-full text-center">
+          <p className="text-gray-500 mb-6">You haven&apos;t taken the quiz yet.</p>
+          <button
+            onClick={() => router.push("/quiz")}
+            className="w-full bg-[#1d7a6e] hover:bg-[#166560] text-white font-semibold py-3.5 rounded-xl transition-colors"
+          >
+            Take the Test
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const { result, score, max_score } = data.latestAttempt;
+  const isHigh = result === "HIGH";
+  const scorePercent = Math.round((score / max_score) * 100);
+
+  return (
+    <div className="min-h-screen bg-white">
+      <header className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
+        <BrainsMateLogo size={22} />
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#1a2340] transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Sign out
+        </button>
+      </header>
+
+      <div className="bg-[#f0f2f5] px-6 py-8">
+        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex-1">
+            <h1 className="text-2xl font-bold text-[#1a2340]">Your ADHD score</h1>
+            <p className="text-[#2563eb] font-semibold text-lg mt-1">
+              {isHigh ? "High ADHD Traits" : "Low ADHD Traits"}
+            </p>
+          </div>
+          <ScoreGauge scorePercent={scorePercent} />
+        </div>
+      </div>
+
+      <div className="px-6 py-6 border-b border-gray-100 max-w-2xl mx-auto w-full">
+        <p className="text-sm text-gray-500 leading-relaxed">
+          Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
+        </p>
+      </div>
+
+      <div className="px-6 py-6 border-b border-gray-100 max-w-2xl mx-auto w-full">
+        <div className="border-l-4 border-[#2563eb] pl-4">
+          <h2 className="text-base font-bold text-[#1a2340] mb-2">Understanding Your Score</h2>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            {isHigh
+              ? "Your score suggests that you exhibit high ADHD traits, meaning that attention difficulties, impulsivity, hyperactivity, and executive dysfunction significantly impact daily life. While these challenges can be frustrating, they are not insurmountable. Many individuals with high ADHD traits develop effective coping mechanisms that allow them to manage difficulties while harnessing their unique strengths."
+              : "Your score suggests minimal ADHD traits. You show a strong ability to focus, self-regulate, and manage daily responsibilities. While occasional challenges may arise, they are unlikely to significantly impact your daily functioning."}
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-2xl mx-auto w-full">
+        {isHigh ? <HighContent /> : <LowContent />}
+
+        <section className="px-6 py-8 border-b border-gray-100">
+          <h2 className="text-lg font-bold text-[#1a2340] text-center mb-6">Frequently asked questions</h2>
+          <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
+        </section>
+
+        <div className="px-6 py-6">
+          <button
+            onClick={() => { localStorage.removeItem("attemptToken"); router.push("/quiz"); }}
+            className="w-full border border-gray-200 text-[#1a2340] hover:bg-gray-50 font-medium py-3 rounded-xl transition-colors text-sm"
+          >
+            Take the quiz again
+          </button>
+        </div>
+      </div>
+
+      <footer className="bg-[#1a2340] px-6 py-8 mt-4">
+        <div className="max-w-2xl mx-auto">
+          <BrainsMateLogo size={22} white />
+          <p className="text-gray-400 text-xs mt-3">All rights reserved 2026</p>
+        </div>
+      </footer>
+    </div>
+  );
+}

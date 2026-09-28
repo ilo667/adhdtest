@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/admin/Downloads/**)",
+      "Bash(unzip -l \"Test task.zip\")",
+      "Bash(unzip -p \"Test task.zip\" \"Discover your ADHD Profile.pdf\")",
+      "Bash(unzip -p \"Test task.zip\" \"Sign in.pdf\")",
+      "Bash(unzip -p \"Test task.zip\" \"HIGH TRAITS REPORT.pdf\")",
+      "Bash(unzip -p \"Test task.zip\" \"LOW TRAITS REPORT.pdf\")",
+      "Bash(unzip -p \"Test task.zip\" \"Get ready.pdf\")",
+      "Bash(unzip -p \"Test task.zip\" \"I easily lose track of time when doing something I enjoy.pdf\")",
+      "Bash(unzip -p \"Test task.zip\" \"2 and more Agree/Strongly agree - HIGH TRAITS REPORT Best of luck!.pdf\")",
+      "Bash(pdftotext /tmp/getready.pdf -)",
+      "Bash(pdftotext /tmp/signin.pdf -)",
+      "Bash(pdftotext /tmp/q1.pdf -)",
+      "Bash(pdftotext /tmp/high_full.pdf -)",
+      "Bash(grep -E \"^[A-Za-z ,.!?']{5,80}$\")",
+      "Bash(npx tsc *)",
+      "Bash(git -C /Users/admin/Sites/adhdtest add backend/src/main.ts backend/src/app.module.ts backend/package.json backend/package-lock.json)",
+      "Bash(git -C /Users/admin/Sites/adhdtest commit -m ' *)",
+      "Bash(npx jest *)",
+      "Bash(node *)",
+      "Bash(git -C /Users/admin/Sites/adhdtest add backend/src/auth/ backend/src/app.module.ts backend/tsconfig.test.json backend/package.json)",
+      "Bash(git -C /Users/admin/Sites/adhdtest add backend/sql/seed.sql backend/src/quiz/quiz.service.ts)",
+      "Bash(git -C /Users/admin/Sites/adhdtest add frontend/next.config.ts frontend/lib/api.ts)",
+      "Bash(git -C /Users/admin/Sites/adhdtest commit -m \"Frontend: add API proxy rewrite and typed api client\")",
+      "Bash(git -C /Users/admin/Sites/adhdtest add frontend/app/ frontend/lib/)",
+      "Bash(git -C /Users/admin/Sites/adhdtest add README.md)",
+      "Bash(git -C /Users/admin/Sites/adhdtest commit -m \"Add README with setup, architecture, data model and trade-offs\")",
+      "Bash(git -C /Users/admin/Sites/adhdtest add backend/src/auth/ frontend/app/quiz/page.tsx frontend/app/report/page.tsx frontend/app/register/page.tsx)",
+      "Bash(npm test *)",
+      "mcp__claude_ai_Figma__get_metadata",
+      "mcp__claude_ai_Figma__get_screenshot"
+    ]
+  }
+}
