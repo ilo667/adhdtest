@@ -221,7 +221,7 @@ export default function ReportPage() {
         <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-6">
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-[#1a2340]">Your ADHD score</h1>
-            <p className="text-[#2563eb] font-semibold text-lg mt-1">
+            <p className="text-[#1066b9] font-semibold text-lg mt-1">
               {isHigh ? "High ADHD Traits" : "Low ADHD Traits"}
             </p>
           </div>
@@ -236,7 +236,7 @@ export default function ReportPage() {
       </div>
 
       <div className="px-6 py-6 border-b border-gray-100 max-w-2xl mx-auto w-full">
-        <div className="border-l-4 border-[#2563eb] pl-4">
+        <div className="border-l-4 border-[#1066b9] pl-4">
           <h2 className="text-base font-bold text-[#1a2340] mb-2">Understanding Your Score</h2>
           <p className="text-sm text-gray-500 leading-relaxed">
             {isHigh

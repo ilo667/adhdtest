@@ -47,7 +47,7 @@ export default function LoginPage() {
             onChange={(e) => { setEmail(e.target.value); setError(""); }}
             required
             className={`w-full border rounded-xl px-4 py-3 text-[#1a2340] text-sm focus:outline-none transition-colors bg-[#f9fafb] ${
-              error ? "border-red-400" : "border-gray-200 focus:border-[#2563eb]"
+              error ? "border-red-400" : "border-gray-200 focus:border-[#1066b9]"
             }`}
           />
           {error && <p className="text-red-500 text-xs -mt-1">{error}</p>}
@@ -58,7 +58,7 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
             className={`w-full border rounded-xl px-4 py-3 text-[#1a2340] text-sm focus:outline-none transition-colors bg-[#f9fafb] ${
-              error ? "border-red-400" : "border-gray-200 focus:border-[#2563eb]"
+              error ? "border-red-400" : "border-gray-200 focus:border-[#1066b9]"
             }`}
           />
           <button
@@ -72,7 +72,7 @@ export default function LoginPage() {
 
         <p className="mt-5 text-center text-xs text-gray-400">
           Don&apos;t have an account?{" "}
-          <Link href="/" className="text-[#2563eb] hover:underline font-medium">
+          <Link href="/" className="text-[#1066b9] hover:underline font-medium">
             Take the test
           </Link>
         </p>

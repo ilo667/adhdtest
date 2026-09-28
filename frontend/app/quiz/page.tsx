@@ -93,7 +93,7 @@ export default function QuizPage() {
       {/* Progress bar */}
       <div className="w-full h-1 bg-gray-100">
         <div
-          className="h-1 bg-[#2563eb] transition-all duration-300"
+          className="h-1 bg-[#1066b9] transition-all duration-300"
           style={{ width: `${((current + 1) / total) * 100}%` }}
         />
       </div>
@@ -114,7 +114,7 @@ export default function QuizPage() {
                 onClick={() => setSelected(value)}
                 className={`w-full py-4 px-6 rounded-2xl text-left font-medium text-base transition-all ${
                   selected === value
-                    ? "border-2 border-[#2563eb] bg-[#eff6ff] text-[#1a2340]"
+                    ? "border-2 border-[#1066b9] bg-[#eff6ff] text-[#1a2340]"
                     : "border border-transparent bg-[#f3f4f6] text-gray-700 hover:bg-gray-200"
                 }`}
               >
@@ -143,10 +143,10 @@ export default function QuizPage() {
           <button
             onClick={handleNext}
             disabled={selected === null || submitting}
-            className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#2563eb] hover:text-[#2563eb] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#1066b9] hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             {submitting ? (
-              <span className="w-4 h-4 border-2 border-gray-300 border-t-[#2563eb] rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-gray-300 border-t-[#1066b9] rounded-full animate-spin" />
             ) : (
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path d="M7 4L12 9L7 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>

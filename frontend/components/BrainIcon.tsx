@@ -1,5 +1,5 @@
 export function BrainIcon({ size = 22, white = false }: { size?: number; white?: boolean }) {
-  const stroke = white ? "#60a5fa" : "#2563eb";
+  const stroke = white ? "#60a5fa" : "#1066b9";
   const strokeSecondary = white ? "rgba(147,197,253,0.5)" : "#93c5fd";
   return (
     <svg width={size} height={size} viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@ export function BrainsMateLogo({ size = 22, white = false }: { size?: number; wh
       <BrainIcon size={size} white={white} />
       <span>
         <span style={{ color: white ? "#ffffff" : "#1a2340" }}>Brains</span>
-        <span style={{ color: white ? "#60a5fa" : "#2563eb" }}>Mate</span>
+        <span style={{ color: white ? "#60a5fa" : "#1066b9" }}>Mate</span>
       </span>
     </div>
   );

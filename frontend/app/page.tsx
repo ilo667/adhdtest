@@ -30,12 +30,12 @@ export default function LandingPage() {
             quality={100}
           />
           <FloatingTag className="-right-2 top-8">↗ +10% Impulsivity</FloatingTag>
-          <FloatingTag className="-right-4 bottom-8 text-[#2563eb]">Medium Distractions</FloatingTag>
+          <FloatingTag className="-right-4 bottom-8 text-[#1066b9]">Medium Distractions</FloatingTag>
         </div>
 
         <h1 className="text-3xl font-bold text-[#1a2340] text-center mb-3">
           Discover Your{" "}
-          <span className="text-[#2563eb]">ADHD Trait Profile</span>
+          <span className="text-[#1066b9]">ADHD Trait Profile</span>
         </h1>
         <p className="text-gray-500 text-center mb-8 text-sm leading-relaxed">
           Find out how ADHD traits influence your focus, energy, and daily life
@@ -50,7 +50,7 @@ export default function LandingPage() {
           </Link>
         </div>
 
-        <Link href="/login" className="mt-5 text-sm text-gray-400 hover:text-[#2563eb] transition-colors">
+        <Link href="/login" className="mt-5 text-sm text-gray-400 hover:text-[#1066b9] transition-colors">
           Already have an account? Sign in
         </Link>
       </div>
