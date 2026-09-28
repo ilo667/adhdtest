@@ -42,10 +42,10 @@ export default function LandingPage() {
         </p>
 
         <div className="flex gap-4 w-full">
-          <Link href="/quiz" className="flex-1 text-center bg-[#1d7a6e] hover:bg-[#166560] text-white font-semibold py-4 rounded-xl transition-colors">
+          <Link href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-semibold py-4 rounded-xl transition-colors">
             Male
           </Link>
-          <Link href="/quiz" className="flex-1 text-center bg-[#1d7a6e] hover:bg-[#166560] text-white font-semibold py-4 rounded-xl transition-colors">
+          <Link href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-semibold py-4 rounded-xl transition-colors">
             Female
           </Link>
         </div>

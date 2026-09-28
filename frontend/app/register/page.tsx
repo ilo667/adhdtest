@@ -70,7 +70,7 @@ export default function RegisterPage() {
             />
             <button
               type="submit"
-              className="w-full bg-[#1d7a6e] hover:bg-[#166560] text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
+              className="w-full bg-[#116a73] hover:bg-[#0d5a61] text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
             >
               Get My Results
             </button>
@@ -97,7 +97,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#1d7a6e] hover:bg-[#166560] disabled:opacity-50 text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
+              className="w-full bg-[#116a73] hover:bg-[#0d5a61] disabled:opacity-50 text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
             >
               {loading ? "Creating account…" : "Get My Results"}
             </button>

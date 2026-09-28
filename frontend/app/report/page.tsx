@@ -189,7 +189,7 @@ export default function ReportPage() {
           <p className="text-gray-500 mb-6">You haven&apos;t taken the quiz yet.</p>
           <button
             onClick={() => router.push("/quiz")}
-            className="w-full bg-[#1d7a6e] hover:bg-[#166560] text-white font-semibold py-3.5 rounded-xl transition-colors"
+            className="w-full bg-[#116a73] hover:bg-[#0d5a61] text-white font-semibold py-3.5 rounded-xl transition-colors"
           >
             Take the Test
           </button>
