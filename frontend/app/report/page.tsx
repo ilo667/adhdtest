@@ -162,8 +162,11 @@ export default function ReportPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api
-      .getMe()
+    const attemptToken = localStorage.getItem("attemptToken");
+    const load = attemptToken
+      ? api.linkAttempt(attemptToken).then((res) => { localStorage.removeItem("attemptToken"); return res; })
+      : api.getMe();
+    load
       .then((res) => setData(res))
       .catch((err) => { if (err?.status === 401) router.push("/login"); })
       .finally(() => setLoading(false));

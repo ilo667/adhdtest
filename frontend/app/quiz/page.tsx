@@ -81,7 +81,8 @@ export default function QuizPage() {
       }));
       const result = await api.submitAttempt(quiz!.versionId, payload);
       localStorage.setItem("attemptToken", result.attemptToken);
-      router.push("/register");
+      const loggedIn = await api.getMe().then(() => true).catch(() => false);
+      router.push(loggedIn ? "/report" : "/register");
     } catch {
       setError("Failed to submit quiz. Please try again.");
       setSubmitting(false);

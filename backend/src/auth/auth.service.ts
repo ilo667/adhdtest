@@ -79,6 +79,13 @@ export class AuthService {
     return { user: { id: user.id, email: user.email }, latestAttempt };
   }
 
+  async linkAttempt(userId: number, attemptToken: string) {
+    await this.db.query(
+      'UPDATE quiz_attempts SET user_id = $1 WHERE attempt_token = $2 AND user_id IS NULL',
+      [userId, attemptToken],
+    );
+  }
+
   private async getLatestAttempt(userId: number) {
     const { rows } = await this.db.query<AttemptRow>(
       `SELECT result, score, max_score, completed_at

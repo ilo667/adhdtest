@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, Res, UseGuards, BadRequestException } from '@nestjs/common';
 import type { Response, Request } from 'express';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
@@ -33,6 +33,14 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Get('customer')
   getMe(@Req() req: Request) {
+    return this.auth.getMe(req.user!.id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('link-attempt')
+  async linkAttempt(@Req() req: Request, @Body('attemptToken') attemptToken: unknown) {
+    if (typeof attemptToken !== 'string' || !attemptToken) throw new BadRequestException('attemptToken required');
+    await this.auth.linkAttempt(req.user!.id, attemptToken);
     return this.auth.getMe(req.user!.id);
   }
 

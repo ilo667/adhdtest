@@ -46,6 +46,12 @@ export const api = {
 
   getMe: () => request<AuthResponse>("/auth/customer"),
 
+  linkAttempt: (attemptToken: string) =>
+    request<AuthResponse>("/auth/link-attempt", {
+      method: "POST",
+      body: JSON.stringify({ attemptToken }),
+    }),
+
   logout: () =>
     request<{ ok: boolean }>("/auth/logout", { method: "POST" }),
 };
