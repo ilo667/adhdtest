@@ -103,11 +103,8 @@ Questions belong to a `quiz_version`, not to a global pool. Every attempt stores
 **JWT in httpOnly cookie**  
 Tokens are never accessible to JavaScript, which eliminates XSS-based token theft. The frontend uses `credentials: 'include'` on every fetch — there is no token management code anywhere in the client. Logout is a `POST /auth/logout` that clears the cookie server-side.
 
-**Next.js rewrite proxy**  
-`/api/*` → backend eliminates browser CORS entirely. The backend URL is an environment variable; swapping it requires no frontend code change. On Vercel this is implemented via CDN routing rules.
-
-**Raw `pg`, no ORM**  
-The schema is intentionally simple and stable. Raw SQL keeps queries explicit, avoids N+1 footguns from lazy loading, and removes the abstraction layer between the developer and the database. Schema changes are managed via idempotent `schema.sql` with `ALTER TABLE` migrations appended as needed.
+**Raw `pg` over ORM**  
+Raw SQL keeps queries explicit and avoids the abstraction layer that hides what actually happens in the database. For a schema this simple and stable, an ORM adds complexity without proportional benefit. Schema changes are managed via idempotent `schema.sql` with `ALTER TABLE` migrations appended as needed.
 
 ---
 
