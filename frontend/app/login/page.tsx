@@ -21,7 +21,7 @@ export default function LoginPage() {
       await api.login(email, password);
       router.push("/report");
     } catch {
-      setError("No account found. Check your email or sign up.");
+      setError("Invalid email or password.");
     } finally {
       setLoading(false);
     }
