@@ -10,8 +10,8 @@ import { DatabaseService } from '../database/database.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 
-type UserRow = { id: number; email: string; password_hash: string; created_at: Date };
-type AttemptRow = { result: string; score: number; max_score: number; completed_at: Date };
+interface UserRow { id: number; email: string; password_hash: string; created_at: Date }
+export interface AttemptRow { result: string; score: number; max_score: number; completed_at: Date }
 
 @Injectable()
 export class AuthService {

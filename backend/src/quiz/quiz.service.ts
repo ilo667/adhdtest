@@ -7,17 +7,17 @@ import { randomUUID } from 'crypto';
 import { DatabaseService } from '../database/database.service';
 import { CreateAttemptDto } from './dto/create-attempt.dto';
 
-type ActiveQuestionRow = {
+interface ActiveQuestionRow {
   version_id: number;
   question_id: number;
   question_key: string;
   question_text: string;
   position: number;
-};
+}
 
-type QuestionRow = {
+interface QuestionRow {
   id: number;
-};
+}
 
 @Injectable()
 export class QuizService {
