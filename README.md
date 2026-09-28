@@ -55,8 +55,8 @@ users
 
 quiz_versions
   id        BIGSERIAL PK
-  version   INTEGER UNIQUE
-  is_active BOOLEAN              -- exactly one active at a time
+  is_active BOOLEAN              -- enforced unique at DB level: only one active at a time
+  created_at TIMESTAMPTZ
 
 questions
   id              BIGSERIAL PK
@@ -127,7 +127,7 @@ The schema is intentionally simple and stable. Raw SQL keeps queries explicit, a
 ## Extensibility
 
 **Changing quiz questions**  
-Insert a new row into `quiz_versions` with `is_active = TRUE`, set the old version to `FALSE`, and add questions linked to the new version. No existing data is affected. `GET /quiz/active` automatically serves the new version.
+Insert a new `quiz_versions` row with `is_active = TRUE` (the DB partial unique index ensures the old active version is set to `FALSE` first), then add questions linked to the new version. Old attempts remain intact — they reference their original `quiz_version_id` and individual answers. `GET /quiz/active` automatically serves the new version.
 
 **Changing the scoring algorithm**  
 Edit `quiz.service.ts → createAttempt`. Because `result` is persisted at submission time, old attempts are unaffected. If backfilling is needed, write a one-off migration that re-runs the new formula against stored `answers`.
