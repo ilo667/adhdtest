@@ -138,12 +138,3 @@ Each `answer` row references a `question_id` which links back to a stable `quest
 **Scaling beyond a single active version**  
 The schema supports multiple quiz versions already. Serving them requires adding a version-selection parameter to `GET /quiz/active` and updating the frontend to pass it. The rest of the system is unchanged.
 
----
-
-## Running Tests
-
-```bash
-cd backend
-npm test           # unit tests (AuthService — register, login edge cases)
-npm run test:e2e   # e2e tests (requires running PostgreSQL)
-```
