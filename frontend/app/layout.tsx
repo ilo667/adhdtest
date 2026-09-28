@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "BrainsMate — Discover your ADHD Profile",
+  title: "BrainsMate: Discover your ADHD Profile",
   description: "Take the ADHD screening quiz and get your personalised report.",
 };
 
