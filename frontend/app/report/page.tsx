@@ -6,14 +6,14 @@ import { api, type AuthResponse } from "../../lib/api";
 import { BrainsMateLogo } from "../../components/BrainIcon";
 
 function ScoreGauge({ scorePercent }: { scorePercent: number }) {
-  const cx = 120.334, cy = 113.973;
+  const cx = 111, cy = 102;
   const clamped = Math.max(0, Math.min(100, Math.round(scorePercent)));
   const needleAngle = 138.8 + (clamped / 100) * 262.4;
-  const rotation = needleAngle - 158;
+  const rotation = needleAngle - 162;
 
   return (
     <div className="flex flex-col items-center">
-      <svg viewBox="0 0 241 194" className="w-64">
+      <svg viewBox="0 0 241 194" style={{ width: 240 }}>
         <path d="M41.8286 182.677C25.1509 164.445 15.0098 140.368 15.0098 113.973C15.0098 57.0573 62.165 10.9177 120.334 10.9177C178.503 10.9177 225.658 57.0573 225.658 113.973C225.658 140.368 215.517 164.445 198.839 182.677" stroke="#C4D2E9" strokeWidth="21.8353" fill="none" strokeLinecap="round"/>
         <path d="M41.8286 182.677C25.1509 164.444 15.0098 140.368 15.0098 113.973C15.0098 108.21 15.4932 102.558 16.4224 97.0533" stroke="#8CC9AD" strokeWidth="21.8353" fill="none" strokeLinecap="round"/>
         <path d="M199.054 182.677C215.732 164.444 225.873 140.368 225.873 113.973C225.873 108.21 225.39 102.558 224.46 97.0533" stroke="#E66642" strokeWidth="21.8353" fill="none" strokeLinecap="round"/>
