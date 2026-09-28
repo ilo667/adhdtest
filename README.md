@@ -11,14 +11,6 @@ Stack: **NestJS** (backend) · **Next.js 16 App Router** (frontend) · **Postgre
 
 **Prerequisites:** Node.js 20+, PostgreSQL
 
-```env
-# backend/.env
-DATABASE_URL=postgres://user:password@localhost:5432/adhdtest
-JWT_SECRET=change-me-in-production
-PORT=3001
-FRONTEND_URL=http://localhost:3000
-```
-
 ```bash
 # Backend
 cd backend && npm install
