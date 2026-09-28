@@ -12,4 +12,4 @@ CROSS JOIN (VALUES
   ('forget_daily_tasks',    'I often forget about daily tasks like appointments or returning calls.', 5)
 ) AS q(question_key, question_text, position)
 WHERE qv.is_active = TRUE
-ON CONFLICT (quiz_version_id, question_key) DO NOTHING;
+ON CONFLICT DO NOTHING;
