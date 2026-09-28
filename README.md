@@ -7,23 +7,6 @@ Stack: **NestJS** (backend) · **Next.js 16 App Router** (frontend) · **Postgre
 
 ---
 
-## Quick Start
-
-**Prerequisites:** Node.js 20+, PostgreSQL
-
-```bash
-# Backend
-cd backend && npm install
-npm run db:setup   # applies schema.sql + seeds questions
-npm run start:dev  # → http://localhost:3001
-
-# Frontend (separate terminal)
-cd frontend && npm install
-npm run dev        # → http://localhost:3000
-```
-
----
-
 ## Solution Structure
 
 ```
