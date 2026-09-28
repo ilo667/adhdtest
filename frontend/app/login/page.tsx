@@ -47,10 +47,10 @@ export default function LoginPage() {
             onChange={(e) => { setEmail(e.target.value); setError(""); }}
             required
             className={`w-full border rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none transition-colors bg-[#f9fafb] ${
-              error ? "border-red-400" : "border-gray-200 focus:border-[#1066b9]"
+              error ? "border-[#d65050]" : "border-gray-200 focus:border-[#1066b9]"
             }`}
           />
-          {error && <p className="text-red-500 text-xs -mt-1">{error}</p>}
+          {error && <p className="text-[#aa3a3d] text-xs -mt-1">{error}</p>}
           <input
             type="password"
             placeholder="Password"
@@ -58,7 +58,7 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
             className={`w-full border rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none transition-colors bg-[#f9fafb] ${
-              error ? "border-red-400" : "border-gray-200 focus:border-[#1066b9]"
+              error ? "border-[#d65050]" : "border-gray-200 focus:border-[#1066b9]"
             }`}
           />
           <button

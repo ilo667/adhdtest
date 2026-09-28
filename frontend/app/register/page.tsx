@@ -93,7 +93,7 @@ export default function RegisterPage() {
               autoFocus
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none focus:border-[#1066b9] transition-colors bg-[#f9fafb]"
             />
-            {error && <p className="text-red-500 text-xs">{error}</p>}
+            {error && <p className="text-[#aa3a3d] text-xs">{error}</p>}
             <button
               type="submit"
               disabled={loading}
