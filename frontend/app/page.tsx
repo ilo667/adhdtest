@@ -9,15 +9,15 @@ function FloatingTag({ first, second, icon, style, className }: { first: string;
       style={{ background: "#F1F4F780", ...style }}
     >
       {icon ? (
-        <span className="flex items-center space-x-1 font-medium text-[20px] leading-[28px]">
-          <Image src={icon} alt="" width={24} height={24} aria-hidden />
+        <span className="flex items-center space-x-1 font-medium text-[12px] leading-[16px] sm:text-[20px] sm:leading-[28px]">
+          <Image src={icon} alt="" width={24} height={24} aria-hidden className="w-[14px] sm:w-[24px]" />
           <span className="text-[#1066B9]">{first}</span>
           <span className="text-[#3B5779]">{second}</span>
         </span>
       ) : (
         <>
-          <span className="font-medium text-[20px] leading-[28px] text-[#1066B9]">{first}</span>
-          <span className="font-medium text-[20px] leading-[28px] text-[#3B5779]">{second}</span>
+          <span className="font-medium text-[12px] leading-[16px] sm:text-[20px] sm:leading-[28px] text-[#1066B9]">{first}</span>
+          <span className="font-medium text-[12px] leading-[16px] sm:text-[20px] sm:leading-[28px] text-[#3B5779]">{second}</span>
         </>
       )}
     </span>
@@ -46,17 +46,17 @@ export default function LandingPage() {
         </div>
 
         <div className="w-full" style={{ padding: '0 33px' }}>
-          <h1 className="font-semibold text-[48px] leading-[58px] text-[#04182c] text-center mb-5">
+          <h1 className="font-semibold text-[24px] leading-[1.2] sm:text-[48px] sm:leading-[58px] text-[#04182c] text-center mb-5">
             Discover Your{" "}
             <span className="text-[#1066b9] block">ADHD Trait Profile</span>
           </h1>
-          <p className="text-[20px] leading-[28px] text-[#1C2D3F] text-center mb-[40px]">
+          <p className="text-[16px] leading-[1.4] sm:text-[20px] sm:leading-[28px] text-[#1C2D3F] text-center mb-[40px]">
             Find out how ADHD traits influence your focus, energy, and daily life
           </p>
 
           <div className="flex space-x-4 w-full">
             {["Male", "Female"].map((label) => (
-              <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[20px] leading-[28px] py-[14px] px-8 rounded-[8px] transition-colors">
+              <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[16px] leading-[22px] sm:text-[20px] sm:leading-[28px] py-[14px] px-8 rounded-[8px] transition-colors">
                 {label}
               </Link>
             ))}
