@@ -99,7 +99,7 @@ export default function QuizPage() {
         />
       </div>
 
-      <main className="flex-1 flex flex-col items-center pt-[47px] px-4 pb-24">
+      <main className="flex-1 flex flex-col items-center pt-[47px] px-4 pb-[116px]">
         <div className="w-full max-w-[860px]">
           <h2 className="font-medium text-[32px] leading-[36px] text-[#04182c] text-center mb-10 whitespace-pre-line">
             {question.prompt}
@@ -124,12 +124,12 @@ export default function QuizPage() {
 
       {/* Bottom navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-white p-[40px]">
-        <div className="flex items-center justify-between max-w-2xl mx-auto">
+        <div className="flex items-center justify-between max-w-[860px] mx-auto">
           <button
             onClick={handleBack}
             disabled={isFirst}
             aria-label="Previous question"
-            className="w-9 h-9 rounded-xl bg-[#f3f7fa] flex items-center justify-center text-gray-500 hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
+            className="w-9 h-9 rounded-[4px] bg-[#f3f7fa] flex items-center justify-center text-gray-500 hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ transform: "scale(-1, 1)" }}>
               <path d="M4 12H16.25L11 6.75L11.66 6L18.16 12.5L11.66 19L11 18.25L16.25 13H4V12Z" fill="currentColor"/>
@@ -142,7 +142,7 @@ export default function QuizPage() {
             onClick={handleNext}
             disabled={selected === null || submitting}
             aria-label="Next question"
-            className="w-9 h-9 rounded-xl bg-[#f3f7fa] flex items-center justify-center text-gray-500 hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
+            className="w-9 h-9 rounded-[4px] bg-[#f3f7fa] flex items-center justify-center text-gray-500 hover:text-[#1066b9] disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
           >
             {submitting ? (
               <span className="w-4 h-4 border-2 border-gray-300 border-t-[#1066b9] rounded-full animate-spin" />
