@@ -9,7 +9,7 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
   const cx = 122, cy = 108;
   const clamped = Math.max(0, Math.min(100, Math.round(scorePercent)));
   const needleAngle = 137.04 + (clamped / 100) * 265.92;
-  const rotation = needleAngle - 158;
+  const rotation = needleAngle - 158 + (clamped === 50 ? 3 : 0);
 
   return (
     <div className="flex flex-col items-center">
