@@ -5,7 +5,7 @@ import Link from "next/link";
 function FloatingTag({ first, second, icon, style }: { first: string; second: string; icon?: string; style?: React.CSSProperties }) {
   return (
     <span
-      className="absolute flex flex-col rounded-[10px] px-6 py-2 border border-[#F1F4F7] whitespace-nowrap"
+      className="absolute flex flex-col rounded-[10px] px-6 py-[7px] border border-[#F1F4F7] whitespace-nowrap"
       style={{ background: "#F1F4F780", ...style }}
     >
       {icon ? (
