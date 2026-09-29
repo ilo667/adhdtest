@@ -43,7 +43,7 @@ export default function RegisterPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#f0f2f5] px-4">
       <div className="w-full max-w-sm bg-white rounded-3xl shadow-sm p-8">
-<h1 className="text-2xl font-bold text-[#04182c] mb-1 leading-snug">
+        <h1 className="text-2xl font-bold text-[#04182c] mb-1 leading-snug">
           Discover your <span className="text-[#1066b9]">ADHD</span> Profile
         </h1>
         <p className="text-gray-500 text-sm mb-6">
