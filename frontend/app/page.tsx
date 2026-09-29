@@ -1,11 +1,17 @@
-import { type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function FloatingTag({ children, className }: { children: ReactNode; className: string }) {
+function FloatingTag({ first, second, icon, className }: { first: string; second: string; icon?: string; className: string }) {
   return (
-    <span className={`absolute bg-white rounded-lg px-3 py-1.5 text-xs font-medium text-[#04182c] shadow-sm border border-gray-100 whitespace-nowrap ${className}`}>
-      {children}
+    <span
+      className={`absolute flex flex-col rounded-[10px] px-6 py-2 border border-[#F1F4F7] whitespace-nowrap ${className}`}
+      style={{ background: "#F1F4F780" }}
+    >
+      <span className="flex items-center gap-1 font-medium text-[20px] leading-[28px] text-[#1066B9]">
+        {icon && <Image src={icon} alt="" width={24} height={24} aria-hidden />}
+        {first}
+      </span>
+      <span className="font-medium text-[20px] leading-[28px] text-[#3B5779]">{second}</span>
     </span>
   );
 }
@@ -18,8 +24,8 @@ export default function LandingPage() {
         style={{ boxShadow: "0px 10px 22px 0px #8393A505, 0px 41px 41px 0px #8393A505, 0px 91px 55px 0px #8393A503, 0px 162px 65px 0px #8393A500, 0px 254px 71px 0px #8393A500" }}
       >
         <div className="relative flex items-center justify-center w-full mb-8" style={{ height: 200 }}>
-          <FloatingTag className="-left-2 top-8">High Productivity</FloatingTag>
-          <FloatingTag className="-left-4 bottom-8">↘ -6% Focus</FloatingTag>
+          <FloatingTag first="High" second="Productivity" className="-left-2 top-8" />
+          <FloatingTag first="-6%" second="Focus" icon="/arrow-down.svg" className="-left-4 bottom-8" />
           <Image
             src="/head.png"
             alt="Head illustration"
@@ -27,13 +33,13 @@ export default function LandingPage() {
             height={237}
             quality={100}
           />
-          <FloatingTag className="-right-2 top-8">↗ +10% Impulsivity</FloatingTag>
-          <FloatingTag className="-right-4 bottom-8 text-[#1066b9]">Medium Distractions</FloatingTag>
+          <FloatingTag first="+10%" second="Impulsivity" icon="/arrow-up.svg" className="-right-2 top-8" />
+          <FloatingTag first="Medium" second="Distractions" className="-right-4 bottom-8" />
         </div>
 
         <h1 className="font-semibold text-[48px] leading-[58px] text-[#04182c] text-center mb-3">
           Discover Your{" "}
-          <span className="text-[#1066b9]">ADHD Trait Profile</span>
+          <span className="text-[#1066b9] block">ADHD Trait Profile</span>
         </h1>
         <p className="text-[20px] leading-[28px] text-gray-500 text-center mb-8">
           Find out how ADHD traits influence your focus, energy, and daily life
