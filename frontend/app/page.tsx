@@ -5,7 +5,7 @@ import Link from "next/link";
 function FloatingTag({ first, second, icon, padding, className }: { first: string; second: string; icon?: string; padding?: string; className?: string }) {
   return (
     <span
-      className={`absolute flex flex-col rounded-[10px] px-6 py-[7px] border border-[#F1F4F7] whitespace-nowrap ${className ?? ""}`}
+      className={`absolute flex flex-col rounded-[10px] px-[14px] py-[5px] sm:px-6 sm:py-[7px] border border-[#F1F4F7] whitespace-nowrap ${className ?? ""}`}
       style={{ background: "#F1F4F780", ...(padding ? { padding } : {}) }}
     >
       {icon ? (
