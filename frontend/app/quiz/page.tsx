@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { api, type Question, type QuizData } from "../../lib/api";
-import { BrainsMateLogo } from "../../components/BrainIcon";
+import { BrainsMateLogo } from "../../components/BrainsMateLogo";
 
 const ANSWER_LABELS = [
   { value: 4, label: "Strongly agree" },

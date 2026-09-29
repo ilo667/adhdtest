@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { api, type AuthResponse } from "../../lib/api";
-import { BrainsMateLogo } from "../../components/BrainIcon";
+import { BrainsMateLogo } from "../../components/BrainsMateLogo";
 
 function ScoreGauge({ scorePercent }: { scorePercent: number }) {
   const clamped = Math.max(0, Math.min(100, Math.round(scorePercent)));

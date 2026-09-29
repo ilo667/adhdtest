@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BrainsMateLogo } from "../components/BrainIcon";
+import { BrainsMateLogo } from "../components/BrainsMateLogo";
 
 function FloatingTag({ children, className }: { children: ReactNode; className: string }) {
   return (

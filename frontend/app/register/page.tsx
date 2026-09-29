@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { api } from "../../lib/api";
-import { BrainsMateLogo } from "../../components/BrainIcon";
+import { BrainsMateLogo } from "../../components/BrainsMateLogo";
 
 export default function RegisterPage() {
   const router = useRouter();
