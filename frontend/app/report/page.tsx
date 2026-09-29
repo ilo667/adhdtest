@@ -209,9 +209,9 @@ export default function ReportPage() {
     );
   }
 
-  const { result, score, max_score } = data.latestAttempt;
+  const { result, score, maxScore } = data.latestAttempt;
   const isHigh = result === "HIGH";
-  const scorePercent = Math.round((score / max_score) * 100);
+  const scorePercent = Math.round((score / maxScore) * 100);
 
   return (
     <div className="min-h-screen bg-white">

@@ -11,7 +11,7 @@ import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 
 interface UserRow { id: number; email: string; password_hash: string; created_at: Date }
-export interface AttemptRow { result: string; score: number; max_score: number; completed_at: Date }
+interface AttemptRow { result: string; score: number; max_score: number; completed_at: Date }
 
 @Injectable()
 export class AuthService {
@@ -95,6 +95,8 @@ export class AuthService {
        LIMIT 1`,
       [userId],
     );
-    return rows[0] ?? null;
+    if (!rows[0]) return null;
+    const { max_score, ...rest } = rows[0];
+    return { ...rest, maxScore: max_score };
   }
 }
