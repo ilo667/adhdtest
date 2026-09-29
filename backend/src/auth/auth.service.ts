@@ -54,7 +54,7 @@ export class AuthService {
 
   async login(dto: LoginDto) {
     const { rows } = await this.db.query<UserRow>(
-      'SELECT id, email, password_hash, created_at FROM users WHERE email = $1',
+      'SELECT id, email, password_hash FROM users WHERE email = $1',
       [dto.email],
     );
     const user = rows[0];
