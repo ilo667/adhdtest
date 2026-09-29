@@ -190,7 +190,7 @@ export default function ReportPage() {
 
   if (loading) {
     return (
-      <div className="flex-1 flex items-center justify-center bg-[#f0f2f5]">
+      <div className="flex-1 flex items-center justify-center">
         <p className="text-gray-400">Loading your report…</p>
       </div>
     );
@@ -198,7 +198,7 @@ export default function ReportPage() {
 
   if (!data?.latestAttempt) {
     return (
-      <div className="flex-1 flex items-center justify-center bg-[#f0f2f5] px-4">
+      <div className="flex-1 flex items-center justify-center px-4">
         <div className="bg-white rounded-3xl p-8 max-w-sm w-full text-center">
           <p className="text-gray-500 mb-6">You haven&apos;t taken the quiz yet.</p>
           <button
