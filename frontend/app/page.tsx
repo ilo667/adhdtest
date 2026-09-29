@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function FloatingTag({ first, second, icon, padding, className }: { first: string; second: string; icon?: string; padding?: string; className?: string }) {
+function FloatingTag({ first, second, icon, paddingClass, className }: { first: string; second: string; icon?: string; paddingClass?: string; className?: string }) {
   return (
     <span
-      className={`absolute flex flex-col rounded-[10px] px-[14px] py-[5px] sm:px-6 sm:py-[7px] border border-[#F1F4F7] whitespace-nowrap ${className ?? ""}`}
-      style={{ background: "#F1F4F780", ...(padding ? { padding } : {}) }}
+      className={`absolute flex flex-col rounded-[10px] ${paddingClass ?? "px-[14px] py-[5px] sm:px-6 sm:py-[7px]"} border border-[#F1F4F7] whitespace-nowrap ${className ?? ""}`}
+      style={{ background: "#F1F4F780" }}
     >
       {icon ? (
         <span className="flex items-center space-x-1 font-medium text-[12px] leading-[16px] sm:text-[20px] sm:leading-[28px]">
@@ -33,7 +33,7 @@ export default function LandingPage() {
       >
         <div className="relative flex items-center justify-center w-full mb-8 h-[223px] sm:h-[284px]">
           <FloatingTag first="High" second="Productivity" className="top-[59px] left-[-1px] sm:top-[39px]" />
-          <FloatingTag first="-6%" second="Focus" icon="/arrow-down.svg" padding="7px 11px" className="top-[124px] left-[12px] sm:top-[163px] sm:left-[23px]" />
+          <FloatingTag first="-6%" second="Focus" icon="/arrow-down.svg" paddingClass="px-[6px] py-[4px] sm:px-[11px] sm:py-[7px]" className="top-[124px] left-[12px] sm:top-[163px] sm:left-[23px]" />
           <Image
             src="/head.png"
             alt="Head illustration"
@@ -42,7 +42,7 @@ export default function LandingPage() {
             quality={100}
             className="w-[169px] sm:w-[273px]"
           />
-          <FloatingTag first="+10%" second="Impulsivity" icon="/arrow-up.svg" padding="7px 11px" className="top-[33px] right-[-1px] sm:top-[5px]" />
+          <FloatingTag first="+10%" second="Impulsivity" icon="/arrow-up.svg" paddingClass="px-[6px] py-[4px] sm:px-[11px] sm:py-[7px]" className="top-[33px] right-[-1px] sm:top-[5px]" />
           <FloatingTag first="Medium" second="Distractions" className="top-[137px] right-[-1px] sm:top-[185px] text-right" />
         </div>
 
