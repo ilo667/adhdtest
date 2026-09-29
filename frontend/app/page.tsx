@@ -45,20 +45,22 @@ export default function LandingPage() {
           <FloatingTag first="Medium" second="Distractions" style={{ top: 185, right: -1 }} className="text-right" />
         </div>
 
-        <h1 className="font-semibold text-[48px] leading-[58px] text-[#04182c] text-center mb-3">
-          Discover Your{" "}
-          <span className="text-[#1066b9] block">ADHD Trait Profile</span>
-        </h1>
-        <p className="text-[20px] leading-[28px] text-gray-500 text-center mb-8">
-          Find out how ADHD traits influence your focus, energy, and daily life
-        </p>
+        <div className="w-full" style={{ padding: '0 33px' }}>
+          <h1 className="font-semibold text-[48px] leading-[58px] text-[#04182c] text-center mb-3">
+            Discover Your{" "}
+            <span className="text-[#1066b9] block">ADHD Trait Profile</span>
+          </h1>
+          <p className="text-[20px] leading-[28px] text-[#1C2D3F] text-center mb-8">
+            Find out how ADHD traits influence your focus, energy, and daily life
+          </p>
 
-        <div className="flex gap-4 w-full">
-          {["Male", "Female"].map((label) => (
-            <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[20px] leading-[28px] py-[14px] px-8 rounded-[8px] transition-colors">
-              {label}
-            </Link>
-          ))}
+          <div className="flex gap-4 w-full">
+            {["Male", "Female"].map((label) => (
+              <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[20px] leading-[28px] py-[14px] px-8 rounded-[8px] transition-colors">
+                {label}
+              </Link>
+            ))}
+          </div>
         </div>
 
       </div>
