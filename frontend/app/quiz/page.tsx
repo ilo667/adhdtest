@@ -92,16 +92,16 @@ export default function QuizPage() {
   return (
     <div className="flex-1 bg-white flex flex-col px-[70px]">
       {/* Progress bar */}
-      <div className="w-full h-1 bg-[#F3F7FA] rounded-[4px]">
+      <div className="w-full h-1 bg-[#f3f7fa] rounded-[4px]">
         <div
-          className="h-1 bg-[#1066B9] rounded-[31px] transition-all duration-300"
+          className="h-1 bg-[#1066b9] rounded-[31px] transition-all duration-300"
           style={{ width: `${((current + 1) / total) * 100}%` }}
         />
       </div>
 
       <main className="flex-1 flex flex-col items-center justify-center px-4 pb-24">
         <div className="w-full max-w-2xl">
-          <h2 className="font-medium text-[32px] leading-[36px] text-[#04182C] text-center mb-10">
+          <h2 className="font-medium text-[32px] leading-[36px] text-[#04182c] text-center mb-10">
             {question.prompt}
           </h2>
           <div className="flex flex-col space-y-3">
@@ -112,7 +112,7 @@ export default function QuizPage() {
                 className={`w-full py-4 px-6 rounded-[12px] text-left font-medium text-[20px] leading-[28px] transition-all cursor-pointer ${
                   selected === value
                     ? "border border-[#1066b9] bg-[#e5f5ff] text-[#04182c]"
-                    : "border border-transparent bg-[#F3F7FA] text-[#04182c] hover:bg-gray-200"
+                    : "border border-transparent bg-[#f3f7fa] text-[#04182c] hover:bg-gray-200"
                 }`}
               >
                 {label}

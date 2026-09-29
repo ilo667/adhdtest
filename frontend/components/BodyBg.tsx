@@ -9,7 +9,7 @@ export function BodyBg() {
   const pathname = usePathname();
   useEffect(() => {
     document.body.style.backgroundColor = LIGHT_BG_PATHS.includes(pathname)
-      ? "#F7F8FA"
+      ? "#f7f8fa"
       : "#ffffff";
   }, [pathname]);
   return null;
