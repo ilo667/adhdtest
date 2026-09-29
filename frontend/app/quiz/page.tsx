@@ -99,9 +99,9 @@ export default function QuizPage() {
         />
       </div>
 
-      <main className="flex-1 flex flex-col items-center pt-[47px] px-4 pb-[116px]">
+      <main className="flex-1 flex flex-col items-center pt-[36px] sm:pt-[47px] sm:px-4 pb-[116px]">
         <div className="w-full max-w-[860px]">
-          <h2 className="font-medium text-[20px] leading-[1.2] sm:text-[32px] sm:leading-[36px] text-[#04182c] text-center mb-10 whitespace-pre-line">
+          <h2 className="font-medium text-[20px] leading-[1.2] sm:text-[32px] sm:leading-[36px] text-[#04182c] text-center mb-7 sm:mb-10 sm:whitespace-pre-line">
             {question.prompt}
           </h2>
           <div className="flex flex-col space-y-3 sm:space-y-4">
@@ -109,7 +109,7 @@ export default function QuizPage() {
               <button
                 key={value}
                 onClick={() => setSelected(value)}
-                className={`w-full p-[23px] rounded-[12px] text-left font-medium text-[16px] leading-[1.4] sm:text-[20px] sm:leading-[28px] transition-all cursor-pointer ${
+                className={`w-full p-[17px] sm:p-[23px] rounded-[12px] text-left font-medium text-[16px] leading-[1.4] sm:text-[20px] sm:leading-[28px] transition-all cursor-pointer ${
                   selected === value
                     ? "border border-[#1066b9] bg-[#e5f5ff] text-[#04182c]"
                     : "border border-transparent bg-[#f3f7fa] text-[#04182c] hover:bg-gray-200"
