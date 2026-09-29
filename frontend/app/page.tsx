@@ -57,7 +57,7 @@ export default function LandingPage() {
 
           <div className="flex space-x-4 w-full">
             {["Male", "Female"].map((label) => (
-              <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[16px] leading-[22px] sm:text-[20px] sm:leading-[28px] py-[14px] px-8 rounded-[8px] transition-colors">
+              <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[16px] leading-[22px] sm:text-[20px] sm:leading-[28px] py-[15px] sm:py-[14px] px-8 rounded-[8px] transition-colors">
                 {label}
               </Link>
             ))}
