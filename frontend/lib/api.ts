@@ -16,12 +16,12 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-export type Question = { id: number; key: string; prompt: string; position: number };
-export type QuizData = { versionId: number; questions: Question[] };
-export type AttemptResult = { attemptToken: string; result: "HIGH" | "LOW"; score: number; maxScore: number };
-export type LatestAttempt = { result: "HIGH" | "LOW"; score: number; max_score: number; completed_at: string } | null;
-export type User = { id: number; email: string };
-export type AuthResponse = { user: User; latestAttempt: LatestAttempt };
+export interface Question { id: number; key: string; prompt: string; position: number }
+export interface QuizData { versionId: number; questions: Question[] }
+export interface AttemptResult { attemptToken: string; result: "HIGH" | "LOW"; score: number; maxScore: number }
+export interface LatestAttempt { result: "HIGH" | "LOW"; score: number; max_score: number; completed_at: string }
+export interface User { id: number; email: string }
+export interface AuthResponse { user: User; latestAttempt: LatestAttempt | null }
 
 export const api = {
   getActiveQuiz: () => request<QuizData>("/quiz/active"),
