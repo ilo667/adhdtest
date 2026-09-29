@@ -12,7 +12,7 @@ function FloatingTag({ children, className }: { children: ReactNode; className: 
 
 export default function LandingPage() {
   return (
-    <main className="flex-1 flex items-center justify-center bg-[#F7F8FA] px-4 py-8">
+    <main className="flex-1 flex items-center justify-center px-4 py-8">
       <div
         className="w-full max-w-[638px] bg-white rounded-[20px] border border-[#F1F4F7] p-10 flex flex-col items-center"
         style={{ boxShadow: "0px 10px 22px 0px #8393A505, 0px 41px 41px 0px #8393A505, 0px 91px 55px 0px #8393A503, 0px 162px 65px 0px #8393A500, 0px 254px 71px 0px #8393A500" }}
