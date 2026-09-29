@@ -80,7 +80,7 @@ export default function QuizPage() {
         value: val,
       }));
       const result = await api.submitAttempt(quiz.versionId, payload);
-      localStorage.setItem("attemptToken", result.attemptToken);
+      try { localStorage.setItem("attemptToken", result.attemptToken); } catch { /* private mode */ }
       const loggedIn = await api.getMe().then(() => true).catch(() => false);
       router.push(loggedIn ? "/report" : "/register");
     } catch {

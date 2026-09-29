@@ -171,9 +171,10 @@ export default function ReportPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const attemptToken = localStorage.getItem("attemptToken");
+    let attemptToken: string | null = null;
+    try { attemptToken = localStorage.getItem("attemptToken"); } catch { /* private mode */ }
     const load = attemptToken
-      ? api.linkAttempt(attemptToken).then((res) => { localStorage.removeItem("attemptToken"); return res; })
+      ? api.linkAttempt(attemptToken).then((res) => { try { localStorage.removeItem("attemptToken"); } catch { /* private mode */ } return res; })
       : api.getMe();
     load
       .then((res) => setData(res))
@@ -212,7 +213,7 @@ export default function ReportPage() {
 
   const { result, score, maxScore } = data.latestAttempt;
   const isHigh = result === "HIGH";
-  const scorePercent = Math.round((score / maxScore) * 100);
+  const scorePercent = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
 
   return (
     <div className="flex-1 bg-white">

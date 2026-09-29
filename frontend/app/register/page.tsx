@@ -25,9 +25,10 @@ export default function RegisterPage() {
     setError("");
     setLoading(true);
     try {
-      const attemptToken = localStorage.getItem("attemptToken") ?? undefined;
+      let attemptToken: string | undefined;
+      try { attemptToken = localStorage.getItem("attemptToken") ?? undefined; } catch { /* private mode */ }
       await api.register(email, password, attemptToken);
-      localStorage.removeItem("attemptToken");
+      try { localStorage.removeItem("attemptToken"); } catch { /* private mode */ }
       router.push("/report");
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "";
@@ -54,7 +55,9 @@ export default function RegisterPage() {
 
       {step === "email" ? (
         <form onSubmit={handleEmailStep} className="flex flex-col gap-3">
+          <label className="sr-only" htmlFor="register-email">Email</label>
           <input
+            id="register-email"
             type="email"
             placeholder="Email"
             value={email}
@@ -72,13 +75,17 @@ export default function RegisterPage() {
         </form>
       ) : (
         <form onSubmit={handlePasswordStep} className="flex flex-col gap-3">
+          <label className="sr-only" htmlFor="register-email-readonly">Email</label>
           <input
+            id="register-email-readonly"
             type="email"
             value={email}
             readOnly
             className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#04182c] text-sm bg-[#f9fafb] cursor-not-allowed"
           />
+          <label className="sr-only" htmlFor="register-password">Create Password</label>
           <input
+            id="register-password"
             type="password"
             placeholder="Create Password"
             value={password}

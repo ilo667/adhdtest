@@ -35,7 +35,9 @@ export default function LoginPage() {
       </p>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <label className="sr-only" htmlFor="login-email">Email</label>
         <input
+          id="login-email"
           type="email"
           placeholder="Email"
           value={email}
@@ -46,7 +48,9 @@ export default function LoginPage() {
           }`}
         />
         {error && <p className="text-[#aa3a3d] text-xs -mt-1">{error}</p>}
+        <label className="sr-only" htmlFor="login-password">Password</label>
         <input
+          id="login-password"
           type="password"
           placeholder="Password"
           value={password}
