@@ -104,12 +104,12 @@ export default function QuizPage() {
           <h2 className="font-medium text-[32px] leading-[36px] text-[#04182c] text-center mb-10 whitespace-pre-line">
             {question.prompt}
           </h2>
-          <div className="flex flex-col space-y-3">
+          <div className="flex flex-col space-y-4">
             {ANSWER_LABELS.map(({ value, label }) => (
               <button
                 key={value}
                 onClick={() => setSelected(value)}
-                className={`w-full py-4 px-6 rounded-[12px] text-left font-medium text-[20px] leading-[28px] transition-all cursor-pointer ${
+                className={`w-full p-[23px] rounded-[12px] text-left font-medium text-[20px] leading-[28px] transition-all cursor-pointer ${
                   selected === value
                     ? "border border-[#1066b9] bg-[#e5f5ff] text-[#04182c]"
                     : "border border-transparent bg-[#f3f7fa] text-[#04182c] hover:bg-gray-200"
@@ -123,7 +123,7 @@ export default function QuizPage() {
       </main>
 
       {/* Bottom navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 py-4">
+      <div className="fixed bottom-0 left-0 right-0 bg-white p-[40px]">
         <div className="flex items-center justify-between max-w-2xl mx-auto">
           <button
             onClick={handleBack}
@@ -136,7 +136,7 @@ export default function QuizPage() {
             </svg>
           </button>
 
-          <span className="text-sm text-gray-500 font-medium">{current + 1}/{total}</span>
+          <span className="text-[20px] leading-[28px] text-[#485664]">{current + 1}/{total}</span>
 
           <button
             onClick={handleNext}
