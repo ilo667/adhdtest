@@ -30,7 +30,7 @@ export default function QuizPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="flex-1 flex items-center justify-center bg-white">
         <p className="text-red-500 text-center px-4">{error}</p>
       </div>
     );
@@ -38,7 +38,7 @@ export default function QuizPage() {
 
   if (!quiz) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="flex-1 flex items-center justify-center bg-white">
         <p className="text-gray-400 text-center">Loading…</p>
       </div>
     );
@@ -89,7 +89,7 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="flex-1 bg-white flex flex-col">
       {/* Progress bar */}
       <div className="w-full h-1 bg-gray-100">
         <div
