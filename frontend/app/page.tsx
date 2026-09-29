@@ -37,12 +37,11 @@ export default function LandingPage() {
         </p>
 
         <div className="flex gap-4 w-full">
-          <Link href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-semibold py-4 rounded-xl transition-colors">
-            Male
-          </Link>
-          <Link href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-semibold py-4 rounded-xl transition-colors">
-            Female
-          </Link>
+          {["Male", "Female"].map((label) => (
+            <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-semibold py-4 rounded-xl transition-colors">
+              {label}
+            </Link>
+          ))}
         </div>
 
         <Link href="/login" className="mt-5 text-sm text-gray-400 hover:text-[#1066b9] transition-colors">
