@@ -31,7 +31,7 @@ export default function LandingPage() {
         className="w-full max-w-[638px] bg-white rounded-[20px] border border-[#F1F4F7] px-4 py-8 sm:p-10 flex flex-col items-center"
         style={{ boxShadow: "0px 10px 22px 0px #8393A505, 0px 41px 41px 0px #8393A505, 0px 91px 55px 0px #8393A503, 0px 162px 65px 0px #8393A500, 0px 254px 71px 0px #8393A500" }}
       >
-        <div className="relative flex items-center justify-center w-full mb-8 h-[223px] sm:h-[284px]">
+        <div className="relative flex items-center justify-center w-full mb-6 sm:mb-8 h-[223px] sm:h-[284px]">
           <FloatingTag first="High" second="Productivity" className="top-[59px] left-[-1px] sm:top-[39px]" />
           <FloatingTag first="-6%" second="Focus" icon="/arrow-down.svg" paddingClass="px-[6px] py-[4px] sm:px-[11px] sm:py-[7px]" className="top-[124px] left-[12px] sm:top-[163px] sm:left-[23px]" />
           <Image
