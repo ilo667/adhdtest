@@ -6,7 +6,7 @@ import {
   Min,
   ValidateNested,
 } from 'class-validator';
-import { Type, Transform } from 'class-transformer';
+import { Type } from 'class-transformer';
 
 export class QuizAnswerDto {
   @IsInt()
@@ -19,7 +19,6 @@ export class QuizAnswerDto {
 }
 
 export class CreateAttemptDto {
-  @Transform(({ value }) => Number(value))
   @IsInt()
   versionId: number;
 
