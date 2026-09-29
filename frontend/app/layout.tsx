@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geologica, Inter } from "next/font/google";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { BodyBg } from "../components/BodyBg";
 import "./globals.css";
 
 const geologica = Geologica({
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${geologica.variable} ${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <BodyBg />
         <Header />
         {children}
         <Footer />
