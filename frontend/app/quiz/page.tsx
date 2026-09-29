@@ -92,9 +92,9 @@ export default function QuizPage() {
   return (
     <div className="flex-1 bg-white flex flex-col">
       {/* Progress bar */}
-      <div className="w-full h-1 bg-gray-100">
+      <div className="w-full h-1 bg-[#F3F7FA] rounded-[4px]">
         <div
-          className="h-1 bg-[#1066b9] transition-all duration-300"
+          className="h-1 bg-[#1066B9] rounded-[31px] transition-all duration-300"
           style={{ width: `${((current + 1) / total) * 100}%` }}
         />
       </div>
