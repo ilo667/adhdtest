@@ -1,6 +1,9 @@
 INSERT INTO quiz_versions (is_active)
 SELECT TRUE WHERE NOT EXISTS (SELECT 1 FROM quiz_versions WHERE is_active = TRUE);
 
+DELETE FROM questions
+WHERE quiz_version_id IN (SELECT id FROM quiz_versions WHERE is_active = TRUE);
+
 INSERT INTO questions (quiz_version_id, question_key, question_text, position)
 SELECT qv.id, q.question_key, q.question_text, q.position
 FROM quiz_versions qv
@@ -11,5 +14,4 @@ CROSS JOIN (VALUES
   ('focus_in_conversation', 'I find it hard to stay focused during conversations or meetings.', 4),
   ('forget_daily_tasks',    'I often forget about daily tasks like appointments or returning calls.', 5)
 ) AS q(question_key, question_text, position)
-WHERE qv.is_active = TRUE
-ON CONFLICT DO NOTHING;
+WHERE qv.is_active = TRUE;
