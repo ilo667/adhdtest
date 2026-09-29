@@ -101,7 +101,7 @@ export default function QuizPage() {
 
       <main className="flex-1 flex flex-col items-center justify-center px-4 pb-24">
         <div className="w-full max-w-2xl">
-          <h2 className="text-2xl font-bold text-[#04182c] text-center mb-10 leading-snug">
+          <h2 className="font-medium text-[32px] leading-[36px] text-[#04182C] text-center mb-10">
             {question.prompt}
           </h2>
           <div className="flex flex-col space-y-3">
