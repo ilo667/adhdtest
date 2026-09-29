@@ -7,7 +7,7 @@ import { BrainsMateLogo } from "../../components/BrainIcon";
 
 function ScoreGauge({ scorePercent }: { scorePercent: number }) {
   const clamped = Math.max(0, Math.min(100, Math.round(scorePercent)));
-  const cx = clamped === 50 ? 120 : 122, cy = 108;
+  const cx = clamped === 50 ? 118 : 122, cy = 108;
   const needleAngle = 137.04 + (clamped / 100) * 265.92;
   const rotation = needleAngle - 158 + (clamped === 50 ? 1 : 0);
 
