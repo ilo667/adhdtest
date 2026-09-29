@@ -65,7 +65,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
           >
             <span>{item.q}</span>
             <span className={`ml-4 flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center transition-transform ${open === item.q ? "rotate-180" : ""}`}>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="#6b7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
@@ -221,7 +221,7 @@ export default function ReportPage() {
           onClick={handleLogout}
           className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#04182c] transition-colors"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M6 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
           Sign out
