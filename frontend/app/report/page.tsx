@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { api, type AuthResponse } from "../../lib/api";
-import { BrainsMateLogo } from "../../components/BrainsMateLogo";
 
 function ScoreGauge({ scorePercent }: { scorePercent: number }) {
   const clamped = Math.max(0, Math.min(100, Math.round(scorePercent)));
@@ -216,8 +215,7 @@ export default function ReportPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
-        <BrainsMateLogo size={22} />
+      <div className="flex justify-end px-6 py-2 border-b border-gray-100">
         <button
           onClick={handleLogout}
           className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#04182c] transition-colors"
@@ -227,7 +225,7 @@ export default function ReportPage() {
           </svg>
           Sign out
         </button>
-      </header>
+      </div>
 
       <div className="bg-[#f0f2f5] px-6 py-8">
         <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-6">
@@ -268,12 +266,6 @@ export default function ReportPage() {
 
       </div>
 
-      <footer className="bg-[#04182c] px-6 py-8 mt-4">
-        <div className="max-w-2xl mx-auto">
-          <BrainsMateLogo size={22} white />
-          <p className="text-gray-400 text-xs mt-3">All rights reserved 2026</p>
-        </div>
-      </footer>
     </div>
   );
 }

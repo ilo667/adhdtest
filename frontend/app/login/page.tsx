@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { api } from "../../lib/api";
-import { BrainsMateLogo } from "../../components/BrainsMateLogo";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -30,11 +29,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#f0f2f5] px-4">
       <div className="w-full max-w-sm bg-white rounded-3xl shadow-sm p-8">
-        <div className="mb-8">
-          <BrainsMateLogo size={22} />
-        </div>
-
-        <h1 className="text-2xl font-bold text-[#04182c] mb-1">Sign in</h1>
+<h1 className="text-2xl font-bold text-[#04182c] mb-1">Sign in</h1>
         <p className="text-gray-500 text-sm mb-6">
           Welcome back! Let&apos;s continue your learning journey
         </p>

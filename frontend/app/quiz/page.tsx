@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { api, type Question, type QuizData } from "../../lib/api";
-import { BrainsMateLogo } from "../../components/BrainsMateLogo";
 
 const ANSWER_LABELS = [
   { value: 4, label: "Strongly agree" },
@@ -99,11 +98,7 @@ export default function QuizPage() {
         />
       </div>
 
-      <header className="px-6 pt-4 pb-2">
-        <BrainsMateLogo size={22} />
-      </header>
-
-      <main className="flex-1 flex flex-col items-center justify-center px-4 pb-24">
+<main className="flex-1 flex flex-col items-center justify-center px-4 pb-24">
         <div className="w-full max-w-2xl">
           <h2 className="text-2xl font-bold text-[#04182c] text-center mb-10 leading-snug">
             {question.prompt}

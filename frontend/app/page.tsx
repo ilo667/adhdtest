@@ -1,7 +1,6 @@
 import { type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BrainsMateLogo } from "../components/BrainsMateLogo";
 
 function FloatingTag({ children, className }: { children: ReactNode; className: string }) {
   return (
@@ -15,11 +14,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#f0f2f5] px-4 py-8">
       <div className="w-full max-w-lg bg-white rounded-3xl shadow-sm p-8 flex flex-col items-center">
-        <div className="self-start mb-8">
-          <BrainsMateLogo size={26} />
-        </div>
-
-        <div className="relative flex items-center justify-center w-full mb-8" style={{ height: 200 }}>
+<div className="relative flex items-center justify-center w-full mb-8" style={{ height: 200 }}>
           <FloatingTag className="-left-2 top-8">High Productivity</FloatingTag>
           <FloatingTag className="-left-4 bottom-8">↘ -6% Focus</FloatingTag>
           <Image
