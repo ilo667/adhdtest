@@ -13,7 +13,7 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
   const rotation = needleAngle - 158 + blend;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center pr-[98px]">
       <svg viewBox="0 0 241 194" style={{ width: 240 }}>
         <path d="M41.8286 182.677C25.1509 164.445 15.0098 140.368 15.0098 113.973C15.0098 57.0573 62.165 10.9177 120.334 10.9177C178.503 10.9177 225.658 57.0573 225.658 113.973C225.658 140.368 215.517 164.445 198.839 182.677" stroke="#c4d2e9" strokeWidth="21.8353" fill="none" strokeLinecap="round"/>
         <path d="M41.8286 182.677C25.1509 164.444 15.0098 140.368 15.0098 113.973C15.0098 108.21 15.4932 102.558 16.4224 97.0533" stroke="#8cc9ad" strokeWidth="21.8353" fill="none" strokeLinecap="round"/>
@@ -29,8 +29,8 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
           <path d="M83.821 7.86661C82.7085 6.12506 81.2451 4.58784 79.5145 3.34286C77.7839 2.09786 75.8201 1.16951 73.7352 0.610883C71.6504 0.0522536 69.4855 -0.125699 67.3642 0.087202C65.243 0.300095 63.2071 0.899665 61.3728 1.85163L0.000684707 51.3102L78.3291 28.3628C80.1646 27.4127 81.7628 26.1288 83.0323 24.5842C84.3018 23.0397 85.2178 21.2649 85.7279 19.3614C86.2379 17.4579 86.332 15.4629 86.0048 13.4905C85.6777 11.5182 84.9356 9.6071 83.821 7.86661Z" fill="#18334d"/>
         </g>
       </svg>
-      <p className="text-2xl font-bold text-[#04182c] -mt-4">
-        {clamped}{" "}<span className="text-gray-400 text-lg font-normal">/ 100</span>
+      <p className="[font-family:var(--font-geologica)] font-medium text-[24px] leading-[58px] text-[#304f6d] -mt-[26px] text-center">
+        {clamped} / 100
       </p>
     </div>
   );
@@ -217,7 +217,7 @@ if (loading) {
         <div className="max-w-[1080px] mx-auto flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
             <h1 className="font-semibold text-[48px] leading-[58px] text-[#1c2d3f]">Your ADHD score</h1>
-            <p className="font-medium text-[32px] leading-[1.2] text-[#485664] mt-1">
+            <p className="[font-family:var(--font-geologica)] font-medium text-[32px] leading-[1.2] text-[#485664] mt-2">
               {isHigh ? "High ADHD Traits" : "Low ADHD Traits"}
             </p>
           </div>
@@ -225,20 +225,24 @@ if (loading) {
         </div>
       </div>
 
-      <div className="px-6 py-6 border-b border-gray-100 max-w-[1080px] mx-auto w-full">
-        <p className="font-medium leading-[28px] text-[#1c2d3f]">
-          Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
-        </p>
+      <div className="max-w-[1080px] mx-auto w-full border-b border-gray-100">
+        <div className="px-6 py-6">
+          <p className="font-medium leading-[28px] text-[#1c2d3f]">
+            Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
+          </p>
+        </div>
       </div>
 
-      <div className="px-6 py-6 border-b border-gray-100 max-w-[1080px] mx-auto w-full">
-        <div className="border-l-4 border-[#87b3dc] pl-4">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-2">Understanding Your Score</h3>
-          <p className="leading-[28px] text-[#485664]">
-            {isHigh
-              ? "Your score suggests that you exhibit high ADHD traits, meaning that attention difficulties, impulsivity, hyperactivity, and executive dysfunction significantly impact daily life. While these challenges can be frustrating, they are not insurmountable. Many individuals with high ADHD traits develop effective coping mechanisms that allow them to manage difficulties while harnessing their unique strengths."
-              : "Your score suggests minimal ADHD traits. You show a strong ability to focus, self-regulate, and manage daily responsibilities. While occasional challenges may arise, they are unlikely to significantly impact your daily functioning."}
-          </p>
+      <div className="max-w-[1080px] mx-auto w-full border-b border-gray-100">
+        <div className="px-6 py-6">
+          <div className="border-l-4 border-[#87b3dc] pl-4">
+            <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-2">Understanding Your Score</h3>
+            <p className="leading-[28px] text-[#485664]">
+              {isHigh
+                ? "Your score suggests that you exhibit high ADHD traits, meaning that attention difficulties, impulsivity, hyperactivity, and executive dysfunction significantly impact daily life. While these challenges can be frustrating, they are not insurmountable. Many individuals with high ADHD traits develop effective coping mechanisms that allow them to manage difficulties while harnessing their unique strengths."
+                : "Your score suggests minimal ADHD traits. You show a strong ability to focus, self-regulate, and manage daily responsibilities. While occasional challenges may arise, they are unlikely to significantly impact your daily functioning."}
+            </p>
+          </div>
         </div>
       </div>
 

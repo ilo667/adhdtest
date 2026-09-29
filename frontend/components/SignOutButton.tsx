@@ -19,7 +19,7 @@ export function SignOutButton() {
       onClick={handleLogout}
       className="flex items-center space-x-1.5 font-medium text-[16px] leading-[1.5] text-[#1c2d3f] transition-colors"
     >
-      <Image src="/sign-out.svg" alt="" width={16} height={16} aria-hidden />
+      <Image src="/sign-out.svg" alt="" width={20} height={20} aria-hidden />
       Sign out
     </button>
   );
