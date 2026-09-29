@@ -98,41 +98,45 @@ function BulletIcon() {
 function HighContent() {
   return (
     <>
-      <section className="px-6 py-8 border-b border-gray-100">
-        <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-3">Your Cognitive and Behavioral Strengths</h3>
-        <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-4">Despite these challenges, you possess real strengths:</p>
-        <ul className="space-y-2.5">
-          {[
-            "Strong creative problem-solving abilities, adaptability, and enthusiasm",
-            "Ability to think outside the box, offering innovative solutions others would not consider",
-            "Highly energetic and passionate, bringing enthusiasm into projects and conversations",
-            "Resilience — pushing forward despite setbacks",
-            "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
-          ].map((item) => (
-            <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664]">
-              <CheckIcon /> {item}
-            </li>
-          ))}
-        </ul>
+      <section className="px-6 py-8">
+        <div className="max-w-[1080px] mx-auto">
+          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-3">Your Cognitive and Behavioral Strengths</h3>
+          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-4">Despite these challenges, you possess real strengths:</p>
+          <ul className="space-y-2.5">
+            {[
+              "Strong creative problem-solving abilities, adaptability, and enthusiasm",
+              "Ability to think outside the box, offering innovative solutions others would not consider",
+              "Highly energetic and passionate, bringing enthusiasm into projects and conversations",
+              "Resilience — pushing forward despite setbacks",
+              "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
+            ].map((item) => (
+              <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664]">
+                <CheckIcon /> {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
-      <section className="px-6 py-8 border-b border-gray-100">
-        <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-2">Your Emotional Regulation and Impulse Control</h3>
-        <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-4">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
-        <ul className="space-y-2.5 mb-4">
-          {[
-            "Experience intense emotional highs and lows, sometimes reacting impulsively",
-            "Struggle with frustration and impatience, making it difficult to regulate emotions in stressful situations",
-            "Feel overwhelmed by minor setbacks or unexpected changes",
-            "Find it challenging to control impulsive behaviors such as interrupting conversations or making snap decisions",
-          ].map((item) => (
-            <li key={item} className="flex items-start space-x-2.5 leading-[28px] text-[#485664]">
-              <BulletIcon /> {item}
-            </li>
-          ))}
-        </ul>
-        <p className="font-medium leading-[28px] text-[#1c2d3f]">
-          While emotional regulation may be difficult, learning self-awareness techniques and coping strategies can help create more emotional stability.
-        </p>
+      <section className="px-6 py-8">
+        <div className="max-w-[1080px] mx-auto">
+          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-2">Your Emotional Regulation and Impulse Control</h3>
+          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-4">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
+          <ul className="space-y-2.5 mb-4">
+            {[
+              "Experience intense emotional highs and lows, sometimes reacting impulsively",
+              "Struggle with frustration and impatience, making it difficult to regulate emotions in stressful situations",
+              "Feel overwhelmed by minor setbacks or unexpected changes",
+              "Find it challenging to control impulsive behaviors such as interrupting conversations or making snap decisions",
+            ].map((item) => (
+              <li key={item} className="flex items-start space-x-2.5 leading-[28px] text-[#485664]">
+                <BulletIcon /> {item}
+              </li>
+            ))}
+          </ul>
+          <p className="font-medium leading-[28px] text-[#1c2d3f]">
+            While emotional regulation may be difficult, learning self-awareness techniques and coping strategies can help create more emotional stability.
+          </p>
+        </div>
       </section>
     </>
   );
@@ -141,26 +145,30 @@ function HighContent() {
 function LowContent() {
   return (
     <>
-      <section className="px-6 py-8 border-b border-gray-100">
-        <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-4">Your Cognitive and Behavioral Strengths</h3>
-        <ul className="space-y-2.5">
-          {[
-            "Strong ability to sustain attention and complete tasks",
-            "Consistent and reliable in personal and professional responsibilities",
-            "Good impulse control and measured decision-making",
-            "Effective time management and organizational skills",
-          ].map((item) => (
-            <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664]">
-              <CheckIcon /> {item}
-            </li>
-          ))}
-        </ul>
+      <section className="px-6 py-8">
+        <div className="max-w-[1080px] mx-auto">
+          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-4">Your Cognitive and Behavioral Strengths</h3>
+          <ul className="space-y-2.5">
+            {[
+              "Strong ability to sustain attention and complete tasks",
+              "Consistent and reliable in personal and professional responsibilities",
+              "Good impulse control and measured decision-making",
+              "Effective time management and organizational skills",
+            ].map((item) => (
+              <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664]">
+                <CheckIcon /> {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
-      <section className="px-6 py-8 border-b border-gray-100">
-        <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-3">Your Emotional Regulation and Impulse Control</h3>
-        <p className="text-gray-500 leading-relaxed">
-          Your low ADHD traits suggest strong emotional regulation in most situations. You are generally able to manage stress, frustration, and unexpected changes without significant difficulty. Maintaining healthy routines and mindfulness practices can help preserve this stability.
-        </p>
+      <section className="px-6 py-8">
+        <div className="max-w-[1080px] mx-auto">
+          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-3">Your Emotional Regulation and Impulse Control</h3>
+          <p className="text-gray-500 leading-relaxed">
+            Your low ADHD traits suggest strong emotional regulation in most situations. You are generally able to manage stress, frustration, and unexpected changes without significant difficulty. Maintaining healthy routines and mindfulness practices can help preserve this stability.
+          </p>
+        </div>
       </section>
     </>
   );
@@ -225,16 +233,16 @@ if (loading) {
         </div>
       </div>
 
-      <div className="max-w-[1080px] mx-auto w-full border-b border-gray-100">
-        <div className="px-6 py-6">
+      <div className="px-6 py-6">
+        <div className="max-w-[1080px] mx-auto">
           <p className="font-medium leading-[28px] text-[#1c2d3f]">
             Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
           </p>
         </div>
       </div>
 
-      <div className="max-w-[1080px] mx-auto w-full border-b border-gray-100">
-        <div className="px-6 py-6">
+      <div className="px-6 py-6">
+        <div className="max-w-[1080px] mx-auto">
           <div className="border-l-4 border-[#87b3dc] pl-4">
             <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-2">Understanding Your Score</h3>
             <p className="leading-[28px] text-[#485664]">
@@ -246,14 +254,13 @@ if (loading) {
         </div>
       </div>
 
-      <div className="max-w-[1080px] mx-auto w-full">
-        {isHigh ? <HighContent /> : <LowContent />}
+      {isHigh ? <HighContent /> : <LowContent />}
 
-        <section className="px-6 py-8 border-b border-gray-100">
+      <div className="px-6 py-8">
+        <div className="max-w-[1080px] mx-auto">
           <h3 className="font-medium text-[32px] leading-[36px] text-[#04182c] text-center mb-6">Frequently asked questions</h3>
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
-        </section>
-
+        </div>
       </div>
 
       <Footer />
