@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { api, type Question, type QuizData } from "../../lib/api";
+import { api, type QuizData } from "../../lib/api";
 
 const ANSWER_LABELS = [
   { value: 4, label: "Strongly agree" },
@@ -44,7 +44,7 @@ export default function QuizPage() {
     );
   }
 
-  const questions: Question[] = quiz.questions;
+  const questions = quiz.questions;
   const total = questions.length;
   const question = questions[current];
   const isFirst = current === 0;
