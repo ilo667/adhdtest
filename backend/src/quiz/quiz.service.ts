@@ -10,7 +10,6 @@ import { CreateAttemptDto } from './dto/create-attempt.dto';
 interface ActiveQuestionRow {
   version_id: number;
   question_id: number;
-  question_key: string;
   question_text: string;
   position: number;
 }
@@ -29,7 +28,6 @@ export class QuizService {
         SELECT
           qv.id AS version_id,
           q.id  AS question_id,
-          q.question_key,
           q.question_text,
           q.position
         FROM quiz_versions qv
@@ -47,7 +45,6 @@ export class QuizService {
 
     const questions = rows.map((row) => ({
       id: Number(row.question_id),
-      key: row.question_key,
       prompt: row.question_text,
       position: Number(row.position),
     }));
