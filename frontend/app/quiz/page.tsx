@@ -72,13 +72,14 @@ export default function QuizPage() {
       return;
     }
 
+    if (!quiz) return;
     setSubmitting(true);
     try {
       const payload = Object.entries(nextAnswers).map(([qId, val]) => ({
         questionId: Number(qId),
         value: val,
       }));
-      const result = await api.submitAttempt(quiz!.versionId, payload);
+      const result = await api.submitAttempt(quiz.versionId, payload);
       localStorage.setItem("attemptToken", result.attemptToken);
       const loggedIn = await api.getMe().then(() => true).catch(() => false);
       router.push(loggedIn ? "/report" : "/register");
