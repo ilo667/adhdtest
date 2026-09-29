@@ -96,7 +96,7 @@ export class AuthService {
       [userId],
     );
     if (!rows[0]) return null;
-    const { max_score, ...rest } = rows[0];
-    return { ...rest, maxScore: max_score };
+    const { max_score, completed_at, ...rest } = rows[0];
+    return { ...rest, maxScore: max_score, completedAt: completed_at };
   }
 }
