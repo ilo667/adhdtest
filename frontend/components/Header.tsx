@@ -2,7 +2,7 @@ import { BrainsMateLogo } from "./BrainsMateLogo";
 
 export function Header() {
   return (
-    <header className="px-[70px] py-[27px] flex items-center">
+    <header className="p-[19px] sm:px-[70px] sm:py-[27px] flex items-center">
       <BrainsMateLogo />
     </header>
   );

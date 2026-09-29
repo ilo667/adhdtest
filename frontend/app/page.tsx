@@ -26,12 +26,12 @@ function FloatingTag({ first, second, icon, style, className }: { first: string;
 
 export default function LandingPage() {
   return (
-    <main className="flex-1 flex items-start justify-center px-4 pb-16" style={{ paddingTop: 41 }}>
+    <main className="flex-1 flex items-start justify-center px-4 pt-4 sm:pt-[41px] pb-16">
       <div
-        className="w-full max-w-[638px] bg-white rounded-[20px] border border-[#F1F4F7] p-10 flex flex-col items-center"
+        className="w-full max-w-[638px] bg-white rounded-[20px] border border-[#F1F4F7] px-4 py-8 sm:p-10 flex flex-col items-center"
         style={{ boxShadow: "0px 10px 22px 0px #8393A505, 0px 41px 41px 0px #8393A505, 0px 91px 55px 0px #8393A503, 0px 162px 65px 0px #8393A500, 0px 254px 71px 0px #8393A500" }}
       >
-        <div className="relative flex items-center justify-center w-full mb-8" style={{ height: 284 }}>
+        <div className="relative flex items-center justify-center w-full mb-8 h-[223px] sm:h-[284px]">
           <FloatingTag first="High" second="Productivity" style={{ top: 39, left: -1 }} />
           <FloatingTag first="-6%" second="Focus" icon="/arrow-down.svg" style={{ top: 163, left: 23, padding: "7px 11px" }} />
           <Image
@@ -45,7 +45,7 @@ export default function LandingPage() {
           <FloatingTag first="Medium" second="Distractions" style={{ top: 185, right: -1 }} className="text-right" />
         </div>
 
-        <div className="w-full" style={{ padding: '0 33px' }}>
+        <div className="w-full sm:px-[33px]">
           <h1 className="font-semibold text-[24px] leading-[1.2] sm:text-[48px] sm:leading-[58px] text-[#04182c] text-center mb-5">
             Discover Your{" "}
             <span className="text-[#1066b9] block">ADHD Trait Profile</span>

@@ -11,7 +11,7 @@ export function BrainsMateLogo({ white = false }: { white?: boolean }) {
         height={34}
         quality={100}
         priority
-        className="w-[131px] sm:w-[184px]"
+        className="w-[133px] sm:w-[184px]"
       />
     </Link>
   );
