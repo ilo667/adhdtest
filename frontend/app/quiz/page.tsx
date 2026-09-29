@@ -90,7 +90,7 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="flex-1 bg-white flex flex-col">
+    <div className="flex-1 bg-white flex flex-col px-[70px]">
       {/* Progress bar */}
       <div className="w-full h-1 bg-[#F3F7FA] rounded-[4px]">
         <div
