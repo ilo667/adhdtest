@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { api, type AuthResponse } from "../../lib/api";
+import { Footer } from "../../components/Footer";
 
 function ScoreGauge({ scorePercent }: { scorePercent: number }) {
   const clamped = Math.max(0, Math.min(100, Math.round(scorePercent)));
@@ -268,6 +269,7 @@ export default function ReportPage() {
 
       </div>
 
+      <Footer />
     </div>
   );
 }

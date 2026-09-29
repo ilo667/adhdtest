@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geologica, Inter } from "next/font/google";
 import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
 import { BodyBg } from "../components/BodyBg";
 import "./globals.css";
 
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <BodyBg />
         <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
