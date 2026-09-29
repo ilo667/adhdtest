@@ -109,7 +109,7 @@ export default function QuizPage() {
               <button
                 key={value}
                 onClick={() => setSelected(value)}
-                className={`w-full p-[17px] sm:p-[23px] rounded-[12px] text-left font-medium text-[16px] leading-[1.4] sm:text-[20px] sm:leading-[28px] transition-all cursor-pointer ${
+                className={`w-full py-[17px] px-[15px] sm:p-[23px] rounded-[12px] text-left font-medium text-[16px] leading-[1.4] sm:text-[20px] sm:leading-[28px] transition-all cursor-pointer ${
                   selected === value
                     ? "border border-[#1066b9] bg-[#e5f5ff] text-[#04182c]"
                     : "border border-transparent bg-[#f3f7fa] text-[#04182c] hover:bg-gray-200"
@@ -123,7 +123,7 @@ export default function QuizPage() {
       </main>
 
       {/* Bottom navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white p-[40px]">
+      <div className="fixed bottom-0 left-0 right-0 bg-white py-[40px] px-[19px] sm:px-[40px]">
         <div className="flex items-center justify-between max-w-[860px] mx-auto">
           <button
             onClick={handleBack}
