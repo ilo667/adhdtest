@@ -183,12 +183,7 @@ export default function ReportPage() {
       .finally(() => setLoading(false));
   }, [router]);
 
-  async function handleLogout() {
-    await api.logout().catch(() => {});
-    router.push("/");
-  }
-
-  if (loading) {
+if (loading) {
     return (
       <div className="flex-1 flex items-center justify-center">
         <p className="text-gray-400">Loading your report…</p>
@@ -218,19 +213,7 @@ export default function ReportPage() {
 
   return (
     <div className="flex-1 bg-white">
-      <div className="flex justify-end px-6 py-2 border-b border-gray-100">
-        <button
-          onClick={handleLogout}
-          className="flex items-center space-x-1.5 text-sm text-gray-500 hover:text-[#04182c] transition-colors"
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M6 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          Sign out
-        </button>
-      </div>
-
-      <div className="bg-[#f0f2f5] px-6 py-8">
+<div className="bg-[#f0f2f5] px-6 py-8">
         <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-[#04182c]">Your ADHD score</h1>
