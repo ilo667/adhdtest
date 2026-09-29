@@ -20,7 +20,7 @@ export interface Question { id: number; key: string; prompt: string; position: n
 export interface QuizData { versionId: number; questions: Question[] }
 export interface AttemptResult { attemptToken: string; result: "HIGH" | "LOW"; score: number; maxScore: number }
 export interface LatestAttempt { result: "HIGH" | "LOW"; score: number; maxScore: number; completedAt: string }
-export interface User { id: number; email: string }
+interface User { id: number; email: string }
 export interface AuthResponse { user: User; latestAttempt: LatestAttempt | null }
 
 export const api = {
