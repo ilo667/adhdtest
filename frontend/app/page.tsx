@@ -33,7 +33,7 @@ export default function LandingPage() {
       >
         <div className="relative flex items-center justify-center w-full mb-8" style={{ height: 284 }}>
           <FloatingTag first="High" second="Productivity" style={{ top: 39, left: -1 }} />
-          <FloatingTag first="-6%" second="Focus" icon="/arrow-down.svg" style={{ top: 163, left: 23, padding: '7px 11px' }} />
+          <FloatingTag first="-6%" second="Focus" icon="/arrow-down.svg" style={{ top: 163, left: 23, padding: "7px 11px" }} />
           <Image
             src="/head.png"
             alt="Head illustration"
@@ -46,11 +46,11 @@ export default function LandingPage() {
         </div>
 
         <div className="w-full" style={{ padding: '0 33px' }}>
-          <h1 className="font-semibold text-[48px] leading-[58px] text-[#04182c] text-center mb-3">
+          <h1 className="font-semibold text-[48px] leading-[58px] text-[#04182c] text-center mb-5">
             Discover Your{" "}
             <span className="text-[#1066b9] block">ADHD Trait Profile</span>
           </h1>
-          <p className="text-[20px] leading-[28px] text-[#1C2D3F] text-center mb-8">
+          <p className="text-[20px] leading-[28px] text-[#1C2D3F] text-center mb-[40px]">
             Find out how ADHD traits influence your focus, energy, and daily life
           </p>
 
