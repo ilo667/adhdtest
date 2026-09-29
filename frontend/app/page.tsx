@@ -23,7 +23,7 @@ export default function LandingPage() {
           <FloatingTag className="-left-2 top-8">High Productivity</FloatingTag>
           <FloatingTag className="-left-4 bottom-8">↘ -6% Focus</FloatingTag>
           <Image
-            src="/head-illustration@2x.png"
+            src="/head.png"
             alt="Head illustration"
             width={273}
             height={237}
