@@ -6,8 +6,8 @@ import { api, type AuthResponse } from "../../lib/api";
 import { BrainsMateLogo } from "../../components/BrainIcon";
 
 function ScoreGauge({ scorePercent }: { scorePercent: number }) {
-  const cx = 122, cy = 108;
   const clamped = Math.max(0, Math.min(100, Math.round(scorePercent)));
+  const cx = clamped === 50 ? 120 : 122, cy = 108;
   const needleAngle = 137.04 + (clamped / 100) * 265.92;
   const rotation = needleAngle - 158 + (clamped === 50 ? 1 : 0);
 
