@@ -90,7 +90,7 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="flex-1 bg-white flex flex-col px-[70px]">
+    <div className="flex-1 bg-white flex flex-col">
       {/* Progress bar */}
       <div className="w-full h-1 bg-[#f3f7fa] rounded-[4px]">
         <div
@@ -99,7 +99,7 @@ export default function QuizPage() {
         />
       </div>
 
-      <main className="flex-1 flex flex-col items-center justify-center px-4 pb-24">
+      <main className="flex-1 flex flex-col items-center justify-center px-[70px] pb-24">
         <div className="w-full max-w-2xl">
           <h2 className="font-medium text-[32px] leading-[36px] text-[#04182c] text-center mb-10">
             {question.prompt}
