@@ -60,6 +60,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
         <div key={item.q}>
           <button
             onClick={() => setOpen(open === item.q ? null : item.q)}
+            aria-expanded={open === item.q}
             className="w-full flex items-center justify-between py-4 text-left text-sm font-medium text-[#04182c]"
           >
             <span>{item.q}</span>
@@ -78,7 +79,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
 
 function CheckIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 mt-0.5">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="flex-shrink-0 mt-0.5">
       <circle cx="9" cy="9" r="8.5" stroke="#2a9d8f" strokeWidth="1"/>
       <path d="M5.5 9L7.5 11L12.5 7" stroke="#2a9d8f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
@@ -87,7 +88,7 @@ function CheckIcon() {
 
 function BulletIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0 mt-1">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="flex-shrink-0 mt-1">
       <circle cx="8" cy="8" r="3" fill="#9ca3af"/>
     </svg>
   );
