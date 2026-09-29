@@ -216,15 +216,6 @@ export default function ReportPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* TEMP: gauge preview grid */}
-      <div className="bg-[#f0f2f5] p-6 grid grid-cols-3 gap-4">
-        {[0, 10, 20, 50, 75, 100].map((pct) => (
-          <div key={pct} className="flex flex-col items-center">
-            <ScoreGauge scorePercent={pct} />
-            <p className="text-sm font-semibold mt-1">{pct}%</p>
-          </div>
-        ))}
-      </div>
       <header className="px-6 py-4 flex items-center justify-between border-b border-gray-100">
         <BrainsMateLogo size={22} />
         <button
