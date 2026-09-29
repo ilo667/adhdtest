@@ -10,11 +10,13 @@ import { DatabaseService } from '../database/database.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 
-interface UserRow { id: number; email: string; password_hash: string; created_at: Date }
+interface UserRow { id: number; email: string; password_hash: string }
 interface AttemptRow { result: string; score: number; max_score: number; completed_at: Date }
 
 @Injectable()
 export class AuthService {
+  private readonly jwtSecret = process.env.JWT_SECRET ?? 'dev-secret-change-me';
+
   constructor(private readonly db: DatabaseService) {}
 
   async register(dto: RegisterDto) {
@@ -30,7 +32,7 @@ export class AuthService {
     let user: UserRow;
     try {
       const { rows } = await this.db.query<UserRow>(
-        'INSERT INTO users (email, password_hash) VALUES ($1, $2) RETURNING id, email, created_at',
+        'INSERT INTO users (email, password_hash) VALUES ($1, $2) RETURNING id, email',
         [dto.email, hash],
       );
       user = rows[0];
@@ -47,7 +49,7 @@ export class AuthService {
       );
     }
 
-    const token = jwt.sign({ sub: user.id, email: user.email }, process.env.JWT_SECRET ?? 'dev-secret-change-me', { expiresIn: '7d' });
+    const token = jwt.sign({ sub: user.id, email: user.email }, this.jwtSecret, { expiresIn: '7d' });
     const latestAttempt = await this.getLatestAttempt(user.id);
     return { user: { id: user.id, email: user.email }, token, latestAttempt };
   }
@@ -63,14 +65,14 @@ export class AuthService {
     const valid = await bcrypt.compare(dto.password, user.password_hash);
     if (!valid) throw new UnauthorizedException('Invalid credentials');
 
-    const token = jwt.sign({ sub: user.id, email: user.email }, process.env.JWT_SECRET ?? 'dev-secret-change-me', { expiresIn: '7d' });
+    const token = jwt.sign({ sub: user.id, email: user.email }, this.jwtSecret, { expiresIn: '7d' });
     const latestAttempt = await this.getLatestAttempt(user.id);
     return { user: { id: user.id, email: user.email }, token, latestAttempt };
   }
 
   async getMe(userId: number) {
     const { rows } = await this.db.query<UserRow>(
-      'SELECT id, email, created_at FROM users WHERE id = $1',
+      'SELECT id, email FROM users WHERE id = $1',
       [userId],
     );
     if (!rows.length) throw new UnauthorizedException('User not found');
