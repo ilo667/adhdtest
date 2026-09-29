@@ -51,7 +51,7 @@ export default function LandingPage() {
             Discover Your{" "}
             <span className="text-[#1066b9] block">ADHD Trait Profile</span>
           </h1>
-          <p className="text-[16px] leading-[1.4] sm:text-[20px] sm:leading-[28px] text-[#1C2D3F] text-center mb-[40px]">
+          <p className="text-[16px] leading-[1.4] sm:text-[20px] sm:leading-[28px] text-[#1C2D3F] text-center mb-[38px] sm:mb-[40px]">
             Find out how ADHD traits influence your focus, energy, and daily life
           </p>
 
