@@ -221,7 +221,7 @@ if (loading) {
 
   return (
     <div className="flex-1 bg-white">
-<div className="bg-[#f1f4f7] px-6 py-8">
+<div className="bg-[#f1f4f7] px-6 pt-[40px] pb-8">
         <div className="max-w-[1080px] mx-auto flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
             <h1 className="font-semibold text-[48px] leading-[58px] text-[#1c2d3f]">Your ADHD score</h1>
