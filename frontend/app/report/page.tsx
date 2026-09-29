@@ -109,7 +109,7 @@ function HighContent() {
             "Resilience — pushing forward despite setbacks",
             "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
           ].map((item) => (
-            <li key={item} className="flex items-start gap-3 text-sm text-[#04182c]">
+            <li key={item} className="flex items-start space-x-3 text-sm text-[#04182c]">
               <CheckIcon /> {item}
             </li>
           ))}
@@ -125,7 +125,7 @@ function HighContent() {
             "Feel overwhelmed by minor setbacks or unexpected changes",
             "Find it challenging to control impulsive behaviors such as interrupting conversations or making snap decisions",
           ].map((item) => (
-            <li key={item} className="flex items-start gap-2.5 text-sm text-gray-500">
+            <li key={item} className="flex items-start space-x-2.5 text-sm text-gray-500">
               <BulletIcon /> {item}
             </li>
           ))}
@@ -150,7 +150,7 @@ function LowContent() {
             "Good impulse control and measured decision-making",
             "Effective time management and organizational skills",
           ].map((item) => (
-            <li key={item} className="flex items-start gap-3 text-sm text-[#04182c]">
+            <li key={item} className="flex items-start space-x-3 text-sm text-[#04182c]">
               <CheckIcon /> {item}
             </li>
           ))}
@@ -221,7 +221,7 @@ export default function ReportPage() {
       <div className="flex justify-end px-6 py-2 border-b border-gray-100">
         <button
           onClick={handleLogout}
-          className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#04182c] transition-colors"
+          className="flex items-center space-x-1.5 text-sm text-gray-500 hover:text-[#04182c] transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M6 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -231,7 +231,7 @@ export default function ReportPage() {
       </div>
 
       <div className="bg-[#f0f2f5] px-6 py-8">
-        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-6">
+        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
             <h1 className="text-2xl font-bold text-[#04182c]">Your ADHD score</h1>
             <p className="text-[#1066b9] font-semibold text-lg mt-1">

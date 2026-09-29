@@ -9,7 +9,7 @@ function FloatingTag({ first, second, icon, style, className }: { first: string;
       style={{ background: "#F1F4F780", ...style }}
     >
       {icon ? (
-        <span className="flex items-center gap-1 font-medium text-[20px] leading-[28px]">
+        <span className="flex items-center space-x-1 font-medium text-[20px] leading-[28px]">
           <Image src={icon} alt="" width={24} height={24} aria-hidden />
           <span className="text-[#1066B9]">{first}</span>
           <span className="text-[#3B5779]">{second}</span>
@@ -54,7 +54,7 @@ export default function LandingPage() {
             Find out how ADHD traits influence your focus, energy, and daily life
           </p>
 
-          <div className="flex gap-4 w-full">
+          <div className="flex space-x-4 w-full">
             {["Male", "Female"].map((label) => (
               <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[20px] leading-[28px] py-[14px] px-8 rounded-[8px] transition-colors">
                 {label}

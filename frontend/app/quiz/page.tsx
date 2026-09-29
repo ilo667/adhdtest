@@ -104,7 +104,7 @@ export default function QuizPage() {
           <h2 className="text-2xl font-bold text-[#04182c] text-center mb-10 leading-snug">
             {question.prompt}
           </h2>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col space-y-3">
             {ANSWER_LABELS.map(({ value, label }) => (
               <button
                 key={value}

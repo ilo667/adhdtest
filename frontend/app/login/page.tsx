@@ -34,7 +34,7 @@ export default function LoginPage() {
         Welcome back! Let&apos;s continue your learning journey
       </p>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
         <label className="sr-only" htmlFor="login-email">Email</label>
         <input
           id="login-email"

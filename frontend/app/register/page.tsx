@@ -54,7 +54,7 @@ export default function RegisterPage() {
       </p>
 
       {step === "email" ? (
-        <form onSubmit={handleEmailStep} className="flex flex-col gap-3">
+        <form onSubmit={handleEmailStep} className="flex flex-col space-y-3">
           <label className="sr-only" htmlFor="register-email">Email</label>
           <input
             id="register-email"
@@ -74,7 +74,7 @@ export default function RegisterPage() {
           </button>
         </form>
       ) : (
-        <form onSubmit={handlePasswordStep} className="flex flex-col gap-3">
+        <form onSubmit={handlePasswordStep} className="flex flex-col space-y-3">
           <label className="sr-only" htmlFor="register-email-readonly">Email</label>
           <input
             id="register-email-readonly"
