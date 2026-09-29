@@ -62,7 +62,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
           <button
             onClick={() => setOpen(open === item.q ? null : item.q)}
             aria-expanded={open === item.q}
-            className="w-full flex items-center justify-between py-4 text-left text-sm font-medium text-[#04182c]"
+            className="w-full flex items-center justify-between py-4 text-left font-medium text-[#04182c]"
           >
             <span>{item.q}</span>
             <span className={`ml-4 flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center transition-transform ${open === item.q ? "rotate-180" : ""}`}>
@@ -71,7 +71,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
               </svg>
             </span>
           </button>
-          {open === item.q && <p className="pb-4 text-sm text-gray-500 leading-relaxed">{item.a}</p>}
+          {open === item.q && <p className="pb-4 text-gray-500 leading-relaxed">{item.a}</p>}
         </div>
       ))}
     </div>
@@ -100,7 +100,7 @@ function HighContent() {
     <>
       <section className="px-6 py-8 border-b border-gray-100">
         <h2 className="text-lg font-bold text-[#04182c] mb-3">Your Cognitive and Behavioral Strengths</h2>
-        <p className="text-sm text-gray-500 mb-4">Despite these challenges, you possess real strengths:</p>
+        <p className="text-gray-500 mb-4">Despite these challenges, you possess real strengths:</p>
         <ul className="space-y-2.5">
           {[
             "Strong creative problem-solving abilities, adaptability, and enthusiasm",
@@ -109,7 +109,7 @@ function HighContent() {
             "Resilience — pushing forward despite setbacks",
             "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
           ].map((item) => (
-            <li key={item} className="flex items-start space-x-3 text-sm text-[#04182c]">
+            <li key={item} className="flex items-start space-x-3 text-[#04182c]">
               <CheckIcon /> {item}
             </li>
           ))}
@@ -117,7 +117,7 @@ function HighContent() {
       </section>
       <section className="px-6 py-8 border-b border-gray-100">
         <h2 className="text-lg font-bold text-[#04182c] mb-2">Your Emotional Regulation and Impulse Control</h2>
-        <p className="text-sm text-gray-500 mb-4">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
+        <p className="text-gray-500 mb-4">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
         <ul className="space-y-2.5 mb-4">
           {[
             "Experience intense emotional highs and lows, sometimes reacting impulsively",
@@ -125,12 +125,12 @@ function HighContent() {
             "Feel overwhelmed by minor setbacks or unexpected changes",
             "Find it challenging to control impulsive behaviors such as interrupting conversations or making snap decisions",
           ].map((item) => (
-            <li key={item} className="flex items-start space-x-2.5 text-sm text-gray-500">
+            <li key={item} className="flex items-start space-x-2.5 text-gray-500">
               <BulletIcon /> {item}
             </li>
           ))}
         </ul>
-        <p className="text-sm text-gray-500 italic">
+        <p className="text-gray-500 italic">
           While emotional regulation may be difficult, learning self-awareness techniques and coping strategies can help create more emotional stability.
         </p>
       </section>
@@ -150,7 +150,7 @@ function LowContent() {
             "Good impulse control and measured decision-making",
             "Effective time management and organizational skills",
           ].map((item) => (
-            <li key={item} className="flex items-start space-x-3 text-sm text-[#04182c]">
+            <li key={item} className="flex items-start space-x-3 text-[#04182c]">
               <CheckIcon /> {item}
             </li>
           ))}
@@ -158,7 +158,7 @@ function LowContent() {
       </section>
       <section className="px-6 py-8 border-b border-gray-100">
         <h2 className="text-lg font-bold text-[#04182c] mb-3">Your Emotional Regulation and Impulse Control</h2>
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="text-gray-500 leading-relaxed">
           Your low ADHD traits suggest strong emotional regulation in most situations. You are generally able to manage stress, frustration, and unexpected changes without significant difficulty. Maintaining healthy routines and mindfulness practices can help preserve this stability.
         </p>
       </section>
@@ -213,11 +213,11 @@ if (loading) {
 
   return (
     <div className="flex-1 bg-white">
-<div className="bg-[#f0f2f5] px-6 py-8">
+<div className="bg-[#f1f4f7] px-6 py-8">
         <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
-            <h1 className="text-2xl font-bold text-[#04182c]">Your ADHD score</h1>
-            <p className="text-[#1066b9] font-semibold text-lg mt-1">
+            <h1 className="font-semibold text-[48px] leading-[58px] text-[#1c2d3f]">Your ADHD score</h1>
+            <p className="font-medium text-[32px] leading-[1.2] text-[#485664] mt-1">
               {isHigh ? "High ADHD Traits" : "Low ADHD Traits"}
             </p>
           </div>
@@ -226,7 +226,7 @@ if (loading) {
       </div>
 
       <div className="px-6 py-6 border-b border-gray-100 max-w-2xl mx-auto w-full">
-        <p className="text-sm text-gray-500 leading-relaxed">
+        <p className="text-gray-500 leading-relaxed">
           Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
         </p>
       </div>
@@ -234,7 +234,7 @@ if (loading) {
       <div className="px-6 py-6 border-b border-gray-100 max-w-2xl mx-auto w-full">
         <div className="border-l-4 border-[#1066b9] pl-4">
           <h2 className="text-base font-bold text-[#04182c] mb-2">Understanding Your Score</h2>
-          <p className="text-sm text-gray-500 leading-relaxed">
+          <p className="text-gray-500 leading-relaxed">
             {isHigh
               ? "Your score suggests that you exhibit high ADHD traits, meaning that attention difficulties, impulsivity, hyperactivity, and executive dysfunction significantly impact daily life. While these challenges can be frustrating, they are not insurmountable. Many individuals with high ADHD traits develop effective coping mechanisms that allow them to manage difficulties while harnessing their unique strengths."
               : "Your score suggests minimal ADHD traits. You show a strong ability to focus, self-regulate, and manage daily responsibilities. While occasional challenges may arise, they are unlikely to significantly impact your daily functioning."}

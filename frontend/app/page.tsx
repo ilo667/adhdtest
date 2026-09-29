@@ -9,15 +9,15 @@ function FloatingTag({ first, second, icon, paddingClass, className }: { first: 
       style={{ background: "#f1f4f780" }}
     >
       {icon ? (
-        <span className="flex items-center space-x-1 font-medium text-[12px] leading-[16px] sm:text-[20px] sm:leading-[28px]">
+        <span className="flex items-center space-x-1 font-medium text-[12px] leading-[16px] sm:text-sm sm:leading-[28px]">
           <Image src={icon} alt="" width={24} height={24} aria-hidden className="w-[14px] sm:w-[24px]" />
           <span className="text-[#1066b9]">{first}</span>
           <span className="text-[#3b5779]">{second}</span>
         </span>
       ) : (
         <>
-          <span className="font-medium text-[12px] leading-[16px] sm:text-[20px] sm:leading-[28px] text-[#1066b9]">{first}</span>
-          <span className="font-medium text-[12px] leading-[16px] sm:text-[20px] sm:leading-[28px] text-[#3b5779]">{second}</span>
+          <span className="font-medium text-[12px] leading-[16px] sm:text-sm sm:leading-[28px] text-[#1066b9]">{first}</span>
+          <span className="font-medium text-[12px] leading-[16px] sm:text-sm sm:leading-[28px] text-[#3b5779]">{second}</span>
         </>
       )}
     </span>
@@ -51,13 +51,13 @@ export default function LandingPage() {
             Discover Your{" "}
             <span className="text-[#1066b9] block">ADHD Trait Profile</span>
           </h1>
-          <p className="text-[16px] leading-[1.4] sm:text-[20px] sm:leading-[28px] text-[#1c2d3f] text-center mb-[38px] sm:mb-[40px]">
+          <p className="text-[16px] leading-[1.4] sm:text-sm sm:leading-[28px] text-[#1c2d3f] text-center mb-[38px] sm:mb-[40px]">
             Find out how ADHD traits influence your focus, energy, and daily life
           </p>
 
           <div className="flex space-x-4 w-full">
             {["Male", "Female"].map((label) => (
-              <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[16px] leading-[22px] sm:text-[20px] sm:leading-[28px] py-[15px] sm:py-[14px] px-8 rounded-[8px] transition-colors">
+              <Link key={label} href="/quiz" className="flex-1 text-center bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[16px] leading-[22px] sm:text-sm sm:leading-[28px] py-[15px] sm:py-[14px] px-8 rounded-[8px] transition-colors">
                 {label}
               </Link>
             ))}
