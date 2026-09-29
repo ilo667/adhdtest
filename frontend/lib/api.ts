@@ -16,7 +16,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return res.json() as Promise<T>;
 }
 
-export interface Question { id: number; key: string; prompt: string; position: number }
+export interface Question { id: number; prompt: string; position: number }
 export interface QuizData { versionId: number; questions: Question[] }
 export interface AttemptResult { attemptToken: string; result: "HIGH" | "LOW"; score: number; maxScore: number }
 export interface LatestAttempt { result: "HIGH" | "LOW"; score: number; maxScore: number; completedAt: string }
