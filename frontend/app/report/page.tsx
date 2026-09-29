@@ -53,23 +53,23 @@ const LOW_FAQS = [
 ];
 
 function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<string | null>(items[0]?.q ?? null);
   return (
     <div className="divide-y divide-gray-100">
-      {items.map((item, i) => (
-        <div key={i}>
+      {items.map((item) => (
+        <div key={item.q}>
           <button
-            onClick={() => setOpen(open === i ? null : i)}
+            onClick={() => setOpen(open === item.q ? null : item.q)}
             className="w-full flex items-center justify-between py-4 text-left text-sm font-medium text-[#04182c]"
           >
             <span>{item.q}</span>
-            <span className={`ml-4 flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center transition-transform ${open === i ? "rotate-180" : ""}`}>
+            <span className={`ml-4 flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center transition-transform ${open === item.q ? "rotate-180" : ""}`}>
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                 <path d="M2 3.5L5 6.5L8 3.5" stroke="#6b7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
           </button>
-          {open === i && <p className="pb-4 text-sm text-gray-500 leading-relaxed">{item.a}</p>}
+          {open === item.q && <p className="pb-4 text-sm text-gray-500 leading-relaxed">{item.a}</p>}
         </div>
       ))}
     </div>
@@ -106,8 +106,8 @@ function HighContent() {
             "Highly energetic and passionate, bringing enthusiasm into projects and conversations",
             "Resilience — pushing forward despite setbacks",
             "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
-          ].map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-sm text-[#04182c]">
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3 text-sm text-[#04182c]">
               <CheckIcon /> {item}
             </li>
           ))}
@@ -122,8 +122,8 @@ function HighContent() {
             "Struggle with frustration and impatience, making it difficult to regulate emotions in stressful situations",
             "Feel overwhelmed by minor setbacks or unexpected changes",
             "Find it challenging to control impulsive behaviors such as interrupting conversations or making snap decisions",
-          ].map((item, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm text-gray-500">
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-2.5 text-sm text-gray-500">
               <BulletIcon /> {item}
             </li>
           ))}
@@ -147,8 +147,8 @@ function LowContent() {
             "Consistent and reliable in personal and professional responsibilities",
             "Good impulse control and measured decision-making",
             "Effective time management and organizational skills",
-          ].map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-sm text-[#04182c]">
+          ].map((item) => (
+            <li key={item} className="flex items-start gap-3 text-sm text-[#04182c]">
               <CheckIcon /> {item}
             </li>
           ))}
