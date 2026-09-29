@@ -8,11 +8,18 @@ function FloatingTag({ first, second, icon, style }: { first: string; second: st
       className="absolute flex flex-col rounded-[10px] px-6 py-2 border border-[#F1F4F7] whitespace-nowrap"
       style={{ background: "#F1F4F780", ...style }}
     >
-      <span className="flex items-center gap-1 font-medium text-[20px] leading-[28px] text-[#1066B9]">
-        {icon && <Image src={icon} alt="" width={24} height={24} aria-hidden />}
-        {first}
-      </span>
-      <span className="font-medium text-[20px] leading-[28px] text-[#3B5779]">{second}</span>
+      {icon ? (
+        <span className="flex items-center gap-1 font-medium text-[20px] leading-[28px]">
+          <Image src={icon} alt="" width={24} height={24} aria-hidden />
+          <span className="text-[#1066B9]">{first}</span>
+          <span className="text-[#3B5779]">{second}</span>
+        </span>
+      ) : (
+        <>
+          <span className="font-medium text-[20px] leading-[28px] text-[#1066B9]">{first}</span>
+          <span className="font-medium text-[20px] leading-[28px] text-[#3B5779]">{second}</span>
+        </>
+      )}
     </span>
   );
 }
