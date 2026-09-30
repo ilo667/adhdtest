@@ -3,7 +3,7 @@
 Full-stack ADHD quiz with personalised report.  
 Flow: **Landing → Quiz → Account Creation → Report → Sign In**
 
-Stack: **NestJS** (backend) · **Next.js 16 App Router** (frontend) · **PostgreSQL** · **Vercel** (deployment)
+Stack: **NestJS** (backend) · **Next.js App Router** (frontend) · **PostgreSQL** · **Tailwind CSS v4** · **Vercel** (deployment)
 
 ---
 
@@ -16,29 +16,38 @@ adhdtest/
 │   ├── src/
 │   │   ├── app.module.ts         # Root module — wires everything together
 │   │   ├── main.ts               # Bootstrap: CORS, ValidationPipe, cookieParser
-│   │   ├── auth/                 # Auth module: register, login, /customer, logout
-│   │   │   ├── auth.controller.ts
+│   │   ├── auth/                 # Auth module
+│   │   │   ├── auth.controller.ts  # POST /auth/register, /auth/login, /auth/logout
+│   │   │   │                       # GET  /auth/customer (JWT-guarded, returns user + latest attempt)
+│   │   │   │                       # POST /auth/link-attempt (links anonymous attempt on register)
 │   │   │   ├── auth.service.ts
-│   │   │   ├── jwt-auth.guard.ts # Custom guard: reads JWT from httpOnly cookie
-│   │   │   └── dto/              # RegisterDto, LoginDto (class-validator)
-│   │   ├── quiz/                 # Quiz module: serve active quiz, accept attempts
-│   │   │   ├── quiz.controller.ts
+│   │   │   ├── jwt-auth.guard.ts   # Reads JWT from httpOnly cookie
+│   │   │   └── dto/                # RegisterDto, LoginDto (class-validator)
+│   │   ├── quiz/                 # Quiz module
+│   │   │   ├── quiz.controller.ts  # GET /quiz/active, POST /quiz/attempts
 │   │   │   ├── quiz.service.ts
-│   │   │   └── dto/              # CreateAttemptDto with nested QuizAnswerDto
+│   │   │   └── dto/                # CreateAttemptDto with nested QuizAnswerDto
 │   │   └── database/             # Global pg Pool — injected across modules
 │   └── sql/
 │       ├── schema.sql            # DDL — idempotent (IF NOT EXISTS + ALTER migrations)
 │       └── seed.sql              # Quiz v1 with 5 ADHD screening questions
 │
-└── frontend/                     # Next.js 16 App Router
+└── frontend/                     # Next.js App Router
     ├── app/
-    │   ├── page.tsx              # Landing — gender selection → quiz
-    │   ├── quiz/page.tsx         # One question at a time, arrow navigation
-    │   ├── register/page.tsx     # Two-step: email → password
+    │   ├── globals.css           # Tailwind v4 @theme inline: font-size + line-height tokens
+    │   ├── layout.tsx            # Root layout: Geologica + Inter fonts, Header, BodyBg
+    │   ├── page.tsx              # Landing — floating tags, hero, Start Test CTA
+    │   ├── quiz/page.tsx         # One question at a time, progress bar, arrow navigation
+    │   ├── register/page.tsx     # Two-step flow: email → password
     │   ├── login/page.tsx        # Sign in
-    │   └── report/page.tsx       # HIGH / LOW report with score gauge, FAQ
+    │   └── report/page.tsx       # HIGH / LOW report: score gauge SVG, sections, FAQ accordion
     ├── components/
-    │   └── BrainIcon.tsx         # Shared logo component
+    │   ├── AuthCard.tsx          # Shared wrapper for register and login pages
+    │   ├── BodyBg.tsx            # White body background
+    │   ├── BrainsMateLogo.tsx    # Logo image, accepts white + className props
+    │   ├── Footer.tsx            # Footer with logo, copyright, rounded top corners
+    │   ├── Header.tsx            # Client component — route-aware mobile padding
+    │   └── SignOutButton.tsx     # Sign out with icon
     └── lib/
         └── api.ts                # Typed fetch wrapper — single source of truth for all API calls
 ```
@@ -54,8 +63,8 @@ users
   password_hash VARCHAR          -- bcrypt, 10 rounds
 
 quiz_versions
-  id        BIGSERIAL PK
-  is_active BOOLEAN              -- enforced unique at DB level: only one active at a time
+  id         BIGSERIAL PK
+  is_active  BOOLEAN             -- enforced unique at DB level: only one active at a time
   created_at TIMESTAMPTZ
 
 questions
@@ -79,13 +88,13 @@ answers
   id           BIGSERIAL PK
   attempt_id   FK → quiz_attempts
   question_id  FK → questions
-  answer_value INTEGER (0–4)    -- Strongly Disagree=0 … Strongly Agree=4
+  answer_value INTEGER (0–3)    -- Strongly Disagree=0 … Strongly Agree=3
   UNIQUE (attempt_id, question_id)
 ```
 
 ### Scoring
 
-5-point Likert scale per question (0–4). **Result is HIGH** if 2 or more answers have value ≥ 3 (Agree / Strongly Agree). Result and score are computed server-side at submission and stored immutably — re-scoring old attempts after a logic change does not affect historical results.
+4-point Likert scale per question (0–3). **Result is HIGH** if 2 or more answers have value ≥ 2 (Agree / Strongly Agree). Result and score are computed server-side at submission and stored immutably — re-scoring old attempts after a logic change does not affect historical results.
 
 ---
 
@@ -106,6 +115,9 @@ Tokens are never accessible to JavaScript, which eliminates XSS-based token thef
 **Raw `pg` over ORM**  
 Raw SQL keeps queries explicit and avoids the abstraction layer that hides what actually happens in the database. For a schema this simple and stable, an ORM adds complexity without proportional benefit. Schema changes are managed via idempotent `schema.sql` with `ALTER TABLE` migrations appended as needed.
 
+**Mobile-first responsive design**  
+Tailwind CSS v4 with `@theme inline` overrides: `--text-base: 14px / 20px` (mobile body) and `--text-sm: 20px / 28px` (desktop body). All layout uses unprefixed classes for mobile and `sm:` for ≥640px. The `Header` component is a client component that reads `usePathname()` to apply compact padding on the report page only.
+
 ---
 
 ## Trade-offs
@@ -121,6 +133,25 @@ Raw SQL keeps queries explicit and avoids the abstraction layer that hides what 
 
 **Why the login error message is generic**  
 The login form always returns "Invalid email or password." regardless of whether the email exists or the password is wrong. A specific message like "No account found" would allow an attacker to probe which emails are registered in the system — sending thousands of requests to discover valid accounts (user enumeration). A generic message makes both failure cases indistinguishable, eliminating that attack vector at zero implementation cost.
+
+---
+
+## Local Setup
+
+```bash
+# 1. Database
+psql -d your_db -f backend/sql/schema.sql
+psql -d your_db -f backend/sql/seed.sql
+
+# 2. Backend (.env)
+# DATABASE_URL=postgres://...
+# JWT_SECRET=your-secret
+
+cd backend && npm install && npm run start:dev   # port 3001
+
+# 3. Frontend
+cd frontend && npm install && npm run dev        # port 3000
+```
 
 ---
 
