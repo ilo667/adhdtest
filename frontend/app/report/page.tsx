@@ -62,7 +62,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
           <button
             onClick={() => setOpen(open === item.q ? null : item.q)}
             aria-expanded={open === item.q}
-            className={`w-full flex items-center justify-between p-[8px] text-left cursor-pointer border-b border-[#e8edf2] sm:p-[12px] ${open === item.q ? "" : "mb-[15px]"}`}
+            className={`w-full flex items-center justify-between p-[8px] text-left cursor-pointer border-b border-[#e8edf2] sm:p-[12px] ${open === item.q ? "" : "mb-[11px] sm:mb-[15px]"}`}
           >
             <span className="[font-family:var(--font-geologica)] font-medium text-[18px] leading-[1.2] text-[#1c2d3f] sm:text-[24px] sm:leading-[26px]">{item.q}</span>
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className={`ml-4 flex-shrink-0 transition-transform w-6 h-6 sm:w-9 sm:h-9 ${open === item.q ? "rotate-180" : ""}`}>
@@ -70,7 +70,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
               <path d="M24 15.0246C24 14.9238 23.9602 14.8207 23.8828 14.7434C23.7281 14.5887 23.475 14.5887 23.3203 14.7434L18.0258 20.0379L12.8086 14.8207C12.6539 14.666 12.4008 14.666 12.2461 14.8207C12.0914 14.9754 12.0914 15.2285 12.2461 15.3832L17.7445 20.884C17.8992 21.0387 18.1523 21.0387 18.307 20.884L23.8828 15.3082C23.9625 15.2285 24 15.1277 24 15.0246Z" fill="#377ec1"/>
             </svg>
           </button>
-          {open === item.q && <div className="py-[11px] px-[8px] sm:px-[12px] sm:pb-[32px]"><p className="text-[16px] leading-[22px] text-[#1c2d3f] max-w-[940px] sm:text-sm">{item.a}</p></div>}
+          {open === item.q && <div className="pt-[11px] pb-[29px] px-[8px] sm:px-[12px] sm:pb-[32px]"><p className="text-[16px] leading-[22px] text-[#1c2d3f] max-w-[940px] sm:text-sm">{item.a}</p></div>}
         </div>
       ))}
     </div>
@@ -97,7 +97,7 @@ function BulletIcon() {
 function HighContent() {
   return (
     <>
-      <section className="px-[19px] sm:px-6 pt-[40px] pb-[40px]">
+      <section className="px-[19px] sm:px-6 pt-[40px] pb-[11px] sm:pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
           <p className="[font-family:var(--font-geologica)] font-light text-[16px] leading-[1.2] text-[#485664] mb-[20px] sm:mb-[36px] sm:text-sm">Despite these challenges, you possess real strengths:</p>
@@ -127,12 +127,12 @@ function HighContent() {
               "Feel overwhelmed by minor setbacks or unexpected changes",
               "Find it challenging to control impulsive behaviors such as interrupting conversations or making snap decisions",
             ].map((item) => (
-              <li key={item} className="flex items-center space-x-2.5 text-[#485664] mb-[16px]">
+              <li key={item} className="flex items-center space-x-2.5 text-[#485664] mb-[8px] sm:mb-[16px]">
                 <BulletIcon /> {item}
               </li>
             ))}
           </ul>
-          <p className="font-medium leading-[28px] text-[#1c2d3f]">
+          <p className="font-medium text-[16px] leading-[22px] text-[#1c2d3f] sm:text-sm">
             While emotional regulation may be difficult, learning self-awareness techniques and coping strategies can help create more emotional stability.
           </p>
         </div>
@@ -144,7 +144,7 @@ function HighContent() {
 function LowContent() {
   return (
     <>
-      <section className="px-[19px] sm:px-6 pt-[40px] pb-[40px]">
+      <section className="px-[19px] sm:px-6 pt-[40px] pb-[11px] sm:pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
           <ul className="space-y-2.5">
@@ -240,7 +240,7 @@ if (loading) {
         </div>
       </div>
 
-      <div className="px-[19px] sm:px-6 pt-0 pb-[40px]">
+      <div className="px-[19px] sm:px-6 pt-0 pb-[8px] sm:pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <div className="border-l-4 border-[#87b3dc] py-0 px-[8px] sm:py-[12px] sm:px-[16px]">
             <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-5 sm:font-medium sm:text-[32px] sm:leading-[36px]">Understanding Your Score</h3>
@@ -257,7 +257,7 @@ if (loading) {
 
       <div className="px-[19px] sm:px-6 pt-[60px] pb-[106px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-semibold text-[24px] leading-[1.2] text-center text-[#04182c] mb-[15px] px-[15px] sm:mb-[48px] sm:px-0 sm:font-medium sm:text-[32px] sm:leading-[36px]">Frequently asked questions</h3>
+          <h3 className="font-semibold text-[19px] leading-[1.2] text-center text-[#04182c] mb-[15px] px-[15px] sm:mb-[48px] sm:px-0 sm:font-medium sm:text-[32px] sm:leading-[36px]">Frequently asked questions</h3>
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
         </div>
       </div>
