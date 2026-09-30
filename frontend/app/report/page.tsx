@@ -234,7 +234,7 @@ if (loading) {
 
       <div className="px-[19px] sm:px-6 pt-[24px] pb-[20px] sm:py-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <p className="font-medium text-[#1c2d3f] max-w-[966px] sm:text-sm">
+          <p className="font-medium sm:text-[20px] text-[#1c2d3f] max-w-[966px]">
             Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
           </p>
         </div>
