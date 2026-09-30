@@ -70,7 +70,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
               <path d="M24 15.0246C24 14.9238 23.9602 14.8207 23.8828 14.7434C23.7281 14.5887 23.475 14.5887 23.3203 14.7434L18.0258 20.0379L12.8086 14.8207C12.6539 14.666 12.4008 14.666 12.2461 14.8207C12.0914 14.9754 12.0914 15.2285 12.2461 15.3832L17.7445 20.884C17.8992 21.0387 18.1523 21.0387 18.307 20.884L23.8828 15.3082C23.9625 15.2285 24 15.1277 24 15.0246Z" fill="#377ec1"/>
             </svg>
           </button>
-          {open === item.q && <div className="px-[12px] pb-[12px]"><p className="leading-[28px] text-[#1c2d3f] max-w-[940px]">{item.a}</p></div>}
+          {open === item.q && <div className="pt-[11px] px-[12px] pb-[32px]"><p className="leading-[28px] text-[#1c2d3f] max-w-[940px]">{item.a}</p></div>}
         </div>
       ))}
     </div>
@@ -100,7 +100,7 @@ function HighContent() {
       <section className="px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Cognitive and Behavioral Strengths</h3>
-          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[34px]">Despite these challenges, you possess real strengths:</p>
+          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Despite these challenges, you possess real strengths:</p>
           <ul className="space-y-2.5">
             {[
               "Strong creative problem-solving abilities, adaptability, and enthusiasm",
@@ -109,7 +109,7 @@ function HighContent() {
               "Resilience — pushing forward despite setbacks",
               "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
             ].map((item) => (
-              <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664] mb-[14px]">
+              <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664] mb-[16px]">
                 <CheckIcon /> <span>{item}</span>
               </li>
             ))}
@@ -119,8 +119,8 @@ function HighContent() {
       <section className="px-6 py-8">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Emotional Regulation and Impulse Control</h3>
-          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[34px]">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
-          <ul className="space-y-2.5 mb-4">
+          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
+          <ul className="space-y-2.5 mb-[36px]">
             {[
               "Experience intense emotional highs and lows, sometimes reacting impulsively",
               "Struggle with frustration and impatience, making it difficult to regulate emotions in stressful situations",
@@ -154,7 +154,7 @@ function LowContent() {
               "Good impulse control and measured decision-making",
               "Effective time management and organizational skills",
             ].map((item) => (
-              <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664] mb-[14px]">
+              <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664] mb-[16px]">
                 <CheckIcon /> <span>{item}</span>
               </li>
             ))}
@@ -257,7 +257,7 @@ if (loading) {
 
       <div className="px-6 py-[60px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#04182c] text-center mb-6">Frequently asked questions</h3>
+          <h3 className="font-medium text-[32px] leading-[36px] text-[#04182c] text-center mb-[48px]">Frequently asked questions</h3>
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
         </div>
       </div>
