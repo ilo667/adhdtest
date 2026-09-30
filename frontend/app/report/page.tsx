@@ -29,7 +29,7 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
           <path d="M83.821 7.86661C82.7085 6.12506 81.2451 4.58784 79.5145 3.34286C77.7839 2.09786 75.8201 1.16951 73.7352 0.610883C71.6504 0.0522536 69.4855 -0.125699 67.3642 0.087202C65.243 0.300095 63.2071 0.899665 61.3728 1.85163L0.000684707 51.3102L78.3291 28.3628C80.1646 27.4127 81.7628 26.1288 83.0323 24.5842C84.3018 23.0397 85.2178 21.2649 85.7279 19.3614C86.2379 17.4579 86.332 15.4629 86.0048 13.4905C85.6777 11.5182 84.9356 9.6071 83.821 7.86661Z" fill="#18334d"/>
         </g>
       </svg>
-      <p className="[font-family:var(--font-geologica)] font-medium text-[24px] leading-[58px] text-[#304f6d] -mt-[26px] text-center">
+      <p className="[font-family:var(--font-geologica)] font-medium text-[24px] leading-[58px] text-[#304f6d] -mt-[46px] text-center">
         {clamped} / 100
       </p>
     </div>
@@ -62,7 +62,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
           <button
             onClick={() => setOpen(open === item.q ? null : item.q)}
             aria-expanded={open === item.q}
-            className="w-full flex items-center justify-between py-4 text-left"
+            className="w-full flex items-center justify-between py-4 text-left cursor-pointer"
           >
             <span className="[font-family:var(--font-geologica)] font-medium text-[24px] leading-[26px] text-[#1c2d3f]">{item.q}</span>
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className={`ml-4 flex-shrink-0 transition-transform ${open === item.q ? "rotate-180" : ""}`}>
@@ -97,7 +97,7 @@ function BulletIcon() {
 function HighContent() {
   return (
     <>
-      <section className="px-6 py-8">
+      <section className="px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Cognitive and Behavioral Strengths</h3>
           <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-4">Despite these challenges, you possess real strengths:</p>
@@ -144,7 +144,7 @@ function HighContent() {
 function LowContent() {
   return (
     <>
-      <section className="px-6 py-8">
+      <section className="px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Cognitive and Behavioral Strengths</h3>
           <ul className="space-y-2.5">
@@ -220,10 +220,10 @@ if (loading) {
 
   return (
     <div className="flex-1 bg-white">
-<div className="bg-[#f1f4f7] px-6 pt-[40px] pb-8">
+<div className="bg-[#f1f4f7] px-6 pt-[40px] pb-[23px]">
         <div className="max-w-[1080px] mx-auto flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
-            <h1 className="font-semibold text-[48px] leading-[58px] text-[#1c2d3f]">Your ADHD score</h1>
+            <h1 className="font-semibold text-[48px] leading-[58px] text-[#1c2d3f] -mt-[16px]">Your ADHD score</h1>
             <p className="[font-family:var(--font-geologica)] font-medium text-[32px] leading-[1.2] text-[#485664] mt-2">
               {isHigh ? "High ADHD Traits" : "Low ADHD Traits"}
             </p>
@@ -232,15 +232,15 @@ if (loading) {
         </div>
       </div>
 
-      <div className="px-6 py-6">
-        <div className="max-w-[966px] mx-auto">
-          <p className="font-medium leading-[28px] text-[#1c2d3f]">
+      <div className="px-6 py-[40px]">
+        <div className="max-w-[1080px] mx-auto">
+          <p className="font-medium leading-[28px] text-[#1c2d3f] max-w-[966px]">
             Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
           </p>
         </div>
       </div>
 
-      <div className="px-6 py-6">
+      <div className="px-6 pt-0 pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <div className="border-l-4 border-[#87b3dc] pl-4">
             <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-5">Understanding Your Score</h3>
