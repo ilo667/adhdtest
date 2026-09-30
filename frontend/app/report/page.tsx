@@ -13,8 +13,8 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
   const rotation = needleAngle - 158 + blend;
 
   return (
-    <div className="flex flex-col items-center pr-[98px]">
-      <svg viewBox="0 0 241 194" style={{ width: 240 }}>
+    <div className="flex flex-col items-center sm:pr-[98px]">
+      <svg viewBox="0 0 241 194" className="w-[193px] sm:w-[240px]">
         <path d="M41.8286 182.677C25.1509 164.445 15.0098 140.368 15.0098 113.973C15.0098 57.0573 62.165 10.9177 120.334 10.9177C178.503 10.9177 225.658 57.0573 225.658 113.973C225.658 140.368 215.517 164.445 198.839 182.677" stroke="#c4d2e9" strokeWidth="21.8353" fill="none" strokeLinecap="round"/>
         <path d="M41.8286 182.677C25.1509 164.444 15.0098 140.368 15.0098 113.973C15.0098 108.21 15.4932 102.558 16.4224 97.0533" stroke="#8cc9ad" strokeWidth="21.8353" fill="none" strokeLinecap="round"/>
         <path d="M199.054 182.677C215.732 164.444 225.873 140.368 225.873 113.973C225.873 108.21 225.39 102.558 224.46 97.0533" stroke="#e66642" strokeWidth="21.8353" fill="none" strokeLinecap="round"/>
@@ -64,7 +64,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
             aria-expanded={open === item.q}
             className={`w-full flex items-center justify-between p-[12px] text-left cursor-pointer border-b border-[#e8edf2] ${open === item.q ? "" : "mb-[15px]"}`}
           >
-            <span className="[font-family:var(--font-geologica)] font-medium text-[24px] leading-[26px] text-[#1c2d3f]">{item.q}</span>
+            <span className="[font-family:var(--font-geologica)] font-medium text-[18px] leading-[1.2] text-[#1c2d3f] sm:text-[24px] sm:leading-[26px]">{item.q}</span>
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className={`ml-4 flex-shrink-0 transition-transform ${open === item.q ? "rotate-180" : ""}`}>
               <rect x="0.5" y="0.5" width="35" height="35" rx="17.5" stroke="#b4cce3"/>
               <path d="M24 15.0246C24 14.9238 23.9602 14.8207 23.8828 14.7434C23.7281 14.5887 23.475 14.5887 23.3203 14.7434L18.0258 20.0379L12.8086 14.8207C12.6539 14.666 12.4008 14.666 12.2461 14.8207C12.0914 14.9754 12.0914 15.2285 12.2461 15.3832L17.7445 20.884C17.8992 21.0387 18.1523 21.0387 18.307 20.884L23.8828 15.3082C23.9625 15.2285 24 15.1277 24 15.0246Z" fill="#377ec1"/>
@@ -99,7 +99,7 @@ function HighContent() {
     <>
       <section className="px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Cognitive and Behavioral Strengths</h3>
+          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
           <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Despite these challenges, you possess real strengths:</p>
           <ul className="space-y-2.5">
             {[
@@ -118,7 +118,7 @@ function HighContent() {
       </section>
       <section className="px-6 pt-[24px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Emotional Regulation and Impulse Control</h3>
+          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
           <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
           <ul className="space-y-2.5 mb-[36px]">
             {[
@@ -146,7 +146,7 @@ function LowContent() {
     <>
       <section className="px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Cognitive and Behavioral Strengths</h3>
+          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
           <ul className="space-y-2.5">
             {[
               "Strong ability to sustain attention and complete tasks",
@@ -163,7 +163,7 @@ function LowContent() {
       </section>
       <section className="px-6 pt-[24px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-3">Your Emotional Regulation and Impulse Control</h3>
+          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-3 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
           <p className="text-gray-500 leading-relaxed">
             Your low ADHD traits suggest strong emotional regulation in most situations. You are generally able to manage stress, frustration, and unexpected changes without significant difficulty. Maintaining healthy routines and mindfulness practices can help preserve this stability.
           </p>
@@ -223,8 +223,8 @@ if (loading) {
 <div className="bg-[#f1f4f7] px-6 pt-[40px] pb-[23px]">
         <div className="max-w-[1080px] mx-auto flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
-            <h1 className="font-semibold text-[48px] leading-[58px] text-[#1c2d3f] -mt-[16px]">Your ADHD score</h1>
-            <p className="[font-family:var(--font-geologica)] font-medium text-[32px] leading-[1.2] text-[#485664] mt-2">
+            <h1 className="font-semibold text-[24px] leading-[1.2] text-center text-[#1c2d3f] sm:text-[48px] sm:leading-[58px] sm:text-left -mt-[16px]">Your ADHD score</h1>
+            <p className="[font-family:var(--font-geologica)] font-medium text-[18px] leading-[1.2] text-center text-[#485664] mt-2 sm:text-[32px] sm:text-left">
               {isHigh ? "High ADHD Traits" : "Low ADHD Traits"}
             </p>
           </div>
@@ -243,7 +243,7 @@ if (loading) {
       <div className="px-6 pt-0 pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <div className="border-l-4 border-[#87b3dc] py-[12px] px-[16px]">
-            <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-5">Understanding Your Score</h3>
+            <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-5 sm:font-medium sm:text-[32px] sm:leading-[36px]">Understanding Your Score</h3>
             <p className="leading-[28px] text-[#485664]">
               {isHigh
                 ? "Your score suggests that you exhibit high ADHD traits, meaning that attention difficulties, impulsivity, hyperactivity, and executive dysfunction significantly impact daily life. While these challenges can be frustrating, they are not insurmountable. Many individuals with high ADHD traits develop effective coping mechanisms that allow them to manage difficulties while harnessing their unique strengths."
@@ -255,9 +255,9 @@ if (loading) {
 
       {isHigh ? <HighContent /> : <LowContent />}
 
-      <div className="px-6 py-[60px]">
+      <div className="px-6 pt-[60px] pb-[106px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#04182c] text-center mb-[48px]">Frequently asked questions</h3>
+          <h3 className="font-semibold text-[24px] leading-[1.2] text-center text-[#04182c] mb-[48px] sm:font-medium sm:text-[32px] sm:leading-[36px]">Frequently asked questions</h3>
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function BrainsMateLogo({ white = false }: { white?: boolean }) {
+export function BrainsMateLogo({ white = false, className = "w-[133px] sm:w-[184px]" }: { white?: boolean; className?: string }) {
   return (
     <Link href="/">
       <Image
@@ -11,7 +11,7 @@ export function BrainsMateLogo({ white = false }: { white?: boolean }) {
         height={34}
         quality={100}
         priority
-        className="w-[133px] sm:w-[184px]"
+        className={className}
       />
     </Link>
   );
