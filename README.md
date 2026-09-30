@@ -115,9 +115,6 @@ Tokens are never accessible to JavaScript, which eliminates XSS-based token thef
 **Raw `pg` over ORM**  
 Raw SQL keeps queries explicit and avoids the abstraction layer that hides what actually happens in the database. For a schema this simple and stable, an ORM adds complexity without proportional benefit. Schema changes are managed via idempotent `schema.sql` with `ALTER TABLE` migrations appended as needed.
 
-**Mobile-first responsive design**  
-Tailwind CSS v4 with `@theme inline` overrides: `--text-base: 14px / 20px` (mobile body) and `--text-sm: 20px / 28px` (desktop body). All layout uses unprefixed classes for mobile and `sm:` for ≥640px. The `Header` component is a client component that reads `usePathname()` to apply compact padding on the report page only.
-
 ---
 
 ## Trade-offs
