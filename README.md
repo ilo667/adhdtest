@@ -112,6 +112,9 @@ Questions belong to a `quiz_version`, not to a global pool. Every attempt stores
 **JWT in httpOnly cookie**  
 Tokens are never accessible to JavaScript, which eliminates XSS-based token theft. The frontend uses `credentials: 'include'` on every fetch — there is no token management code anywhere in the client. Logout is a `POST /auth/logout` that clears the cookie server-side.
 
+**Dynamic score gauge**  
+The report renders an inline SVG gauge with a rotating needle computed client-side from `scorePercent`. The needle angle and pivot point are calculated with a blend correction around the midpoint to avoid visual jump. No external charting library is used — the gauge is a pure SVG path with a `rotate()` transform, keeping the bundle small and the animation fully controllable.
+
 **Raw `pg` over ORM**  
 Raw SQL keeps queries explicit and avoids the abstraction layer that hides what actually happens in the database. For a schema this simple and stable, an ORM adds complexity without proportional benefit. Schema changes are managed via idempotent `schema.sql` with `ALTER TABLE` migrations appended as needed.
 
