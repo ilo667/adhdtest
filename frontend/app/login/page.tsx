@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { api } from "../../lib/api";
 import { AuthCard } from "../../components/AuthCard";
@@ -29,12 +28,12 @@ export default function LoginPage() {
 
   return (
     <AuthCard>
-      <h1 className="[font-family:var(--font-geologica)] font-bold text-[48px] leading-[1.2] text-[#04182c] text-center mb-1">Sign in</h1>
-      <p className="text-gray-500 text-sm mb-6">
+      <h1 className="[font-family:var(--font-geologica)] font-semibold text-[20px] leading-[1.2] text-[#04182c] text-center mb-1 sm:font-bold sm:text-[32px]">Sign in</h1>
+      <p className="text-[14px] leading-[1.3] text-[#1c2d3f] text-center mb-6 sm:text-[16px] sm:leading-[1.5]">
         Welcome back! Let&apos;s continue your learning journey
       </p>
 
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-3 max-w-[400px] mx-auto w-full">
         <label className="sr-only" htmlFor="login-email">Email</label>
         <input
           id="login-email"
@@ -69,12 +68,6 @@ export default function LoginPage() {
         </button>
       </form>
 
-      <p className="mt-5 text-center text-xs text-gray-400">
-        Don&apos;t have an account?{" "}
-        <Link href="/" className="text-[#1066b9] hover:underline font-medium">
-          Take the test
-        </Link>
-      </p>
     </AuthCard>
   );
 }
