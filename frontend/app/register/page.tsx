@@ -43,10 +43,10 @@ export default function RegisterPage() {
 
   return (
     <AuthCard>
-      <h1 className="[font-family:var(--font-geologica)] font-bold text-[32px] leading-[1.1] text-[#04182c] text-center mb-[16px] sm:text-[48px] sm:leading-[1.2]">
+      <h1 className="[font-family:var(--font-geologica)] font-bold text-[32px] leading-[1.1] text-[#04182c] text-center mb-[10px] sm:mb-[16px] sm:text-[48px] sm:leading-[1.2]">
         Discover your <span className="text-[#1066b9]">ADHD</span> Profile
       </h1>
-      <p className="font-medium text-[16px] leading-[1.4] text-[#485664] text-center mb-[32px] sm:text-[20px]">
+      <p className="font-medium text-[16px] leading-[1.4] text-[#485664] text-center mb-[24px] sm:mb-[32px] sm:text-[20px]">
         {step === "email"
           ? "Enter your email to access your full report"
           : "Enter your password to access your full report"}
@@ -67,7 +67,7 @@ export default function RegisterPage() {
           />
           <button
             type="submit"
-            className="w-full bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[16px] leading-[16px] py-[14px] px-[32px] rounded-[8px] transition-colors mt-[8px] cursor-pointer"
+            className="w-full bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[16px] leading-[16px] py-[16px] sm:py-[14px] px-[32px] rounded-[8px] transition-colors mt-[8px] cursor-pointer"
           >
             Get My Results
           </button>
@@ -98,7 +98,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#116a73] hover:bg-[#0d5a61] disabled:opacity-50 text-white font-medium text-[16px] leading-[16px] py-[14px] px-[32px] rounded-[8px] transition-colors mt-[8px] cursor-pointer"
+            className="w-full bg-[#116a73] hover:bg-[#0d5a61] disabled:opacity-50 text-white font-medium text-[16px] leading-[16px] py-[16px] sm:py-[14px] px-[32px] rounded-[8px] transition-colors mt-[8px] cursor-pointer"
           >
             {loading ? "Creating account…" : "Get My Results"}
           </button>
