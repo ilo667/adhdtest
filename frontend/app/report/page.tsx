@@ -62,7 +62,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
           <button
             onClick={() => setOpen(open === item.q ? null : item.q)}
             aria-expanded={open === item.q}
-            className={`w-full flex items-center justify-between p-[12px] text-left cursor-pointer border-b border-[#e8edf2] ${open === item.q ? "" : "mb-[15px]"}`}
+            className={`w-full flex items-center justify-between p-[8px] text-left cursor-pointer border-b border-[#e8edf2] sm:p-[12px] ${open === item.q ? "" : "mb-[15px]"}`}
           >
             <span className="[font-family:var(--font-geologica)] font-medium text-[18px] leading-[1.2] text-[#1c2d3f] sm:text-[24px] sm:leading-[26px]">{item.q}</span>
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className={`ml-4 flex-shrink-0 transition-transform w-6 h-6 sm:w-9 sm:h-9 ${open === item.q ? "rotate-180" : ""}`}>
@@ -70,7 +70,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
               <path d="M24 15.0246C24 14.9238 23.9602 14.8207 23.8828 14.7434C23.7281 14.5887 23.475 14.5887 23.3203 14.7434L18.0258 20.0379L12.8086 14.8207C12.6539 14.666 12.4008 14.666 12.2461 14.8207C12.0914 14.9754 12.0914 15.2285 12.2461 15.3832L17.7445 20.884C17.8992 21.0387 18.1523 21.0387 18.307 20.884L23.8828 15.3082C23.9625 15.2285 24 15.1277 24 15.0246Z" fill="#377ec1"/>
             </svg>
           </button>
-          {open === item.q && <div className="pt-[11px] px-[12px] pb-[32px]"><p className="text-[16px] leading-[22px] text-[#1c2d3f] max-w-[940px] sm:text-sm">{item.a}</p></div>}
+          {open === item.q && <div className="py-[11px] px-[8px] sm:px-[12px] sm:pb-[32px]"><p className="text-[16px] leading-[22px] text-[#1c2d3f] max-w-[940px] sm:text-sm">{item.a}</p></div>}
         </div>
       ))}
     </div>
@@ -100,7 +100,7 @@ function HighContent() {
       <section className="px-[19px] sm:px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
-          <p className="[font-family:var(--font-geologica)] font-light text-[16px] leading-[1.2] text-[#485664] mb-[36px] sm:text-sm">Despite these challenges, you possess real strengths:</p>
+          <p className="[font-family:var(--font-geologica)] font-light text-[16px] leading-[1.2] text-[#485664] mb-[20px] sm:mb-[36px] sm:text-sm">Despite these challenges, you possess real strengths:</p>
           <ul className="space-y-2.5">
             {[
               "Strong creative problem-solving abilities, adaptability, and enthusiasm",
@@ -109,7 +109,7 @@ function HighContent() {
               "Resilience — pushing forward despite setbacks",
               "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
             ].map((item) => (
-              <li key={item} className="flex items-center space-x-3 font-medium text-[#485664] mb-[16px] sm:text-sm">
+              <li key={item} className="flex items-center space-x-3 font-medium text-[#485664] mb-[12px] sm:mb-[16px] sm:text-sm">
                 <CheckIcon /> <span>{item}</span>
               </li>
             ))}
@@ -118,8 +118,8 @@ function HighContent() {
       </section>
       <section className="px-[19px] sm:px-6 pt-[24px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
-          <p className="[font-family:var(--font-geologica)] font-light text-[16px] leading-[1.2] text-[#485664] mb-[36px] sm:text-sm">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
+          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-[8px] sm:mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
+          <p className="[font-family:var(--font-geologica)] font-light text-[16px] leading-[1.2] text-[#485664] mb-[20px] sm:mb-[36px] sm:text-sm">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
           <ul className="space-y-2.5 mb-[36px]">
             {[
               "Experience intense emotional highs and lows, sometimes reacting impulsively",
@@ -154,7 +154,7 @@ function LowContent() {
               "Good impulse control and measured decision-making",
               "Effective time management and organizational skills",
             ].map((item) => (
-              <li key={item} className="flex items-center space-x-3 font-medium text-[#485664] mb-[16px] sm:text-sm">
+              <li key={item} className="flex items-center space-x-3 font-medium text-[#485664] mb-[12px] sm:mb-[16px] sm:text-sm">
                 <CheckIcon /> <span>{item}</span>
               </li>
             ))}
@@ -163,7 +163,7 @@ function LowContent() {
       </section>
       <section className="px-[19px] sm:px-6 pt-[24px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-3 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
+          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-[8px] sm:mb-3 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
           <p className="text-gray-500 leading-relaxed">
             Your low ADHD traits suggest strong emotional regulation in most situations. You are generally able to manage stress, frustration, and unexpected changes without significant difficulty. Maintaining healthy routines and mindfulness practices can help preserve this stability.
           </p>
@@ -232,7 +232,7 @@ if (loading) {
         </div>
       </div>
 
-      <div className="px-[19px] sm:px-6 pt-[24px] pb-[20px] sm:py-[40px]">
+      <div className="px-[19px] sm:px-6 pt-[21px] pb-[20px] sm:py-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <p className="font-medium sm:text-[20px] text-[#1c2d3f] max-w-[966px]">
             Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
@@ -242,9 +242,9 @@ if (loading) {
 
       <div className="px-[19px] sm:px-6 pt-0 pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <div className="border-l-4 border-[#87b3dc] py-[12px] px-[16px]">
+          <div className="border-l-4 border-[#87b3dc] py-0 px-[8px] sm:py-[12px] sm:px-[16px]">
             <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-5 sm:font-medium sm:text-[32px] sm:leading-[36px]">Understanding Your Score</h3>
-            <p className="leading-[28px] text-[#485664]">
+            <p className="text-[#485664] sm:leading-[28px]">
               {isHigh
                 ? "Your score suggests that you exhibit high ADHD traits, meaning that attention difficulties, impulsivity, hyperactivity, and executive dysfunction significantly impact daily life. While these challenges can be frustrating, they are not insurmountable. Many individuals with high ADHD traits develop effective coping mechanisms that allow them to manage difficulties while harnessing their unique strengths."
                 : "Your score suggests minimal ADHD traits. You show a strong ability to focus, self-regulate, and manage daily responsibilities. While occasional challenges may arise, they are unlikely to significantly impact your daily functioning."}
@@ -257,7 +257,7 @@ if (loading) {
 
       <div className="px-[19px] sm:px-6 pt-[60px] pb-[106px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-semibold text-[24px] leading-[1.2] text-center text-[#04182c] mb-[48px] sm:font-medium sm:text-[32px] sm:leading-[36px]">Frequently asked questions</h3>
+          <h3 className="font-semibold text-[24px] leading-[1.2] text-center text-[#04182c] mb-[15px] px-[15px] sm:mb-[48px] sm:px-0 sm:font-medium sm:text-[32px] sm:leading-[36px]">Frequently asked questions</h3>
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
         </div>
       </div>
