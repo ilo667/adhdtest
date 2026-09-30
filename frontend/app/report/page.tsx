@@ -49,7 +49,7 @@ const LOW_FAQS = [
   { q: "Does a low ADHD score mean I definitely don't have ADHD?", a: "A low score suggests minimal ADHD traits, but if you have concerns, a professional evaluation can provide a definitive answer." },
   { q: "Can I still benefit from brain training with low ADHD traits?", a: "Absolutely. Cognitive training, mindfulness, and healthy habits benefit everyone, regardless of ADHD trait levels." },
   { q: "What can I do to maintain my strong cognitive performance?", a: "Regular exercise, quality sleep, and challenging mental activities help sustain strong focus and memory over time." },
-  { q: "Can my ADHD trait levels change over time?", a: "Yes — trait levels can shift with life changes, stress, or aging. Regular check-ins can be helpful." },
+  { q: "Can my ADHD trait levels change over time?", a: "Yes. Trait levels can shift with life changes, stress, or aging. Regular check-ins can be helpful." },
   { q: "Is a low score something to be proud of?", a: "A low score reflects strong self-regulation, though everyone faces different challenges. It's a useful data point, not a judgement." },
 ];
 
@@ -146,7 +146,7 @@ function LowContent() {
     <>
       <section className="px-[19px] sm:px-6 pt-[40px] pb-[11px] sm:pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
+          <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-[20px] sm:mb-[36px] sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
           <ul className="space-y-2.5">
             {[
               "Strong ability to sustain attention and complete tasks",
