@@ -42,7 +42,7 @@ const HIGH_FAQS = [
   { q: "What strategies can help manage high ADHD traits?", a: "Structured routines, time-blocking, mindfulness, and working with a therapist or coach can make a significant difference." },
   { q: "Does this score mean I struggle with emotional regulation?", a: "High ADHD traits can make emotional regulation more challenging, but with awareness and coping tools, it is very manageable." },
   { q: "How can I stay organized with high ADHD traits?", a: "External systems like planners, reminders, and body doubling (working alongside others) often work better than willpower alone." },
-  { q: "Can my ADHD trait levels change over time?", a: "Yes — trait levels can shift with life changes, stress, therapy, or lifestyle adjustments." },
+  { q: "Can my ADHD trait levels change over time?", a: "Yes. Trait levels can shift with life changes, stress, therapy, or lifestyle adjustments." },
 ];
 
 const LOW_FAQS = [
@@ -70,7 +70,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
               <path d="M24 15.0246C24 14.9238 23.9602 14.8207 23.8828 14.7434C23.7281 14.5887 23.475 14.5887 23.3203 14.7434L18.0258 20.0379L12.8086 14.8207C12.6539 14.666 12.4008 14.666 12.2461 14.8207C12.0914 14.9754 12.0914 15.2285 12.2461 15.3832L17.7445 20.884C17.8992 21.0387 18.1523 21.0387 18.307 20.884L23.8828 15.3082C23.9625 15.2285 24 15.1277 24 15.0246Z" fill="#377ec1"/>
             </svg>
           </button>
-          {open === item.q && <div className="pt-[11px] pb-[29px] px-[8px] sm:px-[12px] sm:pb-[32px]"><p className="text-[16px] leading-[22px] text-[#1c2d3f] max-w-[940px] sm:text-sm">{item.a}</p></div>}
+          {open === item.q && <div className="pt-[11px] pb-[29px] px-[8px] sm:px-[12px] sm:pb-[32px]"><p className="text-[16px] leading-[22px] text-[#1c2d3f] max-w-[940px] sm:text-sm sm:leading-[28px]">{item.a}</p></div>}
         </div>
       ))}
     </div>
@@ -132,7 +132,7 @@ function HighContent() {
               </li>
             ))}
           </ul>
-          <p className="font-medium text-[16px] leading-[22px] text-[#1c2d3f] sm:text-sm">
+          <p className="font-medium text-[16px] leading-[22px] text-[#1c2d3f] sm:text-sm sm:leading-[28px]">
             While emotional regulation may be difficult, learning self-awareness techniques and coping strategies can help create more emotional stability.
           </p>
         </div>
