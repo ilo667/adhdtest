@@ -2,11 +2,9 @@ import { BrainsMateLogo } from "./BrainsMateLogo";
 
 export function Footer() {
   return (
-    <footer className="bg-[#04182c] px-6 py-8 mt-auto">
-      <div className="max-w-2xl mx-auto">
-        <BrainsMateLogo white />
-        <p className="text-gray-400 text-xs mt-3">All rights reserved 2026</p>
-      </div>
+    <footer className="bg-[#18334d] pt-[24px] pb-[16px] px-[19px] sm:py-[40px] sm:px-[70px] mt-auto rounded-tl-[16px] rounded-tr-[16px] sm:rounded-tl-[24px] sm:rounded-tr-[24px]">
+      <BrainsMateLogo white />
+      <p className="text-[#ffffff] text-[12px] leading-[16px] sm:text-[16px] sm:leading-[22px] mt-3">All rights reserved 2026</p>
     </footer>
   );
 }

@@ -65,11 +65,10 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
             className="w-full flex items-center justify-between py-4 text-left"
           >
             <span className="[font-family:var(--font-geologica)] font-medium text-[24px] leading-[26px] text-[#1c2d3f]">{item.q}</span>
-            <span className={`ml-4 flex-shrink-0 w-6 h-6 rounded-full border border-gray-200 flex items-center justify-center transition-transform ${open === item.q ? "rotate-180" : ""}`}>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                <path d="M2 3.5L5 6.5L8 3.5" stroke="#6b7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </span>
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className={`ml-4 flex-shrink-0 transition-transform ${open === item.q ? "rotate-180" : ""}`}>
+              <rect x="0.5" y="0.5" width="35" height="35" rx="17.5" stroke="#b4cce3"/>
+              <path d="M24 15.0246C24 14.9238 23.9602 14.8207 23.8828 14.7434C23.7281 14.5887 23.475 14.5887 23.3203 14.7434L18.0258 20.0379L12.8086 14.8207C12.6539 14.666 12.4008 14.666 12.2461 14.8207C12.0914 14.9754 12.0914 15.2285 12.2461 15.3832L17.7445 20.884C17.8992 21.0387 18.1523 21.0387 18.307 20.884L23.8828 15.3082C23.9625 15.2285 24 15.1277 24 15.0246Z" fill="#377ec1"/>
+            </svg>
           </button>
           {open === item.q && <p className="pb-4 leading-[28px] text-[#1c2d3f]">{item.a}</p>}
         </div>
@@ -80,9 +79,9 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
 
 function CheckIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="flex-shrink-0 mt-0.5">
-      <circle cx="9" cy="9" r="8.5" stroke="#2a9d8f" strokeWidth="1"/>
-      <path d="M5.5 9L7.5 11L12.5 7" stroke="#2a9d8f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" className="flex-shrink-0 mt-0.5">
+      <rect width="28" height="28" rx="14" fill="#e6f2f2"/>
+      <path d="M12.0007 16.7801L9.68741 14.4667C9.56276 14.3421 9.3937 14.272 9.21741 14.272C9.04113 14.272 8.87207 14.3421 8.74741 14.4667C8.62276 14.5914 8.55273 14.7604 8.55273 14.9367C8.55273 15.024 8.56993 15.1104 8.60333 15.1911C8.63673 15.2717 8.68569 15.345 8.74741 15.4067L11.5341 18.1934C11.7941 18.4534 12.2141 18.4534 12.4741 18.1934L19.5274 11.1401C19.6521 11.0154 19.7221 10.8463 19.7221 10.6701C19.7221 10.4938 19.6521 10.3247 19.5274 10.2001C19.4028 10.0754 19.2337 10.0054 19.0574 10.0054C18.8811 10.0054 18.7121 10.0754 18.5874 10.2001L12.0007 16.7801Z" fill="#13869a"/>
     </svg>
   );
 }
@@ -90,7 +89,7 @@ function CheckIcon() {
 function BulletIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="flex-shrink-0 mt-1">
-      <circle cx="8" cy="8" r="3" fill="#9ca3af"/>
+      <circle cx="8" cy="8" r="4" fill="#b4cce3"/>
     </svg>
   );
 }
@@ -100,7 +99,7 @@ function HighContent() {
     <>
       <section className="px-6 py-8">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-3">Your Cognitive and Behavioral Strengths</h3>
+          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Cognitive and Behavioral Strengths</h3>
           <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-4">Despite these challenges, you possess real strengths:</p>
           <ul className="space-y-2.5">
             {[
@@ -147,7 +146,7 @@ function LowContent() {
     <>
       <section className="px-6 py-8">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-4">Your Cognitive and Behavioral Strengths</h3>
+          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Cognitive and Behavioral Strengths</h3>
           <ul className="space-y-2.5">
             {[
               "Strong ability to sustain attention and complete tasks",
@@ -234,7 +233,7 @@ if (loading) {
       </div>
 
       <div className="px-6 py-6">
-        <div className="max-w-[1080px] mx-auto">
+        <div className="max-w-[966px] mx-auto">
           <p className="font-medium leading-[28px] text-[#1c2d3f]">
             Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
           </p>
@@ -244,7 +243,7 @@ if (loading) {
       <div className="px-6 py-6">
         <div className="max-w-[1080px] mx-auto">
           <div className="border-l-4 border-[#87b3dc] pl-4">
-            <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-2">Understanding Your Score</h3>
+            <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-5">Understanding Your Score</h3>
             <p className="leading-[28px] text-[#485664]">
               {isHigh
                 ? "Your score suggests that you exhibit high ADHD traits, meaning that attention difficulties, impulsivity, hyperactivity, and executive dysfunction significantly impact daily life. While these challenges can be frustrating, they are not insurmountable. Many individuals with high ADHD traits develop effective coping mechanisms that allow them to manage difficulties while harnessing their unique strengths."
