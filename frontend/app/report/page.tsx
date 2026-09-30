@@ -29,7 +29,7 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
           <path d="M83.821 7.86661C82.7085 6.12506 81.2451 4.58784 79.5145 3.34286C77.7839 2.09786 75.8201 1.16951 73.7352 0.610883C71.6504 0.0522536 69.4855 -0.125699 67.3642 0.087202C65.243 0.300095 63.2071 0.899665 61.3728 1.85163L0.000684707 51.3102L78.3291 28.3628C80.1646 27.4127 81.7628 26.1288 83.0323 24.5842C84.3018 23.0397 85.2178 21.2649 85.7279 19.3614C86.2379 17.4579 86.332 15.4629 86.0048 13.4905C85.6777 11.5182 84.9356 9.6071 83.821 7.86661Z" fill="#18334d"/>
         </g>
       </svg>
-      <p className="[font-family:var(--font-geologica)] font-medium text-[24px] leading-[58px] text-[#304f6d] -mt-[46px] text-center">
+      <p className="[font-family:var(--font-geologica)] font-medium text-[19px] leading-[47px] text-[#304f6d] -mt-[46px] text-center sm:text-[24px] sm:leading-[58px]">
         {clamped} / 100
       </p>
     </div>
@@ -65,12 +65,12 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
             className={`w-full flex items-center justify-between p-[12px] text-left cursor-pointer border-b border-[#e8edf2] ${open === item.q ? "" : "mb-[15px]"}`}
           >
             <span className="[font-family:var(--font-geologica)] font-medium text-[18px] leading-[1.2] text-[#1c2d3f] sm:text-[24px] sm:leading-[26px]">{item.q}</span>
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className={`ml-4 flex-shrink-0 transition-transform ${open === item.q ? "rotate-180" : ""}`}>
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className={`ml-4 flex-shrink-0 transition-transform w-6 h-6 sm:w-9 sm:h-9 ${open === item.q ? "rotate-180" : ""}`}>
               <rect x="0.5" y="0.5" width="35" height="35" rx="17.5" stroke="#b4cce3"/>
               <path d="M24 15.0246C24 14.9238 23.9602 14.8207 23.8828 14.7434C23.7281 14.5887 23.475 14.5887 23.3203 14.7434L18.0258 20.0379L12.8086 14.8207C12.6539 14.666 12.4008 14.666 12.2461 14.8207C12.0914 14.9754 12.0914 15.2285 12.2461 15.3832L17.7445 20.884C17.8992 21.0387 18.1523 21.0387 18.307 20.884L23.8828 15.3082C23.9625 15.2285 24 15.1277 24 15.0246Z" fill="#377ec1"/>
             </svg>
           </button>
-          {open === item.q && <div className="pt-[11px] px-[12px] pb-[32px]"><p className="leading-[28px] text-[#1c2d3f] max-w-[940px]">{item.a}</p></div>}
+          {open === item.q && <div className="pt-[11px] px-[12px] pb-[32px]"><p className="text-[16px] leading-[22px] text-[#1c2d3f] max-w-[940px] sm:text-sm">{item.a}</p></div>}
         </div>
       ))}
     </div>
@@ -88,7 +88,7 @@ function CheckIcon() {
 
 function BulletIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="flex-shrink-0 mt-[5px] -ml-[4px] mr-[8px]">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="flex-shrink-0 -ml-[4px] mr-[8px]">
       <circle cx="8" cy="8" r="4" fill="#b4cce3"/>
     </svg>
   );
@@ -97,10 +97,10 @@ function BulletIcon() {
 function HighContent() {
   return (
     <>
-      <section className="px-6 pt-[40px] pb-[40px]">
+      <section className="px-[19px] sm:px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
-          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Despite these challenges, you possess real strengths:</p>
+          <p className="[font-family:var(--font-geologica)] font-light text-[16px] leading-[1.2] text-[#485664] mb-[36px] sm:text-sm">Despite these challenges, you possess real strengths:</p>
           <ul className="space-y-2.5">
             {[
               "Strong creative problem-solving abilities, adaptability, and enthusiasm",
@@ -109,17 +109,17 @@ function HighContent() {
               "Resilience — pushing forward despite setbacks",
               "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
             ].map((item) => (
-              <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664] mb-[16px]">
+              <li key={item} className="flex items-center space-x-3 font-medium text-[#485664] mb-[16px] sm:text-sm">
                 <CheckIcon /> <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
       </section>
-      <section className="px-6 pt-[24px] pb-[40px]">
+      <section className="px-[19px] sm:px-6 pt-[24px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
-          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
+          <p className="[font-family:var(--font-geologica)] font-light text-[16px] leading-[1.2] text-[#485664] mb-[36px] sm:text-sm">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
           <ul className="space-y-2.5 mb-[36px]">
             {[
               "Experience intense emotional highs and lows, sometimes reacting impulsively",
@@ -127,7 +127,7 @@ function HighContent() {
               "Feel overwhelmed by minor setbacks or unexpected changes",
               "Find it challenging to control impulsive behaviors such as interrupting conversations or making snap decisions",
             ].map((item) => (
-              <li key={item} className="flex items-start space-x-2.5 leading-[28px] text-[#485664] mb-[16px]">
+              <li key={item} className="flex items-center space-x-2.5 text-[#485664] mb-[16px]">
                 <BulletIcon /> {item}
               </li>
             ))}
@@ -144,7 +144,7 @@ function HighContent() {
 function LowContent() {
   return (
     <>
-      <section className="px-6 pt-[40px] pb-[40px]">
+      <section className="px-[19px] sm:px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Cognitive and Behavioral Strengths</h3>
           <ul className="space-y-2.5">
@@ -154,14 +154,14 @@ function LowContent() {
               "Good impulse control and measured decision-making",
               "Effective time management and organizational skills",
             ].map((item) => (
-              <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664] mb-[16px]">
+              <li key={item} className="flex items-center space-x-3 font-medium text-[#485664] mb-[16px] sm:text-sm">
                 <CheckIcon /> <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
       </section>
-      <section className="px-6 pt-[24px] pb-[40px]">
+      <section className="px-[19px] sm:px-6 pt-[24px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-3 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
           <p className="text-gray-500 leading-relaxed">
@@ -220,11 +220,11 @@ if (loading) {
 
   return (
     <div className="flex-1 bg-white">
-<div className="bg-[#f1f4f7] px-6 pt-[40px] pb-[23px]">
-        <div className="max-w-[1080px] mx-auto flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
+<div className="bg-[#f1f4f7] px-[19px] sm:px-6 pt-[40px] pb-[23px]">
+        <div className="max-w-[1080px] mx-auto flex flex-col sm:flex-row items-center space-y-[45px] sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
-            <h1 className="font-semibold text-[24px] leading-[1.2] text-center text-[#1c2d3f] sm:text-[48px] sm:leading-[58px] sm:text-left -mt-[16px]">Your ADHD score</h1>
-            <p className="[font-family:var(--font-geologica)] font-medium text-[18px] leading-[1.2] text-center text-[#485664] mt-2 sm:text-[32px] sm:text-left">
+            <h1 className="font-semibold text-[24px] leading-[1.2] text-center text-[#1c2d3f] sm:text-[48px] sm:leading-[58px] sm:text-left -mt-[15px] sm:-mt-[16px]">Your ADHD score</h1>
+            <p className="[font-family:var(--font-geologica)] font-medium text-[18px] leading-[1.2] text-center text-[#485664] mt-[5px] sm:mt-2 sm:text-[32px] sm:text-left">
               {isHigh ? "High ADHD Traits" : "Low ADHD Traits"}
             </p>
           </div>
@@ -232,15 +232,15 @@ if (loading) {
         </div>
       </div>
 
-      <div className="px-6 py-[40px]">
+      <div className="px-[19px] sm:px-6 pt-[24px] pb-[20px] sm:py-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <p className="font-medium leading-[28px] text-[#1c2d3f] max-w-[966px]">
+          <p className="font-medium text-[#1c2d3f] max-w-[966px] sm:text-sm">
             Your full assessment results include IQ score, cognitive strengths profile, worldwide percentile rankings, and an in-depth breakdown of performance.
           </p>
         </div>
       </div>
 
-      <div className="px-6 pt-0 pb-[40px]">
+      <div className="px-[19px] sm:px-6 pt-0 pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <div className="border-l-4 border-[#87b3dc] py-[12px] px-[16px]">
             <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-5 sm:font-medium sm:text-[32px] sm:leading-[36px]">Understanding Your Score</h3>
@@ -255,7 +255,7 @@ if (loading) {
 
       {isHigh ? <HighContent /> : <LowContent />}
 
-      <div className="px-6 pt-[60px] pb-[106px]">
+      <div className="px-[19px] sm:px-6 pt-[60px] pb-[106px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[24px] leading-[1.2] text-center text-[#04182c] mb-[48px] sm:font-medium sm:text-[32px] sm:leading-[36px]">Frequently asked questions</h3>
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
