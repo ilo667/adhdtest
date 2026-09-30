@@ -102,13 +102,6 @@ export default function RegisterPage() {
           >
             {loading ? "Creating account…" : "Get My Results"}
           </button>
-          <button
-            type="button"
-            onClick={() => { setStep("email"); setError(""); }}
-            className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
-          >
-            ← Change email
-          </button>
         </form>
       )}
 
