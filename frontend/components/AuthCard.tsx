@@ -2,8 +2,8 @@ import { type ReactNode } from "react";
 
 export function AuthCard({ children }: { children: ReactNode }) {
   return (
-    <main className="flex-1 flex items-center justify-center px-4">
-      <div className="w-full max-w-sm bg-white rounded-3xl shadow-sm p-8">
+    <main className="flex-1 flex justify-center px-4">
+      <div className="w-full max-w-[842px] px-8">
         {children}
       </div>
     </main>

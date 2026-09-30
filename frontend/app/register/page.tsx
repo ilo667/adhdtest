@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { api } from "../../lib/api";
 import { AuthCard } from "../../components/AuthCard";
@@ -44,10 +43,10 @@ export default function RegisterPage() {
 
   return (
     <AuthCard>
-      <h1 className="text-2xl font-bold text-[#04182c] mb-1 leading-snug">
+      <h1 className="[font-family:var(--font-geologica)] font-bold text-[48px] leading-[1.2] text-[#04182c] mb-1">
         Discover your <span className="text-[#1066b9]">ADHD</span> Profile
       </h1>
-      <p className="text-gray-500 text-sm mb-6">
+      <p className="font-medium text-[20px] leading-[1.4] text-[#485664] text-center mb-6">
         {step === "email"
           ? "Enter your email to access your full report"
           : "Enter your password to access your full report"}
@@ -64,11 +63,11 @@ export default function RegisterPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
             autoFocus
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none focus:border-[#1066b9] transition-colors bg-[#f9fafb]"
+            className="w-full border border-[#b4cce3] rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none focus:border-[#1066b9] transition-colors bg-white"
           />
           <button
             type="submit"
-            className="w-full bg-[#116a73] hover:bg-[#0d5a61] text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
+            className="w-full bg-[#116a73] hover:bg-[#0d5a61] text-white font-medium text-[16px] leading-[16px] py-[14px] px-[32px] rounded-[8px] transition-colors"
           >
             Get My Results
           </button>
@@ -81,7 +80,7 @@ export default function RegisterPage() {
             type="email"
             value={email}
             readOnly
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#04182c] text-sm bg-[#f9fafb] cursor-not-allowed"
+            className="w-full border border-[#b4cce3] rounded-xl px-4 h-[56px] text-[#1c2d3f] bg-white cursor-not-allowed"
           />
           <label className="sr-only" htmlFor="register-password">Create Password</label>
           <input
@@ -93,13 +92,13 @@ export default function RegisterPage() {
             required
             minLength={6}
             autoFocus
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#04182c] text-sm focus:outline-none focus:border-[#1066b9] transition-colors bg-[#f9fafb]"
+            className="w-full border border-[#b4cce3] rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none focus:border-[#1066b9] transition-colors bg-white"
           />
           {error && <p className="text-[#aa3a3d] text-xs">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#116a73] hover:bg-[#0d5a61] disabled:opacity-50 text-white font-semibold py-3.5 rounded-xl transition-colors text-sm"
+            className="w-full bg-[#116a73] hover:bg-[#0d5a61] disabled:opacity-50 text-white font-medium text-[16px] leading-[16px] py-[14px] px-[32px] rounded-[8px] transition-colors"
           >
             {loading ? "Creating account…" : "Get My Results"}
           </button>
@@ -113,12 +112,6 @@ export default function RegisterPage() {
         </form>
       )}
 
-      <p className="mt-5 text-center text-xs text-gray-400">
-        Already have an account?{" "}
-        <Link href="/login" className="text-[#1066b9] hover:underline font-medium">
-          Sign in
-        </Link>
-      </p>
     </AuthCard>
   );
 }
