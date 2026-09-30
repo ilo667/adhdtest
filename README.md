@@ -88,13 +88,13 @@ answers
   id           BIGSERIAL PK
   attempt_id   FK → quiz_attempts
   question_id  FK → questions
-  answer_value INTEGER (0–3)    -- Strongly Disagree=0 … Strongly Agree=3
+  answer_value INTEGER (0–4)    -- Strongly Disagree=0 … Strongly Agree=4
   UNIQUE (attempt_id, question_id)
 ```
 
 ### Scoring
 
-4-point Likert scale per question (0–3). **Result is HIGH** if 2 or more answers have value ≥ 2 (Agree / Strongly Agree). Result and score are computed server-side at submission and stored immutably — re-scoring old attempts after a logic change does not affect historical results.
+5-point Likert scale per question (0–4). **Result is HIGH** if 2 or more answers have value ≥ 3 (Agree / Strongly Agree). Result and score are computed server-side at submission and stored immutably — re-scoring old attempts after a logic change does not affect historical results.
 
 ---
 
