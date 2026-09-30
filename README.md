@@ -128,9 +128,6 @@ Raw SQL keeps queries explicit and avoids the abstraction layer that hides what 
 | No email verification | Fake emails can be registered | Out of scope for a screening funnel; trivially addable later |
 | Generic login error message | Slightly less helpful UX | Prevents user enumeration — attacker cannot distinguish "email not found" from "wrong password" |
 
-**Why the login error message is generic**  
-The login form always returns "Invalid email or password." regardless of whether the email exists or the password is wrong. A specific message like "No account found" would allow an attacker to probe which emails are registered in the system — sending thousands of requests to discover valid accounts (user enumeration). A generic message makes both failure cases indistinguishable, eliminating that attack vector at zero implementation cost.
-
 ---
 
 ## Extensibility
