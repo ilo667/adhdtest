@@ -29,7 +29,7 @@ function ScoreGauge({ scorePercent }: { scorePercent: number }) {
           <path d="M83.821 7.86661C82.7085 6.12506 81.2451 4.58784 79.5145 3.34286C77.7839 2.09786 75.8201 1.16951 73.7352 0.610883C71.6504 0.0522536 69.4855 -0.125699 67.3642 0.087202C65.243 0.300095 63.2071 0.899665 61.3728 1.85163L0.000684707 51.3102L78.3291 28.3628C80.1646 27.4127 81.7628 26.1288 83.0323 24.5842C84.3018 23.0397 85.2178 21.2649 85.7279 19.3614C86.2379 17.4579 86.332 15.4629 86.0048 13.4905C85.6777 11.5182 84.9356 9.6071 83.821 7.86661Z" fill="#18334d"/>
         </g>
       </svg>
-      <p className="[font-family:var(--font-geologica)] font-medium text-[19px] leading-[47px] text-[#304f6d] -mt-[46px] text-center sm:text-[24px] sm:leading-[58px]">
+      <p className="[font-family:var(--font-geologica)] font-medium text-[19px] leading-[47px] text-[#304f6d] -mt-[43px] text-center sm:text-[24px] sm:leading-[58px] sm:-mt-[46px]">
         {clamped} / 100
       </p>
     </div>
@@ -220,7 +220,7 @@ if (loading) {
 
   return (
     <div className="flex-1 bg-white">
-<div className="bg-[#f1f4f7] px-[19px] sm:px-6 pt-[40px] pb-[23px]">
+<div className="bg-[#f1f4f7] px-[19px] sm:px-6 pt-[40px] pb-[30px] sm:pb-[23px]">
         <div className="max-w-[1080px] mx-auto flex flex-col sm:flex-row items-center space-y-[45px] sm:space-y-0 sm:space-x-6">
           <div className="flex-1">
             <h1 className="font-semibold text-[24px] leading-[1.2] text-center text-[#1c2d3f] sm:text-[48px] sm:leading-[58px] sm:text-left -mt-[15px] sm:-mt-[16px]">Your ADHD score</h1>
