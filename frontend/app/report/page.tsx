@@ -100,7 +100,7 @@ function HighContent() {
       <section className="px-6 pt-[40px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Cognitive and Behavioral Strengths</h3>
-          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-4">Despite these challenges, you possess real strengths:</p>
+          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Despite these challenges, you possess real strengths:</p>
           <ul className="space-y-2.5">
             {[
               "Strong creative problem-solving abilities, adaptability, and enthusiasm",
@@ -110,7 +110,7 @@ function HighContent() {
               "Ability to hyperfocus on areas of interest can serve as a valuable asset when properly channeled",
             ].map((item) => (
               <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664]">
-                <CheckIcon /> {item}
+                <CheckIcon /> <span>{item}</span>
               </li>
             ))}
           </ul>
@@ -118,8 +118,8 @@ function HighContent() {
       </section>
       <section className="px-6 py-8">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-2">Your Emotional Regulation and Impulse Control</h3>
-          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-4">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
+          <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Emotional Regulation and Impulse Control</h3>
+          <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
           <ul className="space-y-2.5 mb-4">
             {[
               "Experience intense emotional highs and lows, sometimes reacting impulsively",
@@ -155,7 +155,7 @@ function LowContent() {
               "Effective time management and organizational skills",
             ].map((item) => (
               <li key={item} className="flex items-start space-x-3 font-medium leading-[28px] text-[#485664]">
-                <CheckIcon /> {item}
+                <CheckIcon /> <span>{item}</span>
               </li>
             ))}
           </ul>
@@ -242,7 +242,7 @@ if (loading) {
 
       <div className="px-6 pt-0 pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
-          <div className="border-l-4 border-[#87b3dc] pl-4">
+          <div className="border-l-4 border-[#87b3dc] py-[12px] px-[16px]">
             <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-5">Understanding Your Score</h3>
             <p className="leading-[28px] text-[#485664]">
               {isHigh
