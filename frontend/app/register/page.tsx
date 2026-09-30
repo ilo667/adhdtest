@@ -43,17 +43,17 @@ export default function RegisterPage() {
 
   return (
     <AuthCard>
-      <h1 className="[font-family:var(--font-geologica)] font-bold text-[48px] leading-[1.2] text-[#04182c] text-center mb-[16px]">
+      <h1 className="[font-family:var(--font-geologica)] font-bold text-[32px] leading-[1.1] text-[#04182c] text-center mb-[16px] sm:text-[48px] sm:leading-[1.2]">
         Discover your <span className="text-[#1066b9]">ADHD</span> Profile
       </h1>
-      <p className="font-medium text-[20px] leading-[1.4] text-[#485664] text-center mb-[32px]">
+      <p className="font-medium text-[16px] leading-[1.4] text-[#485664] text-center mb-[32px] sm:text-[20px]">
         {step === "email"
           ? "Enter your email to access your full report"
           : "Enter your password to access your full report"}
       </p>
 
       {step === "email" ? (
-        <form onSubmit={handleEmailStep} className="flex flex-col space-y-3 max-w-[440px]">
+        <form onSubmit={handleEmailStep} className="flex flex-col space-y-3 sm:max-w-[440px] mx-auto">
           <label className="sr-only" htmlFor="register-email">Email</label>
           <input
             id="register-email"
@@ -63,7 +63,7 @@ export default function RegisterPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
             autoFocus
-            className="w-full border border-[#b4cce3] rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none focus:border-[#1066b9] transition-colors bg-white mb-[8px]"
+            className="w-full border border-[#b4cce3] rounded-[8px] px-[12px] h-[52px] font-medium text-[16px] leading-[22px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none focus:border-[#1066b9] transition-colors bg-white mb-[8px] sm:rounded-xl sm:px-4 sm:h-[56px]"
           />
           <button
             type="submit"
@@ -73,14 +73,14 @@ export default function RegisterPage() {
           </button>
         </form>
       ) : (
-        <form onSubmit={handlePasswordStep} className="flex flex-col space-y-3 max-w-[440px]">
+        <form onSubmit={handlePasswordStep} className="flex flex-col space-y-3 sm:max-w-[440px] mx-auto">
           <label className="sr-only" htmlFor="register-email-readonly">Email</label>
           <input
             id="register-email-readonly"
             type="email"
             value={email}
             readOnly
-            className="w-full border border-[#b4cce3] rounded-xl px-4 h-[56px] text-[#1c2d3f] bg-white cursor-not-allowed mb-[8px]"
+            className="w-full border border-[#b4cce3] rounded-[8px] px-[12px] h-[52px] font-medium text-[16px] leading-[22px] text-[#1c2d3f] bg-white cursor-not-allowed mb-[8px] sm:rounded-xl sm:px-4 sm:h-[56px]"
           />
           <label className="sr-only" htmlFor="register-password">Create Password</label>
           <input
@@ -92,7 +92,7 @@ export default function RegisterPage() {
             required
             minLength={6}
             autoFocus
-            className="w-full border border-[#b4cce3] rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none focus:border-[#1066b9] transition-colors bg-white mb-[8px]"
+            className="w-full border border-[#b4cce3] rounded-[8px] px-[12px] h-[52px] font-medium text-[16px] leading-[22px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none focus:border-[#1066b9] transition-colors bg-white mb-[8px] sm:rounded-xl sm:px-4 sm:h-[56px]"
           />
           {error && <p className="text-[#aa3a3d] text-xs">{error}</p>}
           <button

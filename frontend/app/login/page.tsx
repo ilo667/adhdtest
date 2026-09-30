@@ -43,7 +43,7 @@ export default function LoginPage() {
           value={email}
           onChange={(e) => { setEmail(e.target.value); setError(""); }}
           required
-          className={`w-full border rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none transition-colors bg-white mb-[8px] ${
+          className={`w-full border rounded-[8px] px-[12px] h-[52px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none transition-colors font-medium text-[16px] leading-[22px] bg-white mb-[8px] sm:rounded-xl sm:px-4 sm:h-[56px] ${
             error ? "border-[#d65050]" : "border-[#b4cce3] focus:border-[#1066b9]"
           }`}
         />
@@ -56,7 +56,7 @@ export default function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className={`w-full border rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none transition-colors bg-white mb-[8px] ${
+          className={`w-full border rounded-[8px] px-[12px] h-[52px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none transition-colors font-medium text-[16px] leading-[22px] bg-white mb-[8px] sm:rounded-xl sm:px-4 sm:h-[56px] ${
             error ? "border-[#d65050]" : "border-[#b4cce3] focus:border-[#1066b9]"
           }`}
         />
