@@ -88,7 +88,7 @@ function CheckIcon() {
 
 function BulletIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="flex-shrink-0 -ml-[4px] mr-[8px]">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="flex-shrink-0 -ml-[4px] mr-[4px] sm:mr-[8px]">
       <circle cx="8" cy="8" r="4" fill="#b4cce3"/>
     </svg>
   );
@@ -120,7 +120,7 @@ function HighContent() {
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-semibold text-[20px] leading-[1.2] text-[#1c2d3f] mb-[8px] sm:mb-1 sm:font-medium sm:text-[32px] sm:leading-[36px]">Your Emotional Regulation and Impulse Control</h3>
           <p className="[font-family:var(--font-geologica)] font-light text-[16px] leading-[1.2] text-[#485664] mb-[20px] sm:mb-[36px] sm:text-sm">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
-          <ul className="space-y-2.5 mb-[36px]">
+          <ul className="space-y-2.5 mb-[20px] sm:mb-[36px]">
             {[
               "Experience intense emotional highs and lows, sometimes reacting impulsively",
               "Struggle with frustration and impatience, making it difficult to regulate emotions in stressful situations",
@@ -255,9 +255,9 @@ if (loading) {
 
       {isHigh ? <HighContent /> : <LowContent />}
 
-      <div className="px-[19px] sm:px-6 pt-[60px] pb-[106px]">
+      <div className="px-[19px] sm:px-6 pt-[9px] sm:pt-[60px] pb-[49px] sm:pb-[106px]">
         <div className="max-w-[1080px] mx-auto">
-          <h3 className="font-semibold text-[19px] leading-[1.2] text-center text-[#04182c] mb-[15px] px-[15px] sm:mb-[48px] sm:px-0 sm:font-medium sm:text-[32px] sm:leading-[36px]">Frequently asked questions</h3>
+          <h3 className="font-semibold text-[24px] leading-[1.2] text-center text-[#04182c] mb-[20px] px-[15px] sm:mb-[48px] sm:px-0 sm:font-medium sm:text-[32px] sm:leading-[36px]">Frequently asked questions</h3>
           <FaqAccordion items={isHigh ? HIGH_FAQS : LOW_FAQS} />
         </div>
       </div>
