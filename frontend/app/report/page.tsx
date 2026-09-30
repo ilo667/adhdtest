@@ -62,7 +62,7 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
           <button
             onClick={() => setOpen(open === item.q ? null : item.q)}
             aria-expanded={open === item.q}
-            className="w-full flex items-center justify-between p-[12px] text-left cursor-pointer border-b border-[#e8edf2]"
+            className={`w-full flex items-center justify-between p-[12px] text-left cursor-pointer border-b border-[#e8edf2] ${open === item.q ? "" : "mb-[15px]"}`}
           >
             <span className="[font-family:var(--font-geologica)] font-medium text-[24px] leading-[26px] text-[#1c2d3f]">{item.q}</span>
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true" className={`ml-4 flex-shrink-0 transition-transform ${open === item.q ? "rotate-180" : ""}`}>
@@ -116,7 +116,7 @@ function HighContent() {
           </ul>
         </div>
       </section>
-      <section className="px-6 py-8">
+      <section className="px-6 pt-[24px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-1">Your Emotional Regulation and Impulse Control</h3>
           <p className="[font-family:var(--font-geologica)] font-light leading-[1.2] text-[#485664] mb-[36px]">Your high ADHD traits may significantly influence your emotional experiences and reactions. You may:</p>
@@ -161,7 +161,7 @@ function LowContent() {
           </ul>
         </div>
       </section>
-      <section className="px-6 py-8">
+      <section className="px-6 pt-[24px] pb-[40px]">
         <div className="max-w-[1080px] mx-auto">
           <h3 className="font-medium text-[32px] leading-[36px] text-[#1c2d3f] mb-3">Your Emotional Regulation and Impulse Control</h3>
           <p className="text-gray-500 leading-relaxed">
