@@ -29,7 +29,7 @@ export default function LoginPage() {
 
   return (
     <AuthCard>
-      <h1 className="[font-family:var(--font-geologica)] font-bold text-[48px] leading-[1.2] text-[#04182c] mb-1">Sign in</h1>
+      <h1 className="[font-family:var(--font-geologica)] font-bold text-[48px] leading-[1.2] text-[#04182c] text-center mb-1">Sign in</h1>
       <p className="text-gray-500 text-sm mb-6">
         Welcome back! Let&apos;s continue your learning journey
       </p>
@@ -43,7 +43,7 @@ export default function LoginPage() {
           value={email}
           onChange={(e) => { setEmail(e.target.value); setError(""); }}
           required
-          className={`w-full border rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none transition-colors bg-white ${
+          className={`w-full border rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none transition-colors bg-white mb-[8px] ${
             error ? "border-[#d65050]" : "border-[#b4cce3] focus:border-[#1066b9]"
           }`}
         />
@@ -56,14 +56,14 @@ export default function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className={`w-full border rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none transition-colors bg-white ${
+          className={`w-full border rounded-xl px-4 h-[56px] text-[#1c2d3f] placeholder:text-[#485664] focus:outline-none transition-colors bg-white mb-[8px] ${
             error ? "border-[#d65050]" : "border-[#b4cce3] focus:border-[#1066b9]"
           }`}
         />
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-[#116a73] hover:bg-[#0d5a61] disabled:opacity-50 text-white font-medium text-[16px] leading-[16px] py-[14px] px-[32px] rounded-[8px] transition-colors mt-1"
+          className="w-full bg-[#116a73] hover:bg-[#0d5a61] disabled:opacity-50 text-white font-medium text-[16px] leading-[16px] py-[14px] px-[32px] rounded-[8px] transition-colors mt-1 cursor-pointer"
         >
           {loading ? "Signing in…" : "Sign In"}
         </button>
