@@ -136,25 +136,6 @@ The login form always returns "Invalid email or password." regardless of whether
 
 ---
 
-## Local Setup
-
-```bash
-# 1. Database
-psql -d your_db -f backend/sql/schema.sql
-psql -d your_db -f backend/sql/seed.sql
-
-# 2. Backend (.env)
-# DATABASE_URL=postgres://...
-# JWT_SECRET=your-secret
-
-cd backend && npm install && npm run start:dev   # port 3001
-
-# 3. Frontend
-cd frontend && npm install && npm run dev        # port 3000
-```
-
----
-
 ## Extensibility
 
 **Changing quiz questions**  
