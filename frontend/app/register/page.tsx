@@ -43,7 +43,7 @@ export default function RegisterPage() {
 
   return (
     <AuthCard>
-      <h1 className="font-geologica font-bold text-[32px] leading-[1.1] text-heading text-center mb-[10px] sm:mb-[16px] sm:text-[48px] sm:leading-[1.2]">
+      <h1 className="font-bold text-[32px] leading-[1.1] text-heading text-center mb-[10px] sm:mb-[16px] sm:text-[48px] sm:leading-[1.2]">
         Discover your <span className="text-accent">ADHD</span> Profile
       </h1>
       <p className="font-medium text-[16px] leading-[1.4] text-muted text-center mb-[24px] sm:mb-[32px] sm:text-[20px]">

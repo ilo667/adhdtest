@@ -28,7 +28,7 @@ export default function LoginPage() {
 
   return (
     <AuthCard>
-      <h1 className="font-geologica font-semibold text-[20px] leading-[1.2] text-heading text-center mb-1 sm:font-bold sm:text-[32px]">Sign in</h1>
+      <h1 className="font-semibold text-[20px] leading-[1.2] text-heading text-center mb-1 sm:font-bold sm:text-[32px]">Sign in</h1>
       <p className="text-[14px] leading-[1.3] text-body text-center mb-6 sm:text-[16px] sm:leading-[1.5]">
         Welcome back! Let&apos;s continue your learning journey
       </p>
@@ -53,7 +53,7 @@ export default function LoginPage() {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => { setPassword(e.target.value); setError(""); }}
           required
           className={`w-full border rounded-[8px] px-[12px] h-[52px] text-body placeholder:text-muted focus:outline-none transition-colors font-medium text-[16px] leading-[22px] bg-white mb-[8px] sm:rounded-xl sm:px-4 sm:h-[56px] ${
             error ? "border-danger-ring" : "border-line focus:border-accent"
