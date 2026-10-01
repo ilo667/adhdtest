@@ -13,6 +13,28 @@
   --text-base--line-height: 20px;
   --text-sm: 20px;
   --text-sm--line-height: 28px;
+
+  /* Brand */
+  --color-teal: #116a73;
+  --color-teal-dark: #0d5a61;
+  --color-accent: #1066b9;
+  --color-navy: #18334d;
+
+  /* Text */
+  --color-heading: #04182c;
+  --color-body: #1c2d3f;
+  --color-muted: #485664;
+
+  /* UI */
+  --color-surface: #f1f4f7;
+  --color-line: #b4cce3;
+  --color-highlight: #87b3dc;
+  --color-danger: #aa3a3d;
+  --color-danger-ring: #d65050;
+}
+
+@utility font-geologica {
+  font-family: var(--font-geologica);
 }
 
 body {
